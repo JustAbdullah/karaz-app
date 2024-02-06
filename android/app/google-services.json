@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117356440666",
+    "project_id": "karaz-7e427",
+    "storage_bucket": "karaz-7e427.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117356440666:android:685aa52994da39561dbc63",
+        "android_client_info": {
+          "package_name": "com.example.karaz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9bYYXLpmzeBcY7IilDRUHUp1Y2zHoeAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
