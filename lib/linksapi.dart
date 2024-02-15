@@ -16,4 +16,7 @@ class AppLinksApi {
   static const endTheOrder = "${path}/end_the_order.php";
   static const deleteAccount = "${path}/delete_account.php";
   static const addTokenUser = "${path}/add_token_user.php";
+  static const sendMessage = "${path}/send_message_user.php";
+  static const getMessage = "${path}/get_message_user.php";
+  static const loginUser = "${path}/login_phone.php";
 }

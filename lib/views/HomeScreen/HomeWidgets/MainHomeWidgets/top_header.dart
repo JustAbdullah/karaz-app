@@ -10,6 +10,7 @@ class TopHeaderHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ControllerApp controllerApp = Get.put(ControllerApp());
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 60.h,

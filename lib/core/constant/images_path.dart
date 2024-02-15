@@ -5,17 +5,15 @@ class ImagesPath {
   static const String logoWithOutbackGround =
       "$RootPath/Untitled-PhotoRoom.png-PhotoRoom (1).png";
 
-  static const String loadingServices = "$RootPath/loadind_app.json";
   static const String successfully = "$RootPath/successfully.json";
   static const String error = "$RootPath/error.json";
 
   static const String serivece1 = "$RootPath/serivec1.json";
   static const String serivece2 = "$RootPath/serivec2.json";
   static const String serivece3 = "$RootPath/serivec3.json";
-  static const String login = "$RootPath/login.json";
-  static const String loadingWhite = "$RootPath/loadingYellow.json";
-  static const String loadingBlack = "$RootPath/loadingYellow.json";
-  static const String authOTP = "$RootPath/authOTP.json";
+  static const String authCode = "$RootPath/sendOTP.json";
+
+  static const String authOTP = "$RootPath/otpMessage.json";
   static const String homeIcon = "$RootPath/icons8-home-100 (2).png";
   static const String menuIcon = "$RootPath/icons8-grid-64.png";
   static const String OrderBoxIcon = "$RootPath/icons8-list-100.png";
@@ -28,10 +26,18 @@ class ImagesPath {
   static const String logOut = "$RootPath/icons8-log-out-64.png";
   static const String deleteAccount = "$RootPath/icons8-denied-96.png";
 
+  static const String lang = "$RootPath/icons8-language-96.png";
+
   /////////////////////////OnBoarding.....Ima.....///////////
   static const String onBoardingOne = "$RootPath/onBoardingOne.json";
-  static const String onBoardingTwo = "$RootPath/onBoardingTwo.json";
-  static const String onBoardingThree = "$RootPath/onBoardingThree.json";
-  static const String loadingAppOpeartions = "$RootPath/LoadingAppKaraz.json";
-  static const String WelcomeAni = "$RootPath/WelcomeAni.json";
+  static const String onBoardingTwo = "$RootPath/map tasks.json";
+  static const String onBoardingThree = "$RootPath/tasks Time.json";
+  static const String loadingAppOpeartions = "$RootPath/loading tasks.json";
+  static const String WelcomeAni = "$RootPath/home tasks.json";
+
+  static const String theTrueIcon = "$RootPath/true.png";
+
+  //////////////////////////////Arrow............./
+  static const String arrowRight = "$RootPath/icons8-arrow-100.png";
+  static const String arrowLeft = "$RootPath/icons8-arrow-100 (1).png";
 }

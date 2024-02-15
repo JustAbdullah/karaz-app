@@ -25,19 +25,12 @@ class AuthPhoneNumberOTP extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Column(children: [
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    ImagesPath.authOTP,
-                    width: 120.w,
-                    height: 100,
-                  )),
               SizedBox(
-                height: 00.h,
+                height: 100.h,
               ),
               Lottie.asset(
-                ImagesPath.login,
-                width: 300.w,
+                ImagesPath.authCode,
+                width: 400.w,
                 height: 200.h,
               ),
               PaddingCustom(
@@ -45,7 +38,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "صفحة التحقق من الرمز",
+                    "150-صفحة التحقق من الرمز".tr,
                     style: TextStyle(
                         height: 1.3.h,
                         fontSize: 19,
@@ -64,7 +57,8 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: 40.w, vertical: 00.h),
                       child: Text(
-                        "قم بإدخال رمز التحقق المُرسل إلى رقم هاتفك المُدخل بالاسفل",
+                        "151-قم بإدخال رمز التحقق المُرسل إلى رقم هاتفك المُدخل بالاسفل"
+                            .tr,
                         style: TextStyle(
                             height: 1.3.h,
                             fontSize: 12,
@@ -87,7 +81,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "رقم هاتفك المُدخل:",
+                            "152-رقم هاتفك المُدخل:".tr,
                             style: TextStyle(
                                 height: 1.3.h,
                                 fontSize: 12,
@@ -120,8 +114,8 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 80.w, vertical: 00.h),
                     child: TextFormFiledCustom(
-                      labelData: "كود التحقق",
-                      hintData: "أدخل كود التحقق هنا",
+                      labelData: "153-كود التحقق".tr,
+                      hintData: "154-أدخل كود التحقق هنا".tr,
                       iconData: Icons.vertical_split_outlined,
                       controllerData: t,
                       value: (value) {
@@ -145,10 +139,10 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                       // ignore: body_might_complete_normally_nullable
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "قيم فارغة";
+                          return "144-قيم فارغة".tr;
                         }
                         return value.length < 5 || value.length > 10
-                            ? "عليك التقيد بالعدد المسموح".tr
+                            ? "145-عليك التقيد بالعدد المسموح".tr
                             : null;
                       },
                     )),
@@ -162,7 +156,13 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            Get.to(AuthNameSignUP());
+                            if (homeController.isLoginOrSignUp.value == 1) {
+                              homeController.LoginUser(homeController
+                                  .thePhoneNumberTextSignUpLogin
+                                  .toString());
+                            } else {
+                              Get.to(AuthNameSignUP());
+                            }
                           },
                           child: Container(
                             height: 30.h,
@@ -172,7 +172,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 50.w),
                               child: Text(
-                                "المتابعة",
+                                "155-المتابعة".tr,
                                 style: TextStyle(
                                   height: 2.h,
                                   fontSize: 17,
@@ -193,7 +193,8 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 70.w, vertical: 00.h),
                         child: Text(
-                          "لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-",
+                          "156-لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-"
+                              .tr,
                           style: TextStyle(
                             height: 1.3.h,
                             fontSize: 13,
@@ -224,10 +225,10 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Lottie.asset(
-                        ImagesPath.loadingWhite,
+                        ImagesPath.loadingAppOpeartions,
                       ),
                       Text(
-                        "أنتظر قليلاً إننا نقوم بالتحقق من الرقم",
+                        "157-أنتظر قليلاً إننا نقوم بالتحقق من الرقم".tr,
                         style: TextStyle(
                           height: 1.3.h,
                           fontSize: 14,

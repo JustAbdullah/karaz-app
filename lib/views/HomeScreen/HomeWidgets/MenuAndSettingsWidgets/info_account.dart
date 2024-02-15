@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:karaz/customWidgets/custom_padding.dart';
-import 'package:lottie/lottie.dart';
+
 
 import '../../../../controllers/controller_app.dart';
 import '../../../../core/constant/app_text_styles.dart';
 import '../../../../core/constant/appcolors.dart';
-import '../../../../core/constant/images_path.dart';
 import '../../../../customWidgets/custom_container.dart';
 import '../../../../customWidgets/custom_text.dart';
 

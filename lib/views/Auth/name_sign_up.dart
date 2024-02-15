@@ -23,24 +23,17 @@ class AuthNameSignUP extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Column(children: [
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    ImagesPath.logo,
-                    width: 120.w,
-                    height: 100,
-                  )),
               SizedBox(
-                height: 00.h,
+                height: 100.h,
               ),
-              Lottie.asset(ImagesPath.login,
+              Lottie.asset(ImagesPath.successfully,
                   width: 300.w, height: 200.h, repeat: false),
               PaddingCustom(
                 theTop: 20.h,
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "مرحبًا بك..صفحة إنشاء الحساب",
+                    "140-مرحبًا بك..صفحة إنشاء الحساب".tr,
                     style: TextStyle(
                         height: 1.3.h,
                         fontSize: 19,
@@ -59,7 +52,8 @@ class AuthNameSignUP extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: 40.w, vertical: 00.h),
                       child: Text(
-                        "لقد أنهيت عملية التحقق من الرقم..رجاءًا قم بإدخال أسمك لإنهاء عملية تسجيل الحساب",
+                        "158-لقد أنهيت عملية التحقق من الرقم..رجاءًا قم بإدخال أسمك لإنهاء عملية تسجيل الحساب"
+                            .tr,
                         style: TextStyle(
                             height: 1.3.h,
                             fontSize: 12,
@@ -76,8 +70,8 @@ class AuthNameSignUP extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 40.w, vertical: 00.h),
                     child: TextFormFiledCustom(
-                      labelData: "الاسم",
-                      hintData: "رجاءًا..قم بإدخال اسمك",
+                      labelData: "159-الاسم".tr,
+                      hintData: "160-رجاءًا..قم بإدخال اسمك".tr,
                       iconData: Icons.person,
                       controllerData: homeController.theNameInSignUp,
                       value: (value) {
@@ -103,10 +97,10 @@ class AuthNameSignUP extends StatelessWidget {
                       // ignore: body_might_complete_normally_nullable
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "قيم فارغة";
+                          return "144-قيم فارغة".tr;
                         }
                         return value.length < 5 || value.length > 30
-                            ? "عليك التقيد بالعدد المسموح".tr
+                            ? "145-عليك التقيد بالعدد المسموح".tr
                             : null;
                       },
                     )),
@@ -120,10 +114,13 @@ class AuthNameSignUP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            homeController.createAccount(
-                                homeController.theNameTextSignUp.toString(),
-                                homeController.thePhoneNumberTextSignUpLogin
-                                    .toString());
+                            if (homeController.theNameTextSignUp == "") {
+                            } else {
+                              homeController.createAccount(
+                                  homeController.theNameTextSignUp.toString(),
+                                  homeController.thePhoneNumberTextSignUpLogin
+                                      .toString());
+                            }
                           },
                           child: Container(
                             height: 30.h,
@@ -133,7 +130,7 @@ class AuthNameSignUP extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 50.w),
                               child: Text(
-                                "الإنشاء الان",
+                                "161-الإنشاء الان".tr,
                                 style: TextStyle(
                                   height: 2.h,
                                   fontSize: 17,
@@ -148,41 +145,58 @@ class AuthNameSignUP extends StatelessWidget {
               ),
             ]),
           ),
-          Visibility(
-              visible: false,
-              child: Stack(
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black38,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black38,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.waitLoginSignAuth.value,
+                  child: Stack(
                     children: [
-                      Image.asset(
-                        ImagesPath.logoWithOutbackGround,
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.black38,
                       ),
-                      Text(
-                        "أنتظر قليلاً إننا نقوم بالتحقق من الرقم",
-                        style: TextStyle(
-                          height: 1.3.h,
-                          fontSize: 14,
-                          fontFamily: AppTextStyles.Almarai,
-                          color: AppColors.whiteColor,
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.black38,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.black38,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 50.h),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 130.h,
+                            ),
+                            Align(
+                                alignment: Alignment.center,
+                                child: Lottie.asset(
+                                    ImagesPath.loadingAppOpeartions,
+                                    width: 100.w)),
+                            SizedBox(
+                              height: 00.h,
+                            ),
+                            Text(
+                              "162-يتم الحفظ والتوجه الان".tr,
+                              style: TextStyle(
+                                height: 1.3.h,
+                                fontSize: 16.sp,
+                                fontFamily: AppTextStyles.Almarai,
+                                color: AppColors.whiteColor,
+                              ),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
                         ),
-                        textAlign: TextAlign.center,
                       )
                     ],
-                  )
-                ],
-              )),
+                  ))),
         ],
       ),
     );

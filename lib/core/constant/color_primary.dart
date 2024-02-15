@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class ModeColor {
   static const MaterialColor mode = MaterialColor(
-    0xFF181B20,
+    0xFF125B5E,
     <int, Color>{
-      50: Color(0xff000000), //10%
-      100: Color(0xff000000), //20%
-      200: Color(0xff000000), //30%
-      300: Color(0xff000000), //40%
-      400: Color(0xff000000), //50%
-      500: Color(0xff000000), //60%
-      600: Color(0xff000000), //70%
-      700: Color(0xff000000), //80%
-      800: Color(0xff000000), //90%
-      900: Color(0xff000000), //100%
+      50: Color(0xFF125B5E), //10%
+      100: Color(0xFF125B5E), //20%
+      200: Color(0xFF125B5E), //30%
+      300: Color(0xFF125B5E), //40%
+      400: Color(0xFF125B5E), //50%
+      500: Color(0xFF125B5E), //60%
+      600: Color(0xFF125B5E), //70%
+      700: Color(0xFF125B5E), //80%
+      800: Color(0xFF125B5E), //90%
+      900: Color(0xFF125B5E), //100%
     },
   );
 }

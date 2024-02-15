@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -12,11 +13,8 @@ import '../../../../core/constant/appcolors.dart';
 import '../../../../core/constant/images_path.dart';
 import '../../../../core/localization/changelanguage.dart';
 import '../../../../customWidgets/custom_cachednetworkimage.dart';
-import '../../../../customWidgets/custom_container.dart';
-import '../../../../customWidgets/custom_container_api.dart';
-import '../../../../customWidgets/custom_padding.dart';
 
-import '../../../../customWidgets/custom_text.dart';
+import '../../../../customWidgets/custom_padding.dart';
 
 class aboutTheDetailsService extends StatelessWidget {
   const aboutTheDetailsService({super.key});
@@ -112,17 +110,17 @@ class aboutTheDetailsService extends StatelessWidget {
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width,
-                              height: 120.h,
+                              height: 70.h,
                               child: CustomCachedNetworkImage(
                                 urlTheImage:
                                     controller.imageTheSubService.toString(),
                                 width: MediaQuery.of(context).size.width,
-                                height: 150.h,
+                                height: 70.h,
                                 boxFit: BoxFit.contain,
                               ),
                             ),
                             SizedBox(
-                              height: 5.h,
+                              height: 35.h,
                             ),
                             FutureBuilder(
                                 future: controller.getTypeOFSubTyps(
@@ -155,12 +153,9 @@ class aboutTheDetailsService extends StatelessWidget {
                                                 .size
                                                 .width,
                                             height: 100.h,
-                                            child: ListView.builder(
-                                                scrollDirection:
-                                                    Axis.horizontal,
+                                            child: GridView.builder(
                                                 itemCount: snapshot
                                                     .data['data'].length,
-                                                shrinkWrap: true,
                                                 itemBuilder: (context, i) {
                                                   return Padding(
                                                       padding: EdgeInsets.only(
@@ -168,19 +163,11 @@ class aboutTheDetailsService extends StatelessWidget {
                                                       child: InkWell(
                                                         onTap: () {},
                                                         child: SizedBox(
-                                                          height: 100.h,
+                                                          height: 70.h,
                                                           child:
                                                               SingleChildScrollView(
                                                             child: Column(
                                                               children: [
-                                                                Image.asset(
-                                                                  ImagesPath
-                                                                      .info,
-                                                                  width: 20.w,
-                                                                ),
-                                                                SizedBox(
-                                                                  height: 5.h,
-                                                                ),
                                                                 InkWell(
                                                                     onTap: () {
                                                                       if (controller.choseService.containsKey(snapshot
@@ -228,90 +215,68 @@ class aboutTheDetailsService extends StatelessWidget {
                                                                     },
                                                                     child:
                                                                         Container(
+                                                                      width:
+                                                                          140.w,
                                                                       height:
                                                                           40.h,
                                                                       decoration: BoxDecoration(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              6),
-                                                                          color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString())
-                                                                              ? AppColors.yellowColor
-                                                                              : AppColors.balckColorTypeFour),
+                                                                          color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.theMainColor : AppColors.whiteColor,
+                                                                          borderRadius: BorderRadius.circular(5),
+                                                                          border: Border.all(
+                                                                            color:
+                                                                                AppColors.theMainColor,
+                                                                            width:
+                                                                                1.3,
+                                                                          )),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsets.symmetric(
-                                                                            horizontal:
-                                                                                10.w,
-                                                                            vertical: 10.h),
-                                                                        child: GetX<
-                                                                            ChangeLanguageToLocale>(
-                                                                          builder: (scontroller) => scontroller.isChange.value == false
-                                                                              ? Text(
-                                                                                  snapshot.data['data'][i]['name_type_sub'].toString(),
-                                                                                  style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: AppColors.whiteColor),
-                                                                                  textAlign: TextAlign.center,
-                                                                                )
-                                                                              : Text(
-                                                                                  snapshot.data['data'][i]['name_type_sub_en'].toString(),
-                                                                                  style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: AppColors.whiteColor),
-                                                                                  textAlign: TextAlign.center,
-                                                                                ),
+                                                                          Center(
+                                                                        child:
+                                                                            SingleChildScrollView(
+                                                                          scrollDirection:
+                                                                              Axis.horizontal,
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                                                            child:
+                                                                                GetX<ChangeLanguageToLocale>(
+                                                                              builder: (scontroller) => scontroller.isChange.value == false
+                                                                                  ? Text(
+                                                                                      snapshot.data['data'][i]['name_type_sub'].toString(),
+                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
+                                                                                      textAlign: TextAlign.center,
+                                                                                    )
+                                                                                  : Text(
+                                                                                      snapshot.data['data'][i]['name_type_sub_en'].toString(),
+                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
+                                                                                      textAlign: TextAlign.center,
+                                                                                    ),
+                                                                            ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     )),
-                                                                SizedBox(
-                                                                  height: 5.h,
-                                                                ),
-                                                                Row(
-                                                                  children: [
-                                                                    Text(
-                                                                      snapshot
-                                                                          .data[
-                                                                              'data']
-                                                                              [
-                                                                              i]
-                                                                              [
-                                                                              'price_type_sub']
-                                                                          .toString(),
-                                                                      style: TextStyle(
-                                                                          height: 1.3
-                                                                              .h,
-                                                                          fontSize:
-                                                                              15,
-                                                                          fontFamily: AppTextStyles
-                                                                              .Almarai,
-                                                                          color:
-                                                                              AppColors.balckColorTypeFour),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                    ),
-                                                                    SizedBox(
-                                                                      width:
-                                                                          2.w,
-                                                                    ),
-                                                                    Text(
-                                                                      "AED",
-                                                                      style: TextStyle(
-                                                                          height: 1.3
-                                                                              .h,
-                                                                          fontSize:
-                                                                              15,
-                                                                          fontFamily: AppTextStyles
-                                                                              .Almarai,
-                                                                          color:
-                                                                              AppColors.yellowColor),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                    ),
-                                                                  ],
-                                                                ),
                                                               ],
                                                             ),
                                                           ),
                                                         ),
                                                       ));
-                                                }),
+                                                },
+                                                gridDelegate:
+                                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                                  childAspectRatio:
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width /
+                                                          (MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height /
+                                                              5),
+                                                  crossAxisCount: 3,
+                                                  mainAxisSpacing: 0.0,
+                                                  crossAxisSpacing: 0.0,
+                                                )),
                                           );
                                   } else {
                                     return Container(
@@ -381,7 +346,165 @@ class aboutTheDetailsService extends StatelessWidget {
                                   }
                                 }),
                             SizedBox(
-                              height: 40.h,
+                              height: 20.h,
+                            ),
+                            Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.whiteColor,
+                                      borderRadius: BorderRadius.circular(5),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.1),
+                                          spreadRadius: 5,
+                                          blurRadius: 7,
+                                          offset: Offset(0,
+                                              3), // changes position of shadow
+                                        ),
+                                      ],
+                                    ),
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 50.h,
+                                    child: Center(
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.w),
+                                        child: Directionality(
+                                          textDirection: TextDirection.ltr,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  if (controller
+                                                          .displayIsHavaAccount
+                                                          .value ==
+                                                      0) {
+                                                    controller
+                                                        .messageAboutNotHaveAccount
+                                                        .value = true;
+                                                  } else {
+                                                    Random random =
+                                                        new Random();
+                                                    var randomNumber;
+                                                    randomNumber = random
+                                                        .nextInt(10000000);
+
+                                                    /*   controller.addOrder(
+                                            controller.idMainType.toString(),
+                                            randomNumber.toString(),
+                                            controller
+                                                .totalPriceTheSerivce.value
+                                                .toString());*/
+
+                                                    controller.choseService
+                                                        .forEach((k, v) =>
+                                                            controller
+                                                                .addOrderSubType(
+                                                              randomNumber
+                                                                  .toString(),
+                                                              k.toString(),
+                                                              v.toString(),
+                                                            ));
+                                                    controller.theNumberOFORder
+                                                        .value = randomNumber;
+
+                                                    controller
+                                                        .OpeartionsOrderPage
+                                                        .value = true;
+                                                  }
+                                                },
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  width: 60.w,
+                                                  height: 30.h,
+                                                  decoration: BoxDecoration(
+                                                      color: AppColors
+                                                          .theMainColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5)),
+                                                  child: Text(
+                                                    "الطلب",
+                                                    style: TextStyle(
+                                                      fontFamily:
+                                                          AppTextStyles.Almarai,
+                                                      color:
+                                                          AppColors.whiteColor,
+                                                      fontSize: 15.sp,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    controller
+                                                        .totalPriceTheSerivce
+                                                        .value
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontFamily:
+                                                            AppTextStyles
+                                                                .Almarai,
+                                                        color: AppColors
+                                                            .blackColor,
+                                                        fontSize: 15.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 1.w,
+                                                  ),
+                                                  Text(
+                                                    "AED",
+                                                    style: TextStyle(
+                                                        fontFamily:
+                                                            AppTextStyles
+                                                                .Almarai,
+                                                        color: AppColors
+                                                            .blackColor,
+                                                        fontSize: 14.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ))),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "يتضمن",
+                                  style: TextStyle(
+                                      fontFamily: AppTextStyles.Almarai,
+                                      color: AppColors.theMainColor,
+                                      fontSize: 21.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                )),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Container(
+                              color: AppColors.theMainColor,
+                              height: 1.4.h,
+                              width: 70.w,
+                            ),
+                            SizedBox(
+                              height: 20.h,
                             ),
                             Align(
                               alignment: Alignment.center,
@@ -414,10 +537,11 @@ class aboutTheDetailsService extends StatelessWidget {
                                           textAlign: TextAlign.center,
                                         )),
                             ),
-                            SizedBox(
-                              height: 100.h,
-                            ),
-                            Visibility(
+
+                            /* SizedBox(
+                              height: 150.h,
+                            ),*/
+                            /*   Visibility(
                                 visible: controller.countTheSerivce.value >= 1,
                                 child: Padding(
                                   padding:
@@ -463,8 +587,8 @@ class aboutTheDetailsService extends StatelessWidget {
                                 )),
                             SizedBox(
                               height: 7.h,
-                            ),
-                            Visibility(
+                            ),*/
+                            /*    Visibility(
                               visible: controller.countTheSerivce.value >= 1,
                               child: Padding(
                                   padding:
@@ -510,28 +634,43 @@ class aboutTheDetailsService extends StatelessWidget {
                             ),
                             SizedBox(
                               height: 15.h,
-                            ),
-                            Visibility(
+                            ),*/
+                            /*    Visibility(
                                 visible: controller.countTheSerivce.value >= 1,
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: InkWell(
                                     onTap: () {
-                                      Random random = new Random();
-                                      var randomNumber;
-                                      randomNumber = random.nextInt(10000000);
-                                      controller.addOrder(
-                                          controller.idMainType.toString(),
-                                          randomNumber.toString(),
-                                          controller.totalPriceTheSerivce.value
-                                              .toString());
+                                      if (controller
+                                              .displayIsHavaAccount.value ==
+                                          0) {
+                                        controller.messageAboutNotHaveAccount
+                                            .value = true;
+                                      } else {
+                                        Random random = new Random();
+                                        var randomNumber;
+                                        randomNumber = random.nextInt(10000000);
 
-                                      controller.choseService.forEach(
-                                          (k, v) => controller.addOrderSubType(
-                                                randomNumber.toString(),
-                                                k.toString(),
-                                                v.toString(),
-                                              ));
+                                        /*   controller.addOrder(
+                                            controller.idMainType.toString(),
+                                            randomNumber.toString(),
+                                            controller
+                                                .totalPriceTheSerivce.value
+                                                .toString());*/
+
+                                        controller.choseService.forEach(
+                                            (k, v) =>
+                                                controller.addOrderSubType(
+                                                  randomNumber.toString(),
+                                                  k.toString(),
+                                                  v.toString(),
+                                                ));
+                                        controller.theNumberOFORder.value =
+                                            randomNumber;
+
+                                        controller.OpeartionsOrderPage.value =
+                                            true;
+                                      }
                                     },
                                     child: Container(
                                       width: 220.w,
@@ -554,11 +693,11 @@ class aboutTheDetailsService extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                )),
-                            SizedBox(
+                                )),*/
+                            /*  SizedBox(
                               height: 7.h,
                             ),
-                            Visibility(
+                          Visibility(
                                 visible: controller.countTheSerivce.value >= 1,
                                 child: Text(
                                   "53-ملاحظة:يتم إضافة الخدمة في قائمة -الطلبيات- بشكل معلق عليك إكمال الإجراءت الطلب والجدولة"
@@ -569,49 +708,8 @@ class aboutTheDetailsService extends StatelessWidget {
                                       fontSize: 12.sp,
                                       fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.center,
-                                )),
+                                )),*/
                           ]))),
-                    )),
-                Visibility(
-                    visible: controller.waitLoadingAddOrder.value,
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
-                          color: Colors.black45,
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
-                          color: Colors.black45,
-                        ),
-                        PaddingCustom(
-                          theBottom: 100,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Lottie.asset(ImagesPath.loadingBlack,
-                                    width: 150.w),
-                                SizedBox(
-                                  height: 7.h,
-                                ),
-                                Text(
-                                  "54-أنتظر قليلاً..يتم إضافة الطلبية".tr,
-                                  style: TextStyle(
-                                      fontFamily: AppTextStyles.Almarai,
-                                      color: AppColors.yellowColor,
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
                     )),
               ],
             )));

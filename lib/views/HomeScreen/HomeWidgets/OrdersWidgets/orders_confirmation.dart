@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../controllers/controller_app.dart';
 import '../../../../core/constant/app_text_styles.dart';
 import '../../../../core/constant/appcolors.dart';
+import '../../../../core/constant/images_path.dart';
 import '../../../../core/localization/changelanguage.dart';
 import '../../../../customWidgets/custom_container.dart';
 import '../../../../customWidgets/custom_container_api.dart';
@@ -1288,7 +1289,8 @@ class _OrdersConfirmationState extends State<OrdersConfirmation> {
                                     controller.theTime.value.toString(),
                                     controller.theDate.value.toString(),
                                     controller.howToPayTheOrder.value
-                                        .toString());
+                                        .toString(),
+                                    controller.numberOfOrder.toString());
                               },
                               child: Container(
                                   alignment: Alignment.center,
@@ -3515,7 +3517,91 @@ class _OrdersConfirmationState extends State<OrdersConfirmation> {
                               ),
                             )),
                       ],
-                    ))
+                    )),
+                Visibility(
+                    visible: controller.waitAddDetailsOrder.value,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          color: Colors.black45,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          color: Colors.black45,
+                        ),
+                        PaddingCustom(
+                          theBottom: 100,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Lottie.asset(ImagesPath.loadingAppOpeartions,
+                                    width: 100.w),
+                                SizedBox(
+                                  height: 7.h,
+                                ),
+                                Text(
+                                  "172-يتم تاكيد الطلبية لهذة الخدمة..الرجاء الإنتظار"
+                                      .tr,
+                                  style: TextStyle(
+                                      fontFamily: AppTextStyles.Almarai,
+                                      color: AppColors.whiteColor,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+                Visibility(
+                    visible: controller.addTheDetailsOrder.value,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          color: Colors.black45,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          color: Colors.black45,
+                        ),
+                        PaddingCustom(
+                          theBottom: 100,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Lottie.asset(ImagesPath.successfully,
+                                    width: 150.w),
+                                SizedBox(
+                                  height: 7.h,
+                                ),
+                                Text(
+                                  "173-تم تاكيد الطلبية والعملية بنجاح..سيتم تقديم الخدمة في الجدولة المُختارة..الرجاء تتبع الرسائل لمشاهدة المستجدات"
+                                      .tr,
+                                  style: TextStyle(
+                                      fontFamily: AppTextStyles.Almarai,
+                                      color: AppColors.whiteColor,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
               ],
             )));
   }

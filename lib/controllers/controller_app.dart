@@ -8,6 +8,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:karaz/views/WelcomeScreen/welcome_screen.dart';
 
 import '../core/class/class/crud.dart';
@@ -115,13 +116,15 @@ class ControllerApp extends GetxController {
   }
   ///////////////////////////// Home Page Offers Anim,,,,,,,,,,,,,,.............................
 
-  RxInt countTheAnimOfferInHome = 0.obs;
+  RxBool countTheAnimOfferInHome = true.obs;
 
   getAnimOfferInHome() {
-    Timer.periodic(const Duration(seconds: 8), (Timer timer) async {
-      countTheAnimOfferInHome.value >= 2
-          ? countTheAnimOfferInHome.value = 0
-          : countTheAnimOfferInHome.value += 1;
+    Timer.periodic(const Duration(seconds: 300), (Timer timer) async {
+      if (countTheAnimOfferInHome.value == true) {
+        countTheAnimOfferInHome.value = false;
+      } else {
+        countTheAnimOfferInHome.value = true;
+      }
     });
   }
 
@@ -213,9 +216,26 @@ class ControllerApp extends GetxController {
   TextEditingController theNameInSignUp = new TextEditingController();
   String theNameTextSignUp = "";
 
+  RxInt isLoginOrSignUp = 1.obs;
   Future<void> createAccount(String name, String phone) async {
+    waitLoginSignAuth.value = true;
     var response = await crud.postRequest(AppLinksApi.createNewAccount, {
       'user_name': "${name.toString()}",
+      'user_number_phone': "${phone.toString()}",
+    });
+
+    if (response['status'] == "success") {
+      getDataUser(phone.toString());
+      waitLoginSignAuth.value = false;
+
+      Get.to(HomeScreen());
+    } else {}
+
+    return response;
+  }
+
+  Future<void> LoginUser(String phone) async {
+    var response = await crud.postRequest(AppLinksApi.loginUser, {
       'user_number_phone': "${phone.toString()}",
     });
 
@@ -303,8 +323,10 @@ class ControllerApp extends GetxController {
   }
 
   RxString displayUserName = "ليس لديك حساب".obs;
+
   RxString displayUserId = "".obs;
   RxInt displayIsHavaAccount = 0.obs;
+  RxBool messageAboutNotHaveAccount = false.obs;
   RxString displayUserPhone = "".obs;
   RxDouble displayLongLocation = 0.0.obs;
   RxDouble displayLatLocation = 0.0.obs;
@@ -312,6 +334,8 @@ class ControllerApp extends GetxController {
 /////////////////////////////////////////////////The OnInit......................................///////////////////
   @override
   void onInit() {
+    GetDate();
+
     if (appServices.sharedPreferences.containsKey('isHaveAccount')) {
       displayIsHavaAccount.value =
           appServices.sharedPreferences.getInt('isHaveAccount') as int;
@@ -325,11 +349,13 @@ class ControllerApp extends GetxController {
           appServices.sharedPreferences.getString('phone') as String;
       getDataUser(displayUserName.value.toString());
       addTokenUser();
+      if (appServices.sharedPreferences.containsKey('Long')) {
+        getDataUserLocation(displayUserPhone.value);
+      }
     }
 
-    if (appServices.sharedPreferences.containsKey('Long')) {
-      getDataUserLocation(displayUserPhone.value);
-    }
+    //////////////Date
+
     super.onInit();
   }
 
@@ -343,11 +369,18 @@ class ControllerApp extends GetxController {
   Map<String, String> choseService = {};
 
   RxBool waitLoadingAddOrder = false.obs;
+  RxBool successfullyAddOrder = false.obs;
 
+  RxInt StypsOfOrdersConf = 1.obs;
   Future<void> addOrder(
     String idType,
     String ordrNumber,
     String totle,
+    String time,
+    String date,
+    String di,
+    String image,
+    String typePay,
   ) async {
     waitLoadingAddOrder.value = true;
 
@@ -356,17 +389,31 @@ class ControllerApp extends GetxController {
       'type_id': idType.toString(),
       'order_number': ordrNumber.toString(),
       'price_totle': totle.toString(),
+      'order_time': time.toString(),
+      'order_date': date.toString(),
+      'order_description': di.toString(),
+      'order_image': image.toString(),
+      'type_of_pay': typePay.toString(),
     });
 
     if (response['status'] == "success") {
+      /*  sendMessage(
+          "لقد اضفت الخدمة إلى قائمة الطلبيات ورقم الطلبية هي :${ordrNumber}, الرجاء القيام بتاكيد الطلبية او إلغاءها في قائمة الطلبيات");*/
+      /*   Future.delayed(Duration(seconds: 2), () async {
+        waitLoadingAddOrder.value = false;
+        countTheSerivce.value = 0;
+        totalPriceTheSerivce.value = 0;
+        successfullyAddOrder.value = true;
+        choseService.clear();
+        Future.delayed(Duration(seconds: 2), () async {
+          countTheSerivce.value = 0;
+          totalPriceTheSerivce.value = 0;
+          successfullyAddOrder.value = false;
+          choseService.clear();
+        });
+      });*/
     } else {}
 
-    Future.delayed(Duration(seconds: 5), () async {
-      waitLoadingAddOrder.value = false;
-      countTheSerivce.value = 0;
-      totalPriceTheSerivce.value = 0;
-      choseService.clear();
-    });
     return response;
   }
 
@@ -461,8 +508,17 @@ class ControllerApp extends GetxController {
   RxString chooseTextFlexibleTime = "".obs;
   RxInt choosespecificTime = 0.obs;
 
-  Future endTheOrder(String idOrder, String desc, String urlImage,
-      String timeOfOrder, String DateOFOrder, String howToPayOrder) async {
+  RxBool waitAddDetailsOrder = false.obs;
+  RxBool addTheDetailsOrder = false.obs;
+  Future endTheOrder(
+      String idOrder,
+      String desc,
+      String urlImage,
+      String timeOfOrder,
+      String DateOFOrder,
+      String howToPayOrder,
+      String idOfOrder) async {
+    waitAddDetailsOrder.value = true;
     var response = await crud.postRequest(AppLinksApi.endTheOrder, {
       'order_id': idOrder.toString(),
       'order_time': timeOfOrder.toString(),
@@ -473,7 +529,20 @@ class ControllerApp extends GetxController {
     });
 
     if (response['status'] == "success") {
-      clearTheDataOrder();
+      sendMessage(
+          "لقد قمت بتاكيد الطلبية بنجاح رقم الطلبية المؤكده هي ${idOfOrder}..سيتم تقديم الخدمة إليك بتاريخ الجدولة المختارة وهي كالتالي اليوم : ${DateOFOrder}.. وبالوقت :${timeOfOrder}.. الرجاء تواجدك في هذا اليوم والوقت للقيام بالخدمة وفي حال وُجد اي إشكالية في الموعد سيتم إبلاغك..شُكرا منصة كرز");
+      Future.delayed(Duration(seconds: 2), () async {
+        waitAddDetailsOrder.value = false;
+        addTheDetailsOrder.value = true;
+        clearTheDataOrder();
+      });
+      Future.delayed(Duration(seconds: 5), () async {
+        addTheDetailsOrder.value = false;
+        Future.delayed(Duration(seconds: 1), () async {
+          showTheOrderAndConfirmationThat.value = false;
+          showTheOrderPage.value = false;
+        });
+      });
     } else {}
 
     return response;
@@ -563,5 +632,169 @@ class ControllerApp extends GetxController {
     Placemark placeMark = placemarks[0];
 
     address.value = placeMark.toString();
+  }
+
+  //////////////////////////////////Message send and Get.....................//////////////
+
+  void sendMessage(String title) async {
+    var response = await crud.postRequest(AppLinksApi.sendMessage, {
+      'user_id': displayUserId.toString(),
+      'body': title.toString(),
+    });
+
+    return response;
+  }
+
+  RxBool showTheMessage = false.obs;
+  RxBool isTheUserHaveMessage = false.obs;
+  Future getTheMessageUser() async {
+    var response = await crud.postRequest(AppLinksApi.getMessage, {
+      'user_id': displayUserId.toString(),
+    });
+    if (response['status'] == "success") {
+      isTheUserHaveMessage.value = true;
+    } else {
+      isTheUserHaveMessage.value = false;
+    }
+    return response;
+  }
+
+  ////////////////////////////////
+  RxBool showLang = false.obs;
+
+///////////////////////////////Date with week day-month Order New...... ............//////
+
+  RxInt theNumberOFORder = 0.obs;
+  RxBool OpeartionsOrderPage = false.obs;
+  RxInt whereIsTheOrderStyp = 3.obs;
+  RxBool showTheSh = true.obs;
+  RxString titleOfOrder = "الجدولة".obs;
+  RxString buttonInOrder = "المتابعة".obs;
+  RxString theDateChoosd = "".obs;
+  RxString theTimeChosed = "".obs;
+  RxInt countTheTimeChosed = 0.obs;
+
+  RxInt choosedPay = 1.obs;
+  RxBool showTheConfOrder = false.obs;
+  RxBool showTheEndOfPageOrder = false.obs;
+
+  FuwhereIsTheOrderStyp() {
+    if (whereIsTheOrderStyp.value == 3) {
+      if (countTheTimeChosed != 0 && countTheWhatChooseOfDate != 0) {
+        whereIsTheOrderStyp.value = 4;
+        showTheSh.value = false;
+        titleOfOrder.value = "التاكيد";
+        buttonInOrder.value = "الإنهاء";
+        showTheConfOrder.value = true;
+      } else {}
+    } else if (whereIsTheOrderStyp.value == 4) {
+      whereIsTheOrderStyp.value = 5;
+
+      showTheConfOrder.value = false;
+      addOrder(
+          idMainType.toString(),
+          theNumberOFORder.toString(),
+          totalPriceTheSerivce.value.toString(),
+          theTimeChosed.value.toString(),
+          theDateChoosd.value.toString(),
+          "",
+          "",
+          choosedPay.value.toString());
+      showTheEndOfPageOrder.value = true;
+      titleOfOrder.value = "إنتهاء التاكيد";
+      buttonInOrder.value = "الإنهاء";
+    }
+  }
+
+  RxInt countTheWhatChooseOfDate = 0.obs;
+///////Day Text......
+  RxString afterOneDay = "".obs;
+  RxString afterTwoDay = "".obs;
+  RxString afterThreeDay = "".obs;
+  RxString afterFourDay = "".obs;
+  RxString afterFiveDay = "".obs;
+  RxString afterSixDay = "".obs;
+  RxString afterSevenDay = "".obs;
+////////////day Number.............//////
+  RxString afterOneDayNumber = "".obs;
+  RxString afterTwoDayNumber = "".obs;
+  RxString afterThreeDayNumber = "".obs;
+  RxString afterFourDayNumber = "".obs;
+  RxString afterFiveDayNumber = "".obs;
+  RxString afterSixDayNumber = "".obs;
+  RxString afterSevenDayNumber = "".obs;
+  ////////////Day Month..............///////
+  RxString afterOneDate = "".obs;
+  RxString afterTwoDate = "".obs;
+  RxString afterThreeDate = "".obs;
+  RxString afterFourDate = "".obs;
+  RxString afterFiveDate = "".obs;
+  RxString afterSixDate = "".obs;
+  RxString afterSevenDate = "".obs;
+
+  Future GetDate() async {
+    /////////Date................//////
+    afterOneDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 1)));
+    afterTwoDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 2)));
+    afterThreeDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 3)));
+    afterFourDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 4)));
+    afterFiveDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 5)));
+    afterSixDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 6)));
+    afterSevenDate.value =
+        DateFormat.MMM().format(DateTime.now().add(Duration(days: 7)));
+    ///////////////////Day Text...........................///////
+    afterOneDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 1)));
+    afterTwoDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 2)));
+    afterThreeDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 3)));
+    afterFourDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 4)));
+    afterFiveDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 5)));
+    afterSixDay.value =
+        DateFormat('EEE').format(DateTime.now().add(Duration(days: 6)));
+    afterSevenDay.value = DateFormat('EEE').format(DateTime.now().add(Duration(
+        days:
+            7))); ///////////////////Day Number...........................///////
+    afterOneDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 1)));
+    afterTwoDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 2)));
+    afterThreeDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 3)));
+    afterFourDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 4)));
+    afterFiveDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 5)));
+    afterSixDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 6)));
+    afterSevenDayNumber.value =
+        DateFormat.d().format(DateTime.now().add(Duration(days: 7)));
+  }
+
+  clearOrder() {
+    theNumberOFORder.value = 0;
+    OpeartionsOrderPage.value = false;
+    whereIsTheOrderStyp.value = 3;
+    showTheSh.value = true;
+    titleOfOrder.value = "الجدولة";
+    buttonInOrder.value = "المتابعة";
+    theDateChoosd.value = "";
+    theTimeChosed.value = "";
+    countTheTimeChosed.value = 0;
+
+    choosedPay.value = 1;
+    showTheConfOrder.value = false;
+    showTheEndOfPageOrder.value = false;
+
+    countTheWhatChooseOfDate.value = 0;
   }
 }

@@ -67,20 +67,21 @@ class OnBoarding extends StatelessWidget {
                 Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                      padding:
-                          EdgeInsets.only(top: m.currntPage == 2 ? 40.h : 0.h),
+                      padding: EdgeInsets.only(
+                        top: m.currntPage == 2 ? 40.h : 0.h,
+                      ),
                       child: Lottie.asset("${onBoardingItme[i].image}",
                           width: m.currntPage == 0
                               ? 500.w
                               : m.currntPage == 1
-                                  ? 350.w
+                                  ? 750.w
                                   : 250.w,
                           height: m.currntPage == 0
                               ? 350.h
                               : m.currntPage == 1
                                   ? 350.h
                                   : 250.h,
-                          fit: BoxFit.cover),
+                          fit: BoxFit.contain),
                     )),
                 SizedBox(
                   height: m.currntPage == 2 ? 50.h : 0,
@@ -96,7 +97,7 @@ class OnBoarding extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 1.h,
+                  height: 5.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -114,7 +115,7 @@ class OnBoarding extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: m.currntPage == 2 ? 60.h : 40.h,
+                  height: m.currntPage == 2 ? 60.h : 60.h,
                 ),
                 GetX<onBoardingControllerImp>(
                   builder: (controller) => Row(
@@ -135,7 +136,7 @@ class OnBoarding extends StatelessWidget {
                                     height: 13,
                                     decoration: BoxDecoration(
                                         color: controller.currntPage == index
-                                            ? AppColors.theMainColorTwo
+                                            ? AppColors.yellowColor
                                             : AppColors.theMainColor,
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -170,7 +171,7 @@ class OnBoarding extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: controller.currntPage.value ==
                                           onBoardingItme.length - 1
-                                      ? AppColors.theMainColorTwo
+                                      ? AppColors.yellowColor
                                       : AppColors.theMainColor,
                                   borderRadius: controller.currntPage.value ==
                                           onBoardingItme.length - 1

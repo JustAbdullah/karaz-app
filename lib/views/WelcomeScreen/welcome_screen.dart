@@ -4,12 +4,11 @@ import 'package:get/get.dart';
 import 'package:karaz/views/HomeScreen/home_screen.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../controllers/controller_app.dart';
 import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
 import '../../core/constant/images_path.dart';
 import '../../customWidgets/custom_padding.dart';
-import '../../customWidgets/custom_text.dart';
+import '../Auth/login_screen.dart';
 import '../Auth/sign_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -61,20 +60,20 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 75.h,
+              height: 59.h,
             ),
             InkWell(
               onTap: () {
-                Get.to(AuthPhoneNumberSignUP());
+                Get.to(AuthPhoneNumberLogin());
               },
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.theMainColor,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                width: 200.w,
-                height: 40.h,
+                width: 220.w,
+                height: 35.h,
                 child: Text(
                   "3-تسجيل الدخول".tr,
                   style: TextStyle(
@@ -96,11 +95,11 @@ class WelcomeScreen extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.theMainColorTwo,
-                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.yellowColor,
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                width: 200.w,
-                height: 40.h,
+                width: 220.w,
+                height: 35.h,
                 child: Text(
                   "4-المتابعة كزائر".tr,
                   style: TextStyle(

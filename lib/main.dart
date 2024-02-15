@@ -5,15 +5,15 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:karaz/views/HomeScreen/home_screen.dart';
+import 'package:karaz/views/OnBoardinScreen/onboarding.dart';
+import 'package:karaz/views/WelcomeScreen/welcome_screen.dart';
 import 'core/constant/color_primary.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
 import 'core/services/appservices.dart';
 import 'firebase_options.dart';
-import 'views/Auth/sign_screen.dart';
-import 'views/Language/choose_language.dart';
-import 'views/OnBoardinScreen/onboarding.dart';
-import 'views/WelcomeScreen/welcome_screen.dart';
+import 'views/HomeScreen/HomeWidgets/OrdersWidgets/order_confirmation.dart';
+import 'views/LoadingScreen/loading_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -11,6 +11,7 @@ import '../../controllers/controller_app.dart';
 import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custome_textfiled.dart';
+import 'login_screen.dart';
 
 class AuthPhoneNumberSignUP extends StatelessWidget {
   const AuthPhoneNumberSignUP({super.key});
@@ -20,26 +21,20 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
     ControllerApp homeController = Get.put(ControllerApp());
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           SingleChildScrollView(
             child: Column(children: [
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    ImagesPath.logo,
-                    width: 120.w,
-                    height: 100,
-                  )),
               SizedBox(
-                height: 00.h,
+                height: 90.h,
               ),
               PaddingCustom(
                 theTop: 20.h,
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "مرحبًا بك..صفحة إنشاء الحساب",
+                    "140-مرحبًا بك..صفحة إنشاء الحساب".tr,
                     style: TextStyle(
                         height: 1.3.h,
                         fontSize: 19,
@@ -66,7 +61,8 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: 40.w, vertical: 00.h),
                       child: Text(
-                        "قم بإدخال رقمك..سيتم التحقق من الرقم عبر إرسال رسالة نصية تحتوي على رمز التحقق",
+                        "141-قم بإدخال رقمك..سيتم التحقق من الرقم عبر إرسال رسالة نصية تحتوي على رمز التحقق"
+                            .tr,
                         style: TextStyle(
                             height: 1.3.h,
                             fontSize: 12,
@@ -82,94 +78,80 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                 child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 20.w, vertical: 00.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 220.w,
-                          child: TextFormFiledCustom(
-                            labelData: "رقم الهاتف",
-                            hintData: "رجاءًا..قم بإدخال رقم الهاتف",
-                            iconData: Icons.phone_android,
-                            controllerData:
-                                homeController.thePhoneNumberInSignUpLogin,
-                            value: (value) {
-                              SystemChrome.setEnabledSystemUIMode(
-                                  SystemUiMode.manual,
-                                  overlays: []);
-                              homeController.thePhoneNumberTextSignUpLogin =
-                                  value.toString();
-                              return value;
-                            },
-                            fillColor: AppColors.whiteColor,
-                            hintColor: AppColors.blackColor,
-                            iconColor: AppColors.blackColor,
-                            borderSideColor: Color.fromARGB(255, 245, 239, 239),
-                            fontColor: AppColors.balckColorTypeThree,
-                            obscureText: false,
-                            keyboardType: TextInputType.number,
-                            autofillHints: [AutofillHints.name],
-                            onChanged: (value) {
-                              SystemChrome.setEnabledSystemUIMode(
-                                  SystemUiMode.manual,
-                                  overlays: []);
-                              homeController.thePhoneNumberTextSignUpLogin =
-                                  value.toString();
-                              return value;
-                            },
-                            // ignore: body_might_complete_normally_nullable
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "قيم فارغة";
-                              }
-                              return value.length < 5 || value.length > 20
-                                  ? "عليك التقيد بالعدد المسموح".tr
-                                  : null;
-                            },
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            height: 40.h,
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                color: AppColors.yellowColor,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                child: Center(
-                                  child: Text(
-                                    "971+",
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      fontFamily: AppTextStyles.Almarai,
-                                      color: AppColors.balckColorTypeFour,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ))),
-                      ],
-                    )),
-              ),
-              PaddingCustom(
-                theTop: 10.h,
-                child: Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 40.w, vertical: 00.h),
-                        child: Text(
-                          "في حال تسجيلك فإنك توافق على شروط وأحكام تطبيق كرز-إننا لانقوم بإستغلال الرقم لاي أغراض خارجية",
-                          style: TextStyle(
-                            height: 1.3.h,
-                            fontSize: 12,
-                            fontFamily: AppTextStyles.Almarai,
-                            color: AppColors.redColor,
-                          ),
-                          textAlign: TextAlign.center,
+                    child: Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 220.w,
+                              child: TextFormFiledCustom(
+                                labelData: "142-رقم الهاتف".tr,
+                                hintData: "143-رجاءًا..قم بإدخال رقم الهاتف".tr,
+                                iconData: Icons.phone_android,
+                                controllerData:
+                                    homeController.thePhoneNumberInSignUpLogin,
+                                value: (value) {
+                                  SystemChrome.setEnabledSystemUIMode(
+                                      SystemUiMode.manual,
+                                      overlays: []);
+                                  homeController.thePhoneNumberTextSignUpLogin =
+                                      value.toString();
+                                  return value;
+                                },
+                                fillColor: AppColors.whiteColor,
+                                hintColor: AppColors.blackColor,
+                                iconColor: AppColors.blackColor,
+                                borderSideColor:
+                                    Color.fromARGB(255, 245, 239, 239),
+                                fontColor: AppColors.balckColorTypeThree,
+                                obscureText: false,
+                                keyboardType: TextInputType.number,
+                                autofillHints: [AutofillHints.name],
+                                onChanged: (value) {
+                                  SystemChrome.setEnabledSystemUIMode(
+                                      SystemUiMode.manual,
+                                      overlays: []);
+                                  homeController.thePhoneNumberTextSignUpLogin =
+                                      value.toString();
+                                  return value;
+                                },
+                                // ignore: body_might_complete_normally_nullable
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "144-قيم فارغة".tr;
+                                  }
+                                  return value.length < 7 || value.length > 20
+                                      ? "145-عليك التقيد بالعدد المسموح".tr
+                                      : null;
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                                height: 40.h,
+                                width: 60.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.theMainColorTwo,
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 10.w),
+                                    child: Center(
+                                      child: Text(
+                                        "971+",
+                                        style: TextStyle(
+                                          fontSize: 17,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          color: AppColors.whiteColor,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ))),
+                          ],
                         ))),
               ),
               PaddingCustom(
@@ -196,7 +178,7 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 50.w),
                               child: Text(
-                                "التحقق الان",
+                                "147-التحقق الان".tr,
                                 style: TextStyle(
                                   height: 2.h,
                                   fontSize: 17,
@@ -210,23 +192,29 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                         ))),
               ),
               PaddingCustom(
-                theTop: 10.h,
-                child: Align(
+                  theTop: 10.h,
+                  child: Align(
                     alignment: Alignment.center,
                     child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 40.w, vertical: 00.h),
-                        child: Text(
-                          "لديك حساب بالفعل؟ قم بتسجيل الدخول-اضغط هنا-",
-                          style: TextStyle(
-                            height: 1.3.h,
-                            fontSize: 12,
-                            fontFamily: AppTextStyles.Almarai,
-                            color: AppColors.yellowColor,
-                          ),
-                          textAlign: TextAlign.center,
-                        ))),
-              ),
+                        child: InkWell(
+                            onTap: () {
+                              homeController.isLoginOrSignUp.value = 1;
+                              Get.to(AuthPhoneNumberLogin());
+                            },
+                            child: Text(
+                              "148-لديك حساب بالفعل؟ قم بتسجيل الدخول-اضغط هنا-"
+                                  .tr,
+                              style: TextStyle(
+                                height: 1.3.h,
+                                fontSize: 12,
+                                fontFamily: AppTextStyles.Almarai,
+                                color: AppColors.yellowColor,
+                              ),
+                              textAlign: TextAlign.center,
+                            ))),
+                  )),
             ]),
           ),
           GetX<ControllerApp>(
@@ -260,17 +248,17 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.center,
-                                child: Lottie.asset(ImagesPath.loadingBlack,
-                                    width: 150.w)),
+                                child: Lottie.asset(
+                                    ImagesPath.loadingAppOpeartions,
+                                    width: 100.w)),
                             SizedBox(
-                              height: 10.h,
+                              height: 00.h,
                             ),
                             Text(
-                              "انتظر قليلًا..يتم التحقق وإرسال الرمز",
+                              "149-انتظر قليلًا..يتم التحقق وإرسال الرمز".tr,
                               style: TextStyle(
                                 height: 1.3.h,
                                 fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor,
                               ),

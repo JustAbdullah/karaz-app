@@ -172,7 +172,8 @@ class GetLocation extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Lottie.asset(ImagesPath.loadingBlack, width: 130.w),
+                            Lottie.asset(ImagesPath.loadingAppOpeartions,
+                                width: 130.w),
                             SizedBox(
                               height: 15.h,
                             ),
@@ -447,8 +448,6 @@ class GetLocation extends StatelessWidget {
                                     controllerTheApp
                                         .isVerificationLocationCompleted
                                         .value = false;
-                                    controllerTheApp.showTheLocation.value =
-                                        true;
                                   },
                                   child: Container(
                                     height: 40.h,

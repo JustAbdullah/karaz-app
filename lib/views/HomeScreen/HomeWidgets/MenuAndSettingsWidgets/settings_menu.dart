@@ -129,30 +129,40 @@ class SettingsMenu extends StatelessWidget {
                             height: 10.h,
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  ImagesPath.OrderBoxIcon,
-                                  width: 20.w,
+                              padding: EdgeInsets.symmetric(horizontal: 20.w),
+                              child: InkWell(
+                                onTap: () {
+                                  if (controller.displayIsHavaAccount.value ==
+                                      0) {
+                                    controller.messageAboutNotHaveAccount
+                                        .value = true;
+                                  } else {
+                                    controller.showTheOrderPage.value = true;
+                                  }
+                                },
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      ImagesPath.OrderBoxIcon,
+                                      width: 20.w,
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    Text(
+                                      "14-الطلبيات".tr,
+                                      style: TextStyle(
+                                          height: 1.3.h,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          color: AppColors.balckColorTypeFour),
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                Text(
-                                  "14-الطلبيات".tr,
-                                  style: TextStyle(
-                                      height: 1.3.h,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: AppTextStyles.Almarai,
-                                      color: AppColors.balckColorTypeFour),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                ),
-                              ],
-                            ),
-                          ),
+                              )),
                           SizedBox(
                             height: 8.h,
                           ),
@@ -210,18 +220,67 @@ class SettingsMenu extends StatelessWidget {
                             height: 10.h,
                           ),
                           Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.w),
+                              child: InkWell(
+                                onTap: () {
+                                  if (controller.displayIsHavaAccount.value ==
+                                      0) {
+                                    controller.messageAboutNotHaveAccount
+                                        .value = true;
+                                  } else {
+                                    controller.showTheMessage.value = true;
+                                  }
+                                },
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      ImagesPath.messagesIcon,
+                                      width: 20.w,
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    Text(
+                                      "16-التنبيهات".tr,
+                                      style: TextStyle(
+                                          height: 1.3.h,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          color: AppColors.balckColorTypeFour),
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                    ),
+                                  ],
+                                ),
+                              )),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.w),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 0.17.h,
+                                color: AppColors.balckColorTypeFour,
+                              )),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.w),
                             child: Row(
                               children: [
                                 Image.asset(
-                                  ImagesPath.messagesIcon,
+                                  ImagesPath.logo,
                                   width: 20.w,
+                                  fit: BoxFit.cover,
                                 ),
                                 SizedBox(
                                   width: 10.w,
                                 ),
                                 Text(
-                                  "16-التنبيهات".tr,
+                                  "17-معلومات حول كرز".tr,
                                   style: TextStyle(
                                       height: 1.3.h,
                                       fontSize: 15,
@@ -249,28 +308,32 @@ class SettingsMenu extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  ImagesPath.logo,
-                                  width: 40.w,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                Text(
-                                  "17-معلومات حول كرز".tr,
-                                  style: TextStyle(
-                                      height: 1.3.h,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: AppTextStyles.Almarai,
-                                      color: AppColors.balckColorTypeFour),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                ),
-                              ],
+                            child: InkWell(
+                              onTap: () {
+                                controller.showLang.value = true;
+                              },
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    ImagesPath.lang,
+                                    width: 20.w,
+                                  ),
+                                  SizedBox(
+                                    width: 10.w,
+                                  ),
+                                  Text(
+                                    "168-اللغة".tr,
+                                    style: TextStyle(
+                                        height: 1.3.h,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: AppTextStyles.Almarai,
+                                        color: AppColors.balckColorTypeFour),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -431,7 +494,8 @@ class SettingsMenu extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 child: Text(
-                                  "هل أنت متأكد برغبتك بحذف الحساب؟ لايمكن التراجع بعد عملية حذف الحساب"
+                                  "169-هل أنت متأكد برغبتك بحذف الحساب؟ لايمكن التراجع بعد عملية حذف الحساب"
+                                      .tr
                                       .tr,
                                   style: TextStyle(
                                       height: 1.3.h,
@@ -447,7 +511,7 @@ class SettingsMenu extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 child: Text(
-                                  "ملاحظة:لايمكن حذف الحساب حال تاكيد طلبية ما ..عليك إنهاء إجراءات طلب الطلبية ثم حذف الحساب"
+                                  "170-ملاحظة:لايمكن حذف الحساب حال تاكيد طلبية ما ..عليك إنهاء إجراءات طلب الطلبية ثم حذف الحساب"
                                       .tr,
                                   style: TextStyle(
                                       height: 1.3.h,
@@ -474,7 +538,7 @@ class SettingsMenu extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(0)),
                                       child: Text(
-                                        "حذف الحساب الان".tr,
+                                        "171-حذف الحساب الان".tr,
                                         style: TextStyle(
                                             height: 1.3.h,
                                             fontSize: 15,
