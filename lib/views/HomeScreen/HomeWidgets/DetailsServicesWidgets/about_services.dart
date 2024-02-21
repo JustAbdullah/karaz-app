@@ -506,36 +506,39 @@ class aboutTheDetailsService extends StatelessWidget {
                             SizedBox(
                               height: 20.h,
                             ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: GetX<ChangeLanguageToLocale>(
-                                  builder: (scontroller) => scontroller
-                                              .isChange.value ==
-                                          false
-                                      ? Text(
-                                          controller
-                                              .aboutTheSubMainService.value
-                                              .toString(),
-                                          style: TextStyle(
-                                              fontFamily: AppTextStyles.Almarai,
-                                              color:
-                                                  AppColors.balckColorTypeFour,
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w500),
-                                          textAlign: TextAlign.center,
-                                        )
-                                      : Text(
-                                          controller
-                                              .aboutTheSubMainServiceEn.value
-                                              .toString(),
-                                          style: TextStyle(
-                                              fontFamily: AppTextStyles.Almarai,
-                                              color:
-                                                  AppColors.balckColorTypeFour,
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w500),
-                                          textAlign: TextAlign.center,
-                                        )),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 25.w),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: GetX<ChangeLanguageToLocale>(
+                                    builder: (scontroller) => scontroller
+                                                .isChange.value ==
+                                            false
+                                        ? Text(
+                                            controller
+                                                .aboutTheSubMainService.value
+                                                .toString(),
+                                            style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeFour,
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        : Text(
+                                            controller
+                                                .aboutTheSubMainServiceEn.value
+                                                .toString(),
+                                            style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeFour,
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w500),
+                                          )),
+                              ),
                             ),
 
                             /* SizedBox(

@@ -61,6 +61,10 @@ class TextFormFiledCustom extends StatelessWidget {
       onSaved: value,
       validator: validator,
       decoration: InputDecoration(
+        errorStyle: TextStyle(
+          color: const Color.fromARGB(255, 176, 12, 0),
+          fontFamily: AppTextStyles.Almarai,
+        ),
         filled: true,
         fillColor: fillColor,
         hintText: hintData.tr,

@@ -17,39 +17,29 @@ class LoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ControllerApp controllerTheApp = Get.put(ControllerApp());
 
-    controllerTheApp.getAnimationTextWelcome();
+    controllerTheApp.WhereGoingTheApp();
 
     return Scaffold(
-      backgroundColor: AppColors.theMainColor,
+      backgroundColor: AppColors.whiteColor,
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(children: [
-          PaddingCustom(
-            theTop: 90,
-            child: Lottie.asset(
-              "${ImagesPath.loadingAppOpeartions}",
+          child: Align(
+        alignment: Alignment.bottomCenter,
+        child: SingleChildScrollView(
+          child: Column(children: [
+            PaddingCustom(
+              theTop: 230,
+              child: Lottie.asset("${ImagesPath.loadingAppOpeartions}",
+                  width: 100.w),
             ),
-          ),
-          PaddingCustom(
-              theTop: 100,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: GetX<ControllerApp>(
-                    builder: (controller) => TextCustom(
-                        theText: controller.welcomeText.value.toString(),
-                        fontSizeWidth: 17.sp,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: AppTextStyles.Almarai,
-                        fontColor: controller.weclomeColor)),
-              )),
-          PaddingCustom(
-              theTop: 10,
-              child: TextCustom(
-                  theText: "انتظر قليلاً..",
-                  fontSizeWidth: 20.sp,
-                  fontFamily: AppTextStyles.Marhey,
-                  fontColor: AppColors.whiteColor)),
-        ]),
+            PaddingCustom(
+                theBottom: 10,
+                child: TextCustom(
+                    theText: "انتظر قليلاً..",
+                    fontSizeWidth: 20.sp,
+                    fontFamily: AppTextStyles.Almarai,
+                    fontColor: AppColors.theMainColor)),
+          ]),
+        ),
       )),
     );
   }

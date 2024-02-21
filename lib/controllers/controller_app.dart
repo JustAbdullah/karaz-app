@@ -9,7 +9,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:karaz/views/OnBoardinScreen/onboarding.dart';
 import 'package:karaz/views/WelcomeScreen/welcome_screen.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import '../core/class/class/crud.dart';
 
@@ -23,41 +25,23 @@ class ControllerApp extends GetxController {
   AppServices appServices = Get.find();
 
 //////////////////............The Loading  Page Animation..................................................////////////////////
-  RxString welcomeText = "مرحبًا بك,, في تطبيق يُقدم لك مختلف الخدمات".obs;
-  Color weclomeColor = AppColors.whiteColor;
-  RxInt countTheNumber = 0.obs;
 
-  get showTheMenuOfSettings => null;
-
-  getAnimationTextWelcome() {
-    Timer.periodic(const Duration(seconds: 8), (Timer timer) async {
-      if (countTheNumber.value == 0) {
-        weclomeColor = AppColors.whiteColor;
-
-        countTheNumber.value += 1;
-      } else if (countTheNumber.value == 1) {
-        weclomeColor = AppColors.yellowColor;
-
-        welcomeText.value = "خدماتنا متعددة..موسعة,, عالية الجودة";
-        countTheNumber.value += 1;
-      } else if (countTheNumber.value == 2) {
-        weclomeColor = AppColors.whiteColor;
-
-        welcomeText.value =
-            "قدم الإن وأطلب اي خدمة تريدها,,ثم قم بالجدولة واختيار اليوم المناسب لك";
-        countTheNumber.value += 1;
-      } else if (countTheNumber.value == 3) {
-        weclomeColor = AppColors.yellowColor;
-
-        welcomeText.value = "ستصلك الخدمة بالوقت المناسب والأحترافية الأمثل";
-        countTheNumber.value += 1;
-      } else {
-        weclomeColor = AppColors.whiteColor;
-
-        countTheNumber.value = 0;
-        welcomeText.value = "مرحبًا بك,, في تطبيق يُقدم لك مختلف الخدمات";
-
-        Get.to(HomeScreen());
+  RxBool theWay = false.obs;
+  WhereGoingTheApp() {
+    Future.delayed(Duration(seconds: 5), () async {
+      if (theWay.value == false) {
+        if (appServices.sharedPreferences.containsKey('onBoarding')) {
+          if (appServices.sharedPreferences.containsKey('isHaveAccount')) {
+            Get.to(HomeScreen());
+            theWay.value = true;
+          } else {
+            Get.to(WelcomeScreen());
+            theWay.value = true;
+          }
+        } else {
+          Get.to(OnBoarding());
+          theWay.value = true;
+        }
       }
     });
   }
@@ -181,6 +165,9 @@ class ControllerApp extends GetxController {
             myCurrentPositionLongitude = value.longitude;
             displayLongLocation.value = value.longitude;
             displayLatLocation.value = value.latitude;
+
+            savelocationUser(myCurrentPositionLatitude.toString(),
+                myCurrentPositionLongitude.toString());
           });
 
           isVerificationLocationCompleted.value = true;
@@ -272,8 +259,8 @@ class ControllerApp extends GetxController {
       appServices.sharedPreferences.setString('userName', userName);
       appServices.sharedPreferences.setString('userID', userID);
       appServices.sharedPreferences.setString('phone', userPhone);
-      appServices.sharedPreferences.setDouble('Long', user_longitude);
-      appServices.sharedPreferences.setDouble('Lat', user_latitude);
+      //appServices.sharedPreferences.setDouble('Long', user_longitude);
+      // appServices.sharedPreferences.setDouble('Lat', user_latitude);
 
       await Future.delayed(const Duration(seconds: 5), () async {
         onInit();
@@ -351,6 +338,8 @@ class ControllerApp extends GetxController {
       addTokenUser();
       if (appServices.sharedPreferences.containsKey('Long')) {
         getDataUserLocation(displayUserPhone.value);
+      } else {
+        askPermissionOfLocation();
       }
     }
 
@@ -683,7 +672,7 @@ class ControllerApp extends GetxController {
       if (countTheTimeChosed != 0 && countTheWhatChooseOfDate != 0) {
         whereIsTheOrderStyp.value = 4;
         showTheSh.value = false;
-        titleOfOrder.value = "التاكيد";
+        titleOfOrder.value = "185-التاكيد".tr;
         buttonInOrder.value = "الإنهاء";
         showTheConfOrder.value = true;
       } else {}
@@ -733,6 +722,8 @@ class ControllerApp extends GetxController {
   RxString afterSevenDate = "".obs;
 
   Future GetDate() async {
+    initializeDateFormatting();
+    Intl.defaultLocale = 'ar';
     /////////Date................//////
     afterOneDate.value =
         DateFormat.MMM().format(DateTime.now().add(Duration(days: 1)));
@@ -785,8 +776,8 @@ class ControllerApp extends GetxController {
     OpeartionsOrderPage.value = false;
     whereIsTheOrderStyp.value = 3;
     showTheSh.value = true;
-    titleOfOrder.value = "الجدولة";
-    buttonInOrder.value = "المتابعة";
+    titleOfOrder.value = "180-الجدولة".tr;
+    buttonInOrder.value = "181-المتابعة".tr;
     theDateChoosd.value = "";
     theTimeChosed.value = "";
     countTheTimeChosed.value = 0;

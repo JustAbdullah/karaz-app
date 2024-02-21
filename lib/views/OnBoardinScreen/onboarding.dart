@@ -152,6 +152,8 @@ class OnBoarding extends StatelessWidget {
                           onTap: () {
                             if (controller.currntPage.value > 1) {
                               Get.to(WelcomeScreen());
+                              controller.appServices.sharedPreferences
+                                  .setInt('onBoarding', 1);
                             } else {
                               controller.currntPage.value =
                                   controller.currntPage.value + 1;

@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
               "1-مرحبًا في تطبيق كرز".tr,
               style: TextStyle(
                   fontFamily: AppTextStyles.Almarai,
-                  color: AppColors.theMainColorTwo,
+                  color: AppColors.blackColor,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
@@ -41,10 +41,10 @@ class WelcomeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 50.w),
               child: Text(
-                "قم رجاءًا بإختيار مسار محدد للمتابعة".tr,
+                "2-قم رجاءًا بإختيار مسار محدد للمتابعة".tr,
                 style: TextStyle(
                     fontFamily: AppTextStyles.Almarai,
-                    color: AppColors.balckColorTypeFour,
+                    color: AppColors.blackColor,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
@@ -95,7 +95,7 @@ class WelcomeScreen extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.yellowColor,
+                  color: AppColors.blackColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 width: 220.w,

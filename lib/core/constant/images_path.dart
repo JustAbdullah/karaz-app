@@ -2,9 +2,6 @@ class ImagesPath {
   static const String RootPath = "android/assets/images";
 
   static const String logo = "$RootPath/logo.png";
-  static const String logoWithOutbackGround =
-      "$RootPath/Untitled-PhotoRoom.png-PhotoRoom (1).png";
-
   static const String successfully = "$RootPath/successfully.json";
   static const String error = "$RootPath/error.json";
 
@@ -34,7 +31,6 @@ class ImagesPath {
   static const String onBoardingThree = "$RootPath/tasks Time.json";
   static const String loadingAppOpeartions = "$RootPath/loading tasks.json";
   static const String WelcomeAni = "$RootPath/home tasks.json";
-
   static const String theTrueIcon = "$RootPath/true.png";
 
   //////////////////////////////Arrow............./

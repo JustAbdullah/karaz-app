@@ -62,8 +62,9 @@ class _orderConfState extends State<orderConf> {
                                 controllerApp.showTheConfOrder.value = false;
                                 controllerApp.showTheSh.value = true;
 
-                                controller.titleOfOrder.value = "الجدولة";
-                                controller.buttonInOrder.value = "المتابعة";
+                                controller.titleOfOrder.value =
+                                    "180-الجدولة".tr;
+                                controller.buttonInOrder.value = "181-المتابعة";
                               }
                             },
                             child: Image.asset(
@@ -132,7 +133,7 @@ class _orderConfState extends State<orderConf> {
                                         ),
                                       ),
                                       Text(
-                                        "المحتوى".tr,
+                                        "182-المحتوى".tr,
                                         style: TextStyle(
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.theMainColor,
@@ -165,7 +166,7 @@ class _orderConfState extends State<orderConf> {
                                         ),
                                       ),
                                       Text(
-                                        "الموقع".tr,
+                                        "183-الموقع".tr,
                                         style: TextStyle(
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.theMainColor,
@@ -213,7 +214,7 @@ class _orderConfState extends State<orderConf> {
                                         ),
                                       ),
                                       Text(
-                                        "الجدولة".tr,
+                                        "184-الجدولة".tr,
                                         style: TextStyle(
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.theMainColor,
@@ -268,7 +269,7 @@ class _orderConfState extends State<orderConf> {
                                         ),
                                       ),
                                       Text(
-                                        "التاكيد".tr,
+                                        "185-التاكيد".tr,
                                         style: TextStyle(
                                             fontFamily: AppTextStyles.Almarai,
                                             color: controllerApp
@@ -945,7 +946,7 @@ class _orderConfState extends State<orderConf> {
                                                     .value = 1;
                                                 controllerApp
                                                         .theTimeChosed.value =
-                                                    "2:00 PM - 4:00 PM";
+                                                    "مساءًا 4:00   - مساءًا  2:00 ";
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
@@ -967,7 +968,7 @@ class _orderConfState extends State<orderConf> {
                                                 height: 50.h,
                                                 child: Center(
                                                     child: Text(
-                                                  "2:00 PM - 4:00 PM"
+                                                  "مساءًا 4:00   - مساءًا  2:00 "
                                                       .toString(),
                                                   style: TextStyle(
                                                       fontFamily:
@@ -994,7 +995,7 @@ class _orderConfState extends State<orderConf> {
                                                     .value = 2;
                                                 controllerApp
                                                         .theTimeChosed.value =
-                                                    "4:00 PM - 6:00 PM";
+                                                    "مساءًا 6:00   - مساءًا  4:00 ";
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
@@ -1016,7 +1017,7 @@ class _orderConfState extends State<orderConf> {
                                                 height: 50.h,
                                                 child: Center(
                                                     child: Text(
-                                                  "4:00 PM - 6:00 PM"
+                                                  "مساءًا 6:00   - مساءًا  4:00 "
                                                       .toString(),
                                                   style: TextStyle(
                                                       fontFamily:
@@ -1055,7 +1056,7 @@ class _orderConfState extends State<orderConf> {
                                                     .value = 3;
                                                 controllerApp
                                                         .theTimeChosed.value =
-                                                    "6:00 PM - 8:00 PM";
+                                                    "مساءًا 8:00   - مساءًا  6:00 ";
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
@@ -1077,7 +1078,7 @@ class _orderConfState extends State<orderConf> {
                                                 height: 50.h,
                                                 child: Center(
                                                     child: Text(
-                                                  "6:00 PM - 8:00 PM"
+                                                  "مساءًا 8:00   - مساءًا  6:00 "
                                                       .toString(),
                                                   style: TextStyle(
                                                       fontFamily:
@@ -1104,7 +1105,7 @@ class _orderConfState extends State<orderConf> {
                                                     .value = 4;
                                                 controllerApp
                                                         .theTimeChosed.value =
-                                                    "8:00 PM - 10:00 PM";
+                                                    "مساءًا 10:00   - مساءًا  8:00 ";
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
@@ -1126,7 +1127,7 @@ class _orderConfState extends State<orderConf> {
                                                 height: 50.h,
                                                 child: Center(
                                                     child: Text(
-                                                  "8:00 PM - 10:00 PM"
+                                                  "مساءًا 10:00   - مساءًا  8:00 "
                                                       .toString(),
                                                   style: TextStyle(
                                                       fontFamily:
@@ -1535,7 +1536,7 @@ class _orderConfState extends State<orderConf> {
                         child: Row(
                           children: [
                             Text(
-                              "ملخص الدفع",
+                              "186-ملخص الدفع".tr,
                               style: TextStyle(
                                   fontFamily: AppTextStyles.Almarai,
                                   color: Colors.black,
@@ -1559,7 +1560,7 @@ class _orderConfState extends State<orderConf> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "سعر العناصر",
+                              "187-سعر العناصر".tr,
                               style: TextStyle(
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.balckColorTypeThree,
@@ -1592,7 +1593,7 @@ class _orderConfState extends State<orderConf> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "سعر الخصم",
+                              "188-سعر الخصم".tr,
                               style: TextStyle(
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.balckColorTypeThree,
@@ -1637,7 +1638,7 @@ class _orderConfState extends State<orderConf> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "الإجمالي النهائي",
+                              "189-الإجمالي النهائي".tr,
                               style: TextStyle(
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.balckColorTypeThree,
@@ -1698,7 +1699,7 @@ class _orderConfState extends State<orderConf> {
                         child: Row(
                           children: [
                             Text(
-                              "طريقة السداد ",
+                              "190-طريقة السداد".tr,
                               style: TextStyle(
                                   fontFamily: AppTextStyles.Almarai,
                                   color: Colors.black,
@@ -1745,7 +1746,7 @@ class _orderConfState extends State<orderConf> {
                                   width: 10.w,
                                 ),
                                 Text(
-                                  "دفع-كاش",
+                                  "191-دفع-كاش".tr,
                                   style: TextStyle(
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeThree,
@@ -1792,7 +1793,7 @@ class _orderConfState extends State<orderConf> {
                                   width: 10.w,
                                 ),
                                 Text(
-                                  "دفع-اونلاين",
+                                  "192-دفع-اونلاين".tr,
                                   style: TextStyle(
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeThree,
@@ -1827,7 +1828,7 @@ class _orderConfState extends State<orderConf> {
                         child: Row(
                           children: [
                             Text(
-                              "الجدولة المختارة",
+                              "193-الجدولة المختارة".tr,
                               style: TextStyle(
                                   fontFamily: AppTextStyles.Almarai,
                                   color: Colors.black,
@@ -1904,7 +1905,7 @@ class _orderConfState extends State<orderConf> {
                       builder: (controller) => Visibility(
                           visible: controller.showTheEndOfPageOrder.value,
                           child: Text(
-                            "إنتهت العملية",
+                            "194-إنتهت العملية".tr,
                             style: TextStyle(
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.blackColor,
@@ -1952,7 +1953,7 @@ class _orderConfState extends State<orderConf> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "رقم الطلبية:",
+                                              "195-رقم الطلبية:".tr,
                                               style: TextStyle(
                                                   fontFamily:
                                                       AppTextStyles.Almarai,
@@ -1979,7 +1980,8 @@ class _orderConfState extends State<orderConf> {
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 10.w),
                                           child: Text(
-                                            "عزيزي العميل,شُكرا لك على إتمام الطلب..قريبًا سيتم التواصل معك لأتمام العملية",
+                                            "196-عزيزي العميل,شُكرا لك على إتمام الطلب..قريبًا سيتم التواصل معك لأتمام العملية"
+                                                .tr,
                                             style: TextStyle(
                                               fontFamily: AppTextStyles.Almarai,
                                               color:
@@ -2007,7 +2009,7 @@ class _orderConfState extends State<orderConf> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "إجمالي الطلب",
+                                  "197-إجمالي الطلب".tr,
                                   style: TextStyle(
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.blackColor,
@@ -2069,7 +2071,7 @@ class _orderConfState extends State<orderConf> {
                               child: Row(
                                 children: [
                                   Text(
-                                    "جدولة الوقت والتاريخ",
+                                    "198-جدولة الوقت والتاريخ".tr,
                                     style: TextStyle(
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.blackColor,
@@ -2154,7 +2156,7 @@ class _orderConfState extends State<orderConf> {
                                             height: 50.h,
                                             child: Center(
                                                 child: Text(
-                                              "العملية".toString(),
+                                              "199-العملية".tr.toString(),
                                               style: TextStyle(
                                                   fontFamily:
                                                       AppTextStyles.Almarai,
@@ -2203,7 +2205,7 @@ class _orderConfState extends State<orderConf> {
                                             height: 50.h,
                                             child: Center(
                                                 child: Text(
-                                              "العودة".toString(),
+                                              "200-العودة".tr.toString(),
                                               style: TextStyle(
                                                   fontFamily:
                                                       AppTextStyles.Almarai,

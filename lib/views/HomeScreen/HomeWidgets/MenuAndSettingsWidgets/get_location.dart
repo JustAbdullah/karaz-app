@@ -223,6 +223,7 @@ class GetLocation extends StatelessWidget {
                                       controller
                                           .MessageAboutLocationServiceEnable
                                           .value = false;
+                                      controller.checkTheLocation.value = false;
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
@@ -311,6 +312,7 @@ class GetLocation extends StatelessWidget {
                                     onTap: () {
                                       controller.IsrequestPermissionDenied
                                           .value = false;
+                                      controller.checkTheLocation.value = false;
                                     },
                                     child: Container(
                                       alignment: Alignment.center,

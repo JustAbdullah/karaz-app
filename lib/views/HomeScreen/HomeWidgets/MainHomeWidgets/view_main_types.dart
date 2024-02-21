@@ -57,74 +57,70 @@ class viewTheMainTypesHomeScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: AppColors.whiteColor,
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            height: 20.h,
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomCachedNetworkImage(
+                                            urlTheImage: snapshot.data['data']
+                                                [i]['services_main_icon'],
+                                            width: 70.w,
+                                            height: 40.h,
+                                            boxFit: BoxFit.contain),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 10.w),
+                                          child: GetX<ChangeLanguageToLocale>(
+                                            builder: (scontroller) =>
+                                                scontroller.isChange.value ==
+                                                        false
+                                                    ? Text(
+                                                        snapshot.data['data'][i]
+                                                            [
+                                                            'services_main_name_ar'],
+                                                        style: TextStyle(
+                                                            height: 1.3.h,
+                                                            fontSize: 13.sp,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontFamily:
+                                                                AppTextStyles
+                                                                    .Almarai,
+                                                            color: AppColors
+                                                                .balckColorTypeThree),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        maxLines: 2,
+                                                      )
+                                                    : Text(
+                                                        snapshot.data['data'][i]
+                                                            [
+                                                            'services_main_name_en'],
+                                                        style: TextStyle(
+                                                            height: 1.3.h,
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontFamily:
+                                                                AppTextStyles
+                                                                    .Almarai,
+                                                            color: AppColors
+                                                                .balckColorTypeThree),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        maxLines: 2,
+                                                      ),
                                           ),
-                                          CustomCachedNetworkImage(
-                                              urlTheImage: snapshot.data['data']
-                                                  [i]['services_main_icon'],
-                                              width: 70.w,
-                                              height: 40.h,
-                                              boxFit: BoxFit.contain),
-                                          SizedBox(
-                                            height: 7.h,
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 10.w),
-                                            child: GetX<ChangeLanguageToLocale>(
-                                              builder: (scontroller) =>
-                                                  scontroller.isChange.value ==
-                                                          false
-                                                      ? Text(
-                                                          snapshot.data['data']
-                                                                  [i][
-                                                              'services_main_name_ar'],
-                                                          style: TextStyle(
-                                                              height: 1.3.h,
-                                                              fontSize: 15,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontFamily:
-                                                                  AppTextStyles
-                                                                      .Almarai,
-                                                              color: AppColors
-                                                                  .balckColorTypeThree),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          maxLines: 2,
-                                                        )
-                                                      : Text(
-                                                          snapshot.data['data']
-                                                                  [i][
-                                                              'services_main_name_en'],
-                                                          style: TextStyle(
-                                                              height: 1.3.h,
-                                                              fontSize: 15,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontFamily:
-                                                                  AppTextStyles
-                                                                      .Almarai,
-                                                              color: AppColors
-                                                                  .balckColorTypeThree),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          maxLines: 2,
-                                                        ),
-                                            ),
-                                          )
-                                        ]),
-                                  ),
+                                        )
+                                      ]),
                                 ),
                               )));
                     },

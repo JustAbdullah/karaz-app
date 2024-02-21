@@ -29,7 +29,7 @@ class TopHeaderHomeScreen extends StatelessWidget {
                           height: 1.5.h,
                           fontSize: 12.sp,
                           fontFamily: AppTextStyles.Almarai,
-                          color: AppColors.yellowColor),
+                          color: AppColors.blackColor),
                       textAlign: TextAlign.center,
                       maxLines: 2,
                     ),

@@ -21,7 +21,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
     ControllerApp homeController = Get.put(ControllerApp());
 
     return Scaffold(
-      backgroundColor:Colors.white,
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           SingleChildScrollView(
