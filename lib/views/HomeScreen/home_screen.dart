@@ -6,7 +6,9 @@ import '../../controllers/controller_app.dart';
 import '../../core/constant/appcolors.dart';
 import 'HomeWidgets/DetailsServicesWidgets/about_services.dart';
 import 'HomeWidgets/DetailsServicesWidgets/sub_types.dart';
+import 'HomeWidgets/MainHomeWidgets/no_have_location.dart';
 import 'HomeWidgets/MainHomeWidgets/not_have_account.dart';
+import 'HomeWidgets/MainHomeWidgets/not_seleced_itmes.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/about_location.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/choose_language.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/info_account.dart';
@@ -15,6 +17,7 @@ import 'HomeWidgets/MenuAndSettingsWidgets/menu.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/settings_menu.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/show_location.dart';
 import 'HomeWidgets/MainHomeWidgets/container_offers.dart';
+import 'HomeWidgets/MenuAndSettingsWidgets/show_invoice.dart';
 
 import 'HomeWidgets/MainHomeWidgets/top_header.dart';
 import 'HomeWidgets/MainHomeWidgets/view_main_types.dart';
@@ -70,7 +73,10 @@ class HomeScreen extends StatelessWidget {
           ShowTheLocation(),
           MessagesList(),
           NotHaveAccountMessage(),
+          NotAddItems(),
+          NotHaveLocation(),
           ChooseLanguage(),
+          InvList(),
           orderConf(),
         ],
       )),

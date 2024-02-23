@@ -35,6 +35,10 @@ dependencies:
   geolocator: ^8.0.5
   geocoding: ^2.1.1
   image_picker: ^1.0.4
+  flutter_cached_pdfview: ^0.4.2
+
+
+
 
 
 dev_dependencies:

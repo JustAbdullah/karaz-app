@@ -194,7 +194,7 @@ class AppTranslation extends Translations {
           "154-أدخل كود التحقق هنا": "أدخل كود التحقق هنا",
           "155-المتابعة": "المتابعة",
           "156-لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-":
-              "لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-",
+              "لم يصلك الرمز؟ قم رجاءًا بالمحاولة مرة أخرى-أضغط هنا للعودة -",
           "157-أنتظر قليلاً إننا نقوم بالتحقق من الرقم":
               "أنتظر قليلاً إننا نقوم بالتحقق من الرقم",
           "158-لقد أنهيت عملية التحقق من الرقم..رجاءًا قم بإدخال أسمك لإنهاء عملية تسجيل الحساب":
@@ -268,6 +268,18 @@ class AppTranslation extends Translations {
           "205-حرية كاملة في الجدولة": "حرية كاملة في الجدولة",
           "206-نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة":
               "نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة",
+
+          ///////////////////..................Inv.....................................//////////
+
+          "207-الفواتير الإلكترونية": "الفواتير الإلكترونية",
+          "208-قائمة  فواتيرك الإلكترونية": "قائمة  فواتيرك الإلكترونية",
+          "209-لاتمتلك اي فواتير لعرضها": "لاتمتلك اي فواتير لعرضها",
+
+          //////////////////
+          "210-عزيزي العميل لم تقم بإضافة اي تفرع":
+              "عزيزي العميل لم تقم بإضافة اي عنصر",
+          "211-عزيزي العميل لم تقم بإضافة عنوانك بعد":
+              "عزيزي العميل لم تقم بإضافة عنوانك بعد",
         },
 
         "en": {
@@ -470,7 +482,7 @@ class AppTranslation extends Translations {
           "154-أدخل كود التحقق هنا": "Enter verification code here",
           "155-المتابعة": "Next",
           "156-لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-":
-              "You did not receive the code? send the verification code again -Click here to send-",
+              "You did not receive the code? Please try again - click here to Go Home",
           "157-أنتظر قليلاً إننا نقوم بالتحقق من الرقم":
               "Wait a minute, we are verifying the number.",
           "158-لقد أنهيت عملية التحقق من الرقم..رجاءًا قم بإدخال أسمك لإنهاء عملية تسجيل الحساب":
@@ -509,6 +521,7 @@ class AppTranslation extends Translations {
 
           "175-قائمة رسائلك والتنبيهات": "List of your messages",
           "176-لاتمتلك اي رسائل لعرضها": "no messages to display",
+
           //////////////
 
           "180-الجدولة": "Scheduling",
@@ -541,6 +554,18 @@ class AppTranslation extends Translations {
               "We automatically and precisely determine your location to provide our services in the best possible way. Don’t worry, just request the service.",
           "205-حرية كاملة في الجدولة": "Complete freedom in scheduling"
               "206-نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة”: “We offer you flexible and exceptional scheduling options that suit your convenience without complications or restrictions during the service delivery phase.",
+          ///////////////////..................Inv.....................................//////////
+
+          "207-الفواتير الإلكترونية": "Electronic invoices",
+          "208-قائمة  فواتيرك الإلكترونية": "List of your electronic invoices",
+          "209-لاتمتلك اي فواتير لعرضها": "You don't have any invoices to show",
+
+          ////////////
+
+          "210-عزيزي العميل لم تقم بإضافة اي تفرع":
+              "210-Dear customer, you have not added any items",
+          "211-عزيزي العميل لم تقم بإضافة عنوانك بعد":
+              "Dear customer, you have not added your address yet.",
         }
       };
 }

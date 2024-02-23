@@ -358,7 +358,7 @@ class OrdersDetails extends StatelessWidget {
                                                                             [
                                                                             'sub_type_name_ar'],
                                                                         style: TextStyle(
-                                                                            height: 1.5
+                                                                            height: 1.7
                                                                                 .h,
                                                                             fontSize:
                                                                                 13,
@@ -374,7 +374,8 @@ class OrdersDetails extends StatelessWidget {
                                                                             [
                                                                             'sub_type_name_en'],
                                                                         style: TextStyle(
-                                                                            height: 1.5
+                                                                            height: 1.7
+                                                                                .h
                                                                                 .h,
                                                                             fontSize:
                                                                                 13,

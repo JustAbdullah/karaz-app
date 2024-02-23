@@ -387,34 +387,53 @@ class aboutTheDetailsService extends StatelessWidget {
                                                         .messageAboutNotHaveAccount
                                                         .value = true;
                                                   } else {
-                                                    Random random =
-                                                        new Random();
-                                                    var randomNumber;
-                                                    randomNumber = random
-                                                        .nextInt(10000000);
+                                                    if (controller.appServices
+                                                        .sharedPreferences
+                                                        .containsKey('Long')) {
+                                                          
+                                                      if (controller
+                                                              .totalPriceTheSerivce
+                                                              .value !=
+                                                          0) {
+                                                        Random random =
+                                                            new Random();
+                                                        var randomNumber;
+                                                        randomNumber = random
+                                                            .nextInt(10000000);
 
-                                                    /*   controller.addOrder(
+                                                        /*   controller.addOrder(
                                             controller.idMainType.toString(),
                                             randomNumber.toString(),
                                             controller
                                                 .totalPriceTheSerivce.value
                                                 .toString());*/
 
-                                                    controller.choseService
-                                                        .forEach((k, v) =>
-                                                            controller
-                                                                .addOrderSubType(
-                                                              randomNumber
-                                                                  .toString(),
-                                                              k.toString(),
-                                                              v.toString(),
-                                                            ));
-                                                    controller.theNumberOFORder
-                                                        .value = randomNumber;
+                                                        controller.choseService
+                                                            .forEach((k, v) =>
+                                                                controller
+                                                                    .addOrderSubType(
+                                                                  randomNumber
+                                                                      .toString(),
+                                                                  k.toString(),
+                                                                  v.toString(),
+                                                                ));
+                                                        controller
+                                                                .theNumberOFORder
+                                                                .value =
+                                                            randomNumber;
 
-                                                    controller
-                                                        .OpeartionsOrderPage
-                                                        .value = true;
+                                                        controller
+                                                            .OpeartionsOrderPage
+                                                            .value = true;
+                                                      } else {
+                                                        controller
+                                                            .noSelecetdItems
+                                                            .value = true;
+                                                      }
+                                                    } else {
+                                                      controller.noAddLocation
+                                                          .value = true;
+                                                    }
                                                   }
                                                 },
                                                 child: Container(

@@ -19,4 +19,5 @@ class AppLinksApi {
   static const sendMessage = "${path}/send_message_user.php";
   static const getMessage = "${path}/get_message_user.php";
   static const loginUser = "${path}/login_phone.php";
+  static const getInv = "https://larra.xyz/php_serivecs/get_inv_user.php";
 }

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:karaz/core/constant/images_path.dart';
 import 'package:karaz/customWidgets/custom_padding.dart';
 import 'package:karaz/views/Auth/name_sign_up.dart';
+import 'package:karaz/views/WelcomeScreen/welcome_screen.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../controllers/controller_app.dart';
@@ -19,7 +20,6 @@ class AuthPhoneNumberOTP extends StatelessWidget {
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
 
-    TextEditingController t = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -117,10 +117,12 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                       labelData: "153-كود التحقق".tr,
                       hintData: "154-أدخل كود التحقق هنا".tr,
                       iconData: Icons.vertical_split_outlined,
-                      controllerData: t,
+                      controllerData: homeController.theCode,
                       value: (value) {
                         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
                             overlays: []);
+
+                        homeController.thecodeText = value.toString();
                         return value;
                       },
                       fillColor: AppColors.whiteColor,
@@ -134,6 +136,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                       onChanged: (value) {
                         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
                             overlays: []);
+                        homeController.thecodeText = value.toString();
                         return value;
                       },
                       // ignore: body_might_complete_normally_nullable
@@ -192,16 +195,21 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                     child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 70.w, vertical: 00.h),
-                        child: Text(
-                          "156-لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-"
-                              .tr,
-                          style: TextStyle(
-                            height: 1.3.h,
-                            fontSize: 13,
-                            fontFamily: AppTextStyles.Almarai,
-                            color: const Color.fromARGB(255, 234, 184, 4),
+                        child: InkWell(
+                          onTap: () {
+                            Get.offAll(WelcomeScreen());
+                          },
+                          child: Text(
+                            "156-لم يصلك الرمز؟ قم بطلب رمز التحقق مُجددًا -اضغط هنا للطلب-"
+                                .tr,
+                            style: TextStyle(
+                              height: 1.3.h,
+                              fontSize: 13,
+                              fontFamily: AppTextStyles.Almarai,
+                              color: const Color.fromARGB(255, 234, 184, 4),
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ))),
               ),
             ]),

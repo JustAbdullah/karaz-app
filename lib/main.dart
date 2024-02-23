@@ -12,7 +12,6 @@ import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
 import 'core/services/appservices.dart';
 import 'firebase_options.dart';
-import 'views/HomeScreen/HomeWidgets/OrdersWidgets/order_confirmation.dart';
 import 'views/LoadingScreen/loading_screen.dart';
 
 Future<void> main() async {
@@ -76,7 +75,7 @@ class MyApp extends StatelessWidget {
       locale: chagnelangcontroller.language,
       translations: AppTranslation(),
       title: "Karaz",
-      home: const Scaffold(
+      home: Scaffold(
           body: SafeArea(
               child: ScreenUtilInit(
                   designSize: Size(360, 690), child: LoadingScreen()))),

@@ -163,12 +163,16 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            homeController.waitLoginSignAuth.value = true;
-                            Future.delayed(const Duration(seconds: 5),
-                                () async {
-                              homeController.waitLoginSignAuth.value = false;
-                              Get.to(AuthPhoneNumberOTP());
-                            });
+                            if (homeController.thePhoneNumberTextSignUpLogin ==
+                                "a") {
+                            } else {
+                              homeController.waitLoginSignAuth.value = true;
+                              Future.delayed(const Duration(seconds: 5),
+                                  () async {
+                                homeController.waitLoginSignAuth.value = false;
+                                Get.to(AuthPhoneNumberOTP());
+                              });
+                            }
                           },
                           child: Container(
                             height: 30.h,

@@ -199,10 +199,12 @@ class ControllerApp extends GetxController {
 
   TextEditingController thePhoneNumberInSignUpLogin =
       new TextEditingController();
-  String thePhoneNumberTextSignUpLogin = "";
+  String thePhoneNumberTextSignUpLogin = "a";
   TextEditingController theNameInSignUp = new TextEditingController();
   String theNameTextSignUp = "";
 
+  TextEditingController theCode = new TextEditingController();
+  String thecodeText = "";
   RxInt isLoginOrSignUp = 1.obs;
   Future<void> createAccount(String name, String phone) async {
     waitLoginSignAuth.value = true;
@@ -627,7 +629,7 @@ class ControllerApp extends GetxController {
 
   void sendMessage(String title) async {
     var response = await crud.postRequest(AppLinksApi.sendMessage, {
-      'user_id': displayUserId.toString(),
+      'user_id': displayUserId.value.toString(),
       'body': title.toString(),
     });
 
@@ -638,7 +640,7 @@ class ControllerApp extends GetxController {
   RxBool isTheUserHaveMessage = false.obs;
   Future getTheMessageUser() async {
     var response = await crud.postRequest(AppLinksApi.getMessage, {
-      'user_id': displayUserId.toString(),
+      'user_id': displayUserId.value.toString(),
     });
     if (response['status'] == "success") {
       isTheUserHaveMessage.value = true;
@@ -650,6 +652,8 @@ class ControllerApp extends GetxController {
 
   ////////////////////////////////
   RxBool showLang = false.obs;
+
+  RxBool showInvoice = false.obs;
 
 ///////////////////////////////Date with week day-month Order New...... ............//////
 
@@ -788,4 +792,19 @@ class ControllerApp extends GetxController {
 
     countTheWhatChooseOfDate.value = 0;
   }
+
+  RxBool isTheUserInv = false.obs;
+  Future getTheInvUser() async {
+    var response = await crud.postRequest(AppLinksApi.getInv, {});
+    if (response['status'] == "success") {
+      isTheUserInv.value = true;
+    } else {
+      isTheUserInv.value = false;
+    }
+    return response;
+  }
+
+  //////////////////////////////////////Is No selecetd Itmes......Or No haveLoctaiont.................////////
+  RxBool noSelecetdItems = false.obs;
+  RxBool noAddLocation = false.obs;
 }

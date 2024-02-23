@@ -138,9 +138,15 @@ class OrdersList extends StatelessWidget {
                                                       onTap: () async {},
                                                       child: ContainerCustom(
                                                         theBorderRadius: 10,
-                                                        colorContainer:
-                                                            AppColors
-                                                                .whiteColor,
+                                                        colorContainer: snapshot
+                                                                            .data[
+                                                                        'data'][i]
+                                                                    [
+                                                                    'order_confirmation'] ==
+                                                                "1"
+                                                            ? AppColors
+                                                                .yellowColor
+                                                            : Colors.green,
                                                         heigthContainer: 110,
                                                         widthContainer:
                                                             MediaQuery.sizeOf(
@@ -200,11 +206,11 @@ class OrdersList extends StatelessWidget {
                                                                             builder: (scontroller) => scontroller.isChange.value == false
                                                                                 ? Text(
                                                                                     snapshot.data['data'][i]['services_main_name_ar'],
-                                                                                    style: TextStyle(color: Colors.green, fontFamily: AppTextStyles.Almarai, fontSize: 14.sp, fontWeight: FontWeight.bold),
+                                                                                    style: TextStyle(color: Colors.white, fontFamily: AppTextStyles.Almarai, fontSize: 14.sp, fontWeight: FontWeight.bold),
                                                                                   )
                                                                                 : Text(
                                                                                     snapshot.data['data'][i]['services_main_name_en'],
-                                                                                    style: TextStyle(color: Colors.green, fontFamily: AppTextStyles.Almarai, fontSize: 14.sp, fontWeight: FontWeight.bold),
+                                                                                    style: TextStyle(color: Colors.white, fontFamily: AppTextStyles.Almarai, fontSize: 14.sp, fontWeight: FontWeight.bold),
                                                                                   )),
                                                                       ),
                                                                     ],
@@ -300,7 +306,7 @@ class OrdersList extends StatelessWidget {
                                                                       style:
                                                                           TextStyle(
                                                                         color: Colors
-                                                                            .green,
+                                                                            .white,
                                                                         fontFamily:
                                                                             AppTextStyles.Almarai,
                                                                         fontSize:
@@ -321,7 +327,7 @@ class OrdersList extends StatelessWidget {
                                                                       style:
                                                                           TextStyle(
                                                                         color: AppColors
-                                                                            .yellowColor,
+                                                                            .whiteColor,
                                                                         fontFamily:
                                                                             AppTextStyles.Almarai,
                                                                         fontSize:
@@ -340,34 +346,6 @@ class OrdersList extends StatelessWidget {
                                                                 ),
                                                                 Row(
                                                                   children: [
-                                                                    Text(
-                                                                      snapshot.data['data'][i]['order_confirmation'] ==
-                                                                              "0"
-                                                                          ? "45-لم يتم الإنتهاء من الطلبية بعد"
-                                                                              .tr
-                                                                          : "46-انهيت تاكيد الطلبية شاهد التفاصيل الان"
-                                                                              .tr,
-                                                                      style:
-                                                                          TextStyle(
-                                                                        height:
-                                                                            1.5.h,
-                                                                        color: snapshot.data['data'][i]['order_confirmation'] ==
-                                                                                "0"
-                                                                            ? AppColors.theMainColorTwo
-                                                                            : AppColors.yellowColor,
-                                                                        fontFamily:
-                                                                            AppTextStyles.Almarai,
-                                                                        fontSize:
-                                                                            11,
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                    ),
-                                                                    SizedBox(
-                                                                      width:
-                                                                          5.w,
-                                                                    ),
                                                                     InkWell(
                                                                       onTap:
                                                                           () {
@@ -446,21 +424,19 @@ class OrdersList extends StatelessWidget {
                                                                               BorderRadius.circular(5),
                                                                           color: snapshot.data['data'][i]['order_confirmation'] == "0"
                                                                               ? AppColors.balckColorTypeFour
-                                                                              : AppColors.yellowColor,
+                                                                              : AppColors.balckColorTypeFour,
                                                                         ),
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              EdgeInsets.symmetric(horizontal: 10.w),
+                                                                              EdgeInsets.symmetric(horizontal: 30.w),
                                                                           child:
                                                                               Text(
-                                                                            snapshot.data['data'][i]['order_confirmation'] == "0"
-                                                                                ? "47-تاكيد الطلبية".tr
-                                                                                : "48-مشاهدة التفاصيل".tr,
+                                                                            "48-مشاهدة التفاصيل".tr,
                                                                             style:
                                                                                 TextStyle(
                                                                               height: 1.5.h,
-                                                                              color: snapshot.data['data'][i]['order_confirmation'] == "0" ? AppColors.whiteColor : AppColors.balckColorTypeFour,
+                                                                              color: AppColors.whiteColor,
                                                                               fontFamily: AppTextStyles.Almarai,
                                                                               fontSize: 11,
                                                                             ),
