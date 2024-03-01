@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:117356440666:android:685aa52994da39561dbc63",
+        "mobilesdk_app_id": "1:117356440666:android:2995f6ec04ca94251dbc63",
         "android_client_info": {
-          "package_name": "com.example.karaz"
+          "package_name": "com.app.karaz"
         }
       },
       "oauth_client": [],

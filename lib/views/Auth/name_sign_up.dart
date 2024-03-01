@@ -114,7 +114,15 @@ class AuthNameSignUP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            if (homeController.theNameTextSignUp == "") {
+                            if (homeController.theNameTextSignUp.isEmpty ||
+                                homeController.theNameTextSignUp.length < 6) {
+                              // إظهار رسالة خطأ
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'الاسم المُدخل قصير..!عليك إضافة المزيد'),
+                                ),
+                              );
                             } else {
                               homeController.createAccount(
                                   homeController.theNameTextSignUp.toString(),

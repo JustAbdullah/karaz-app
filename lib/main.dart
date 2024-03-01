@@ -13,6 +13,8 @@ import 'core/localization/translation.dart';
 import 'core/services/appservices.dart';
 import 'firebase_options.dart';
 import 'views/LoadingScreen/loading_screen.dart';
+import 'views/ted.dart';
+import 'views/testing.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

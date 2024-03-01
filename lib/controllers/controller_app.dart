@@ -223,16 +223,20 @@ class ControllerApp extends GetxController {
     return response;
   }
 
+  RxBool faildNumber = false.obs;
+  RxBool showMessageAboutFaildNumber = false.obs;
+  RxString phoneNumber = "a".obs;
   Future<void> LoginUser(String phone) async {
     var response = await crud.postRequest(AppLinksApi.loginUser, {
       'user_number_phone': "${phone.toString()}",
     });
 
     if (response['status'] == "success") {
-      getDataUser(phone.toString());
-
-      Get.to(HomeScreen());
-    } else {}
+      faildNumber.value = false;
+      phoneNumber.value = response['data'][0]['user_number_phone'].toString();
+    } else {
+      faildNumber.value = true;
+    }
 
     return response;
   }
@@ -795,7 +799,9 @@ class ControllerApp extends GetxController {
 
   RxBool isTheUserInv = false.obs;
   Future getTheInvUser() async {
-    var response = await crud.postRequest(AppLinksApi.getInv, {});
+    var response = await crud.postRequest(AppLinksApi.getInv, {
+      'id': displayUserId.value.toString(),
+    });
     if (response['status'] == "success") {
       isTheUserInv.value = true;
     } else {
@@ -807,4 +813,6 @@ class ControllerApp extends GetxController {
   //////////////////////////////////////Is No selecetd Itmes......Or No haveLoctaiont.................////////
   RxBool noSelecetdItems = false.obs;
   RxBool noAddLocation = false.obs;
+
+/////////////////////////////////////////.............Send OTP...............///////
 }

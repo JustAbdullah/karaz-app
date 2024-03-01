@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA9bYYXLpmzeBcY7IilDRUHUp1Y2zHoeAI',
-    appId: '1:117356440666:android:685aa52994da39561dbc63',
+    appId: '1:117356440666:android:2995f6ec04ca94251dbc63',
     messagingSenderId: '117356440666',
     projectId: 'karaz-7e427',
     storageBucket: 'karaz-7e427.appspot.com',
@@ -59,10 +59,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBRA_KCK-T8OcguE4bNiQwDpSl_FqF3bks',
-    appId: '1:117356440666:ios:f45dd59802cdcc7d1dbc63',
+    appId: '1:117356440666:ios:1a8d3e1539bbfbcc1dbc63',
     messagingSenderId: '117356440666',
     projectId: 'karaz-7e427',
     storageBucket: 'karaz-7e427.appspot.com',
-    iosBundleId: 'com.example.karaz',
+    iosBundleId: 'com.app.karaz',
   );
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,8 @@ import 'package:lottie/lottie.dart';
 import '../../controllers/controller_app.dart';
 import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
+import '../../customWidgets/custom_container.dart';
+import '../../customWidgets/custom_text.dart';
 import '../../customWidgets/custome_textfiled.dart';
 
 class AuthPhoneNumberLogin extends StatelessWidget {
@@ -19,6 +22,52 @@ class AuthPhoneNumberLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
+
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    String? _phoneNumber;
+
+    void sendOtp() async {
+      // تحديد رقم الهاتف من متحكم النص
+      _phoneNumber = homeController.thePhoneNumberTextSignUpLogin.trim();
+
+      // إضافة رمز البلد إلى رقم الهاتف
+      _phoneNumber = '+967' + _phoneNumber!;
+
+      // محاولة إرسال otp باستخدام firebase auth
+      try {
+        await _auth.verifyPhoneNumber(
+          phoneNumber: _phoneNumber,
+          verificationCompleted: (PhoneAuthCredential credential) {
+            // هذه الدالة تستدعى عندما يتم التحقق من otp تلقائيا
+            // يمكنك تسجيل الدخول بواسطة الاعتماد أو التنقل إلى صفحة أخرى
+          },
+          verificationFailed: (FirebaseAuthException e) {
+            // هذه الدالة تستدعى عندما يفشل إرسال otp
+            // يمكنك إظهار رسالة خطأ أو إعادة المحاولة
+          },
+          codeSent: (String? verificationId, int? resendToken) {
+            homeController.waitLoginSignAuth.value = false;
+            // هذه الدالة تستدعى عندما يتم إرسال otp بنجاح
+            // يمكنك التنقل إلى صفحة التحقق من otp وتمرير verificationId
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    AuthPhoneNumberOTP(verificationId: verificationId!),
+              ),
+            );
+          },
+          codeAutoRetrievalTimeout: (String verificationId) {
+            // هذه الدالة تستدعى عندما ينتهي وقت otp
+            // يمكنك إعادة إرسال otp أو إلغاء العملية
+            homeController.waitLoginSignAuth.value = false;
+          },
+        );
+      } catch (e) {
+        homeController.waitLoginSignAuth.value = false;
+        // التعامل مع أي استثناءات أخرى
+        print(e);
+      }
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -164,16 +213,36 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            if (homeController.thePhoneNumberTextSignUpLogin ==
-                                "a") {
+                            homeController.waitLoginSignAuth.value = true;
+                            if (homeController
+                                    .thePhoneNumberTextSignUpLogin.isEmpty ||
+                                homeController
+                                        .thePhoneNumberTextSignUpLogin.length <
+                                    8) {
+                              // إظهار رسالة خطأ
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'رقص الهاتف ناقص الرجاء التاكد من صحة الرقم'),
+                                ),
+                              );
+                              homeController.waitLoginSignAuth.value = false;
                             } else {
-                              homeController.waitLoginSignAuth.value = true;
-                              Future.delayed(const Duration(seconds: 5),
-                                  () async {
-                                homeController.waitLoginSignAuth.value = false;
-                                Get.to(AuthPhoneNumberOTP());
+                              homeController.LoginUser(homeController
+                                  .thePhoneNumberTextSignUpLogin
+                                  .toString());
+
+                              Future.delayed(Duration(seconds: 3), () async {
+                                if (homeController.faildNumber.value == true) {
+                                  homeController
+                                      .showMessageAboutFaildNumber.value = true;
+                                } else {
+                                  sendOtp();
+                                }
                               });
                             }
+
+                            //  Get.to(AuthPhoneNumberOTP());
                           },
                           child: Container(
                             height: 30.h,
@@ -205,6 +274,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
+                            homeController.thePhoneNumberInSignUpLogin.clear();
                             homeController.isLoginOrSignUp.value = 2;
                             Get.to(AuthPhoneNumberSignUP());
                           },
@@ -274,6 +344,76 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                         ),
                       )
                     ],
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.showMessageAboutFaildNumber.value,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.black38,
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.showMessageAboutFaildNumber.value,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.black38,
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.showMessageAboutFaildNumber.value,
+                  child: PaddingCustom(
+                    theTop: 190.h,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Lottie.asset(ImagesPath.error, width: 140.w),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            child: Text(
+                              "عزيزي المستخدم..الرقم المدخل غير متوفر في قاعدة البيانات ..الرجاء التاكد من الرقم وفي حال لم تقم بإنشاء حساب من قبل قم بإنشاء واحد الان"
+                                  .tr,
+                              style: TextStyle(
+                                height: 1.7.h,
+                                color: AppColors.whiteColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              controller.showMessageAboutFaildNumber.value =
+                                  false;
+                              controller.waitLoginSignAuth.value = false;
+                              homeController.thePhoneNumberInSignUpLogin
+                                  .clear();
+                            },
+                            child: ContainerCustom(
+                              widthContainer: 200.w,
+                              heigthContainer: 30,
+                              colorContainer: AppColors.yellowColor,
+                              child: Center(
+                                child: TextCustom(
+                                    theText: "الاخفاء".tr,
+                                    fontSizeWidth: 20,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    fontColor: AppColors.balckColorTypeThree),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ))),
         ],
       ),

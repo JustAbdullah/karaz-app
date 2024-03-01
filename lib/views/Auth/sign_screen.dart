@@ -12,6 +12,7 @@ import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custome_textfiled.dart';
 import 'login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthPhoneNumberSignUP extends StatelessWidget {
   const AuthPhoneNumberSignUP({super.key});
@@ -19,6 +20,61 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
+// تعريف الحالة العالمية للمصادقة ورقم الهاتف
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    String? _phoneNumber;
+
+    void sendOtp() async {
+      // تحديد رقم الهاتف من متحكم النص
+      _phoneNumber = homeController.thePhoneNumberTextSignUpLogin.trim();
+
+      // التحقق من صحة رقم الهاتف
+      if (_phoneNumber!.isEmpty || _phoneNumber!.length < 8) {
+        // إظهار رسالة خطأ
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('رقص الهاتف ناقص الرجاء التاكد من صحة الرقم'),
+          ),
+        );
+
+        return;
+      }
+
+      // إضافة رمز البلد إلى رقم الهاتف
+      _phoneNumber = '+967' + _phoneNumber!;
+
+      // محاولة إرسال otp باستخدام firebase auth
+      try {
+        await _auth.verifyPhoneNumber(
+          phoneNumber: _phoneNumber,
+          verificationCompleted: (PhoneAuthCredential credential) {
+            // هذه الدالة تستدعى عندما يتم التحقق من otp تلقائيا
+            // يمكنك تسجيل الدخول بواسطة الاعتماد أو التنقل إلى صفحة أخرى
+          },
+          verificationFailed: (FirebaseAuthException e) {
+            // هذه الدالة تستدعى عندما يفشل إرسال otp
+            // يمكنك إظهار رسالة خطأ أو إعادة المحاولة
+          },
+          codeSent: (String? verificationId, int? resendToken) {
+            // هذه الدالة تستدعى عندما يتم إرسال otp بنجاح
+            // يمكنك التنقل إلى صفحة التحقق من otp وتمرير verificationId
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    AuthPhoneNumberOTP(verificationId: verificationId!),
+              ),
+            );
+          },
+          codeAutoRetrievalTimeout: (String verificationId) {
+            // هذه الدالة تستدعى عندما ينتهي وقت otp
+            // يمكنك إعادة إرسال otp أو إلغاء العملية
+          },
+        );
+      } catch (e) {
+        // التعامل مع أي استثناءات أخرى
+        print(e);
+      }
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -166,12 +222,11 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                             if (homeController.thePhoneNumberTextSignUpLogin ==
                                 "a") {
                             } else {
+/////////////////////////////////////
+
+////////////////////////////////
                               homeController.waitLoginSignAuth.value = true;
-                              Future.delayed(const Duration(seconds: 5),
-                                  () async {
-                                homeController.waitLoginSignAuth.value = false;
-                                Get.to(AuthPhoneNumberOTP());
-                              });
+                              sendOtp();
                             }
                           },
                           child: Container(
@@ -204,6 +259,8 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                             onTap: () {
+                              homeController.thePhoneNumberInSignUpLogin
+                                  .clear();
                               homeController.isLoginOrSignUp.value = 1;
                               Get.to(AuthPhoneNumberLogin());
                             },

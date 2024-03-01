@@ -1,3 +1,6 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:karaz/core/constant/images_path.dart';
 import 'package:karaz/customWidgets/custom_padding.dart';
 import 'package:karaz/views/Auth/name_sign_up.dart';
+import 'package:karaz/views/HomeScreen/home_screen.dart';
 import 'package:karaz/views/WelcomeScreen/welcome_screen.dart';
 import 'package:lottie/lottie.dart';
 
@@ -13,12 +17,111 @@ import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custome_textfiled.dart';
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
 class AuthPhoneNumberOTP extends StatelessWidget {
-  const AuthPhoneNumberOTP({super.key});
+  String verificationId;
+
+  AuthPhoneNumberOTP({required this.verificationId});
 
   @override
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
+
+    void verifyOtp() async {
+      // تحديد otp من متحكم النص
+      String otp = homeController.thecodeText.trim();
+
+      // التحقق من صحة otp
+      if (otp.isEmpty || otp.length != 6) {
+        // إظهار رسالة خطأ
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('الرجاء إدخال كود التحقق وهو 6 أرقام'),
+          ),
+        );
+        return;
+      }
+
+      // إنشاء اعتماد المصادقة باستخدام otp ومعرف التحقق
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: otp,
+      );
+
+      // محاولة تسجيل الدخول باستخدام الاعتماد
+      try {
+        // تسجيل الدخول باستخدام الاعتماد
+        await _auth.signInWithCredential(credential);
+
+        // إظهار رسالة نجاح
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('لقد تم التحقق بنجاح'),
+          ),
+        );
+        Get.to(AuthNameSignUP());
+        // التنقل إلى صفحة أخرى أو القيام بأي عمل آخر
+      } on FirebaseAuthException catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                'هنالك خطا  في عملية إدخال الكود ..الرجاء المحاولة مجددًا'),
+          ),
+        );
+        // التعامل مع أي استثناءات أخرى
+        print(e);
+      }
+    }
+
+    void verifyOtpGoToHomeLogin() async {
+      // تحديد otp من متحكم النص
+      String otp = homeController.thecodeText.trim();
+
+      // التحقق من صحة otp
+      if (otp.isEmpty || otp.length != 6) {
+        // إظهار رسالة خطأ
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('الرجاء إدخال كود التحقق وهو 6 أرقام'),
+          ),
+        );
+        return;
+      }
+
+      // إنشاء اعتماد المصادقة باستخدام otp ومعرف التحقق
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: otp,
+      );
+
+      // محاولة تسجيل الدخول باستخدام الاعتماد
+      try {
+        // تسجيل الدخول باستخدام الاعتماد
+        await _auth.signInWithCredential(credential);
+
+        // إظهار رسالة نجاح
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('لقد تم التحقق بنجاح'),
+          ),
+        );
+
+        homeController.getDataUser(
+            homeController.thePhoneNumberTextSignUpLogin.toString());
+        Get.to(HomeScreen());
+        // التنقل إلى صفحة أخرى أو القيام بأي عمل آخر
+      } on FirebaseAuthException catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                'هنالك خطا  في عملية إدخال الكود ..الرجاء المحاولة مجددًا'),
+          ),
+        );
+        // التعامل مع أي استثناءات أخرى
+        print(e);
+      }
+    }
 
     return Scaffold(
       body: Stack(
@@ -160,11 +263,9 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             if (homeController.isLoginOrSignUp.value == 1) {
-                              homeController.LoginUser(homeController
-                                  .thePhoneNumberTextSignUpLogin
-                                  .toString());
+                              verifyOtpGoToHomeLogin();
                             } else {
-                              Get.to(AuthNameSignUP());
+                              verifyOtp();
                             }
                           },
                           child: Container(
