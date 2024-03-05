@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColorTypeTwo,
       body: SafeArea(
-          child: Stack(
+          child: Column(
         children: [
           Column(
             children: [
