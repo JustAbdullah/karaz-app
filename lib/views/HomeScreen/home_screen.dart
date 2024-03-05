@@ -36,28 +36,30 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColorTypeTwo,
       body: SafeArea(
-          child: Column(
+          child: Stack(
         children: [
-          Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.88,
-                child: SingleChildScrollView(
-                  child: Column(children: [
-                    TopHeaderHomeScreen(),
-                    ContainerOffers(),
-                    SizedBox(
-                      height: 420.h,
-                      child: viewTheMainTypesHomeScreen(),
-                    ),
-                  ]),
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.92,
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      TopHeaderHomeScreen(),
+                      ContainerOffers(),
+                      SizedBox(
+                        height: 420.h,
+                        child: viewTheMainTypesHomeScreen(),
+                      ),
+                    ]),
+                  ),
                 ),
-              ),
-              Spacer(),
-              Container(
-                  height: MediaQuery.of(context).size.height * 0.08,
-                  child: MenuList())
-            ],
+                Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MenuList())
+              ],
+            ),
           ),
           SubTypes(),
           SettingsMenu(),
