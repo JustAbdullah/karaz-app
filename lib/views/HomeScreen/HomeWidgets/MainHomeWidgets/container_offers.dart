@@ -27,45 +27,50 @@ class ContainerOffers extends StatelessWidget {
             child: Center(
               child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  child: Row(children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 17,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(children: [
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 17,
+                            ),
+                            Container(
+                              width: 140.h,
+                              child: Text(
+                                "تطبيق كرز",
+                                style: TextStyle(
+                                    height: 1.3.h,
+                                    fontSize: 17.sp,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    color: AppColors.whiteColor),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 0,
+                            ),
+                            Container(
+                              width: 170.h,
+                              child: Text(
+                                "خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول",
+                                style: TextStyle(
+                                    height: 1.3.h,
+                                    fontSize: 15.sp,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    color: AppColors.whiteColor),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
-                        Container(
-                          width: 140.h,
-                          child: Text(
-                            "تطبيق كرز",
-                            style: TextStyle(
-                                height: 1.3.h,
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: AppTextStyles.Almarai,
-                                color: AppColors.whiteColor),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 0,
-                        ),
-                        Container(
-                          width: 170.h,
-                          child: Text(
-                            "خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول",
-                            style: TextStyle(
-                                height: 1.3.h,
-                                fontSize: 15.sp,
-                                fontFamily: AppTextStyles.Almarai,
-                                color: AppColors.whiteColor),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Lottie.asset(ImagesPath.serivece2),
-                  ])),
+                      ),
+                      Lottie.asset(ImagesPath.serivece2),
+                    ]),
+                  )),
             )));
   }
 }

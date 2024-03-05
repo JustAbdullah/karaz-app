@@ -38,28 +38,26 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
           child: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.92,
-                  child: SingleChildScrollView(
-                    child: Column(children: [
-                      TopHeaderHomeScreen(),
-                      ContainerOffers(),
-                      SizedBox(
-                        height: 420.h,
-                        child: viewTheMainTypesHomeScreen(),
-                      ),
-                    ]),
-                  ),
+          Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.88,
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    TopHeaderHomeScreen(),
+                    ContainerOffers(),
+                    SizedBox(
+                      height: 420.h,
+                      child: viewTheMainTypesHomeScreen(),
+                    ),
+                  ]),
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MenuList())
-              ],
-            ),
+              ),
+              Spacer(),
+              Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  child: MenuList())
+            ],
           ),
           SubTypes(),
           SettingsMenu(),

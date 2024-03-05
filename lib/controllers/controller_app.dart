@@ -560,7 +560,7 @@ class ControllerApp extends GetxController {
     addImageWork.value = false;
   }
 
-  ////////////////////////////////////////////////////////Take User Token......////////////
+  ////////////////////////////////////////////////////////.........Take User Token......////////////
 
   RxBool isHaveUserMessages = false.obs;
   Future getUserMessages() async {
@@ -591,7 +591,7 @@ class ControllerApp extends GetxController {
     Get.offAll(WelcomeScreen());
   }
 
-  ///////////////////Delete Account..................///////////
+  ///////////////////////......................Delete Account..................///////////
 
   void deleteAccount() async {
     var response = await crud.postRequest(AppLinksApi.deleteAccount, {
