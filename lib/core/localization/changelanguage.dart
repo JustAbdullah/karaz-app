@@ -20,6 +20,8 @@ class ChangeLanguageToLocale extends GetxController {
     appServices.sharedPreferences.setString("lang", langcode);
 
     langcode == "ar" ? themechage = true : themechage = false;
+    langcode == "ar" ? isChange.value = false : isChange.value = true;
+    isChange.value = false;
 
 /* Get.changeTheme(appTheme);*/
     if (langcode == "ar") {
@@ -28,6 +30,7 @@ class ChangeLanguageToLocale extends GetxController {
           appServices.sharedPreferences.getInt('langData') as int;
 
       Get.changeTheme;
+
       isChange.value = false;
       update();
     } else if (langcode == "en") {
@@ -66,6 +69,7 @@ class ChangeLanguageToLocale extends GetxController {
       isChange.value = true;
     } else {
       language = Locale(Get.deviceLocale!.languageCode);
+      language == "ar" ? isChange.value = false : isChange.value = true;
     }
   }
 }

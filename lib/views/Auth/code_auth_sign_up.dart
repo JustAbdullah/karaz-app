@@ -144,7 +144,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                     "150-صفحة التحقق من الرمز".tr,
                     style: TextStyle(
                         height: 1.3.h,
-                        fontSize: 19,
+                        fontSize: 19.sp,
                         fontFamily: AppTextStyles.Almarai,
                         color: Color.fromARGB(255, 69, 69, 69)),
                     textAlign: TextAlign.center,
@@ -164,7 +164,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             .tr,
                         style: TextStyle(
                             height: 1.3.h,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontFamily: AppTextStyles.Almarai,
                             color: Color.fromARGB(255, 69, 69, 69)),
                         textAlign: TextAlign.center,
@@ -187,7 +187,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             "152-رقم هاتفك المُدخل:".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: Color.fromARGB(255, 69, 69, 69)),
                             textAlign: TextAlign.center,
@@ -200,7 +200,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             homeController.thePhoneNumberTextSignUpLogin,
                             style: TextStyle(
                               height: 1.3.h,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontFamily: AppTextStyles.Almarai,
                               color: AppColors.redColor,
                             ),
@@ -279,7 +279,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                                 "155-المتابعة".tr,
                                 style: TextStyle(
                                   height: 2.h,
-                                  fontSize: 17,
+                                  fontSize: 17.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.whiteColor,
                                 ),
@@ -305,7 +305,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                                 .tr,
                             style: TextStyle(
                               height: 1.3.h,
-                              fontSize: 13,
+                              fontSize: 13.sp,
                               fontFamily: AppTextStyles.Almarai,
                               color: const Color.fromARGB(255, 234, 184, 4),
                             ),
@@ -340,7 +340,7 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                         "157-أنتظر قليلاً إننا نقوم بالتحقق من الرقم".tr,
                         style: TextStyle(
                           height: 1.3.h,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontFamily: AppTextStyles.Almarai,
                           color: AppColors.whiteColor,
                         ),

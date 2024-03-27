@@ -36,7 +36,7 @@ class AuthNameSignUP extends StatelessWidget {
                     "140-مرحبًا بك..صفحة إنشاء الحساب".tr,
                     style: TextStyle(
                         height: 1.3.h,
-                        fontSize: 19,
+                        fontSize: 19.sp,
                         fontFamily: AppTextStyles.Almarai,
                         color: Color.fromARGB(255, 69, 69, 69)),
                     textAlign: TextAlign.center,
@@ -56,7 +56,7 @@ class AuthNameSignUP extends StatelessWidget {
                             .tr,
                         style: TextStyle(
                             height: 1.3.h,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontFamily: AppTextStyles.Almarai,
                             color: Color.fromARGB(255, 69, 69, 69)),
                         textAlign: TextAlign.center,
@@ -141,7 +141,7 @@ class AuthNameSignUP extends StatelessWidget {
                                 "161-الإنشاء الان".tr,
                                 style: TextStyle(
                                   height: 2.h,
-                                  fontSize: 17,
+                                  fontSize: 17.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.whiteColor,
                                 ),

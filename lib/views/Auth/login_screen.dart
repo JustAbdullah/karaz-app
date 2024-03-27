@@ -83,10 +83,10 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "مرحبًا بك..صفحة تسجيل الدخول ",
+                    "164.4-مرحبًا بك..صفحة تسجيل الدخول".tr,
                     style: TextStyle(
                         height: 1.3.h,
-                        fontSize: 19,
+                        fontSize: 19.sp,
                         fontFamily: AppTextStyles.Almarai,
                         color: Color.fromARGB(255, 69, 69, 69)),
                     textAlign: TextAlign.center,
@@ -114,7 +114,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                             .tr,
                         style: TextStyle(
                             height: 1.3.h,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontFamily: AppTextStyles.Almarai,
                             color: Color.fromARGB(255, 69, 69, 69)),
                         textAlign: TextAlign.center,
@@ -193,7 +193,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                                     child: Text(
                                       "971+",
                                       style: TextStyle(
-                                        fontSize: 17,
+                                        fontSize: 17.sp,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.whiteColor,
                                       ),
@@ -255,7 +255,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                                 "147-التحقق الان".tr,
                                 style: TextStyle(
                                   height: 2.h,
-                                  fontSize: 17,
+                                  fontSize: 17.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.whiteColor,
                                 ),
@@ -283,7 +283,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                                 .tr,
                             style: TextStyle(
                               height: 1.3.h,
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontFamily: AppTextStyles.Almarai,
                               color: AppColors.yellowColor,
                             ),
@@ -382,7 +382,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                                 height: 1.7.h,
                                 color: AppColors.whiteColor,
                                 fontFamily: AppTextStyles.Almarai,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -405,7 +405,7 @@ class AuthPhoneNumberLogin extends StatelessWidget {
                               child: Center(
                                 child: TextCustom(
                                     theText: "الاخفاء".tr,
-                                    fontSizeWidth: 20,
+                                    fontSizeWidth: 20.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     fontColor: AppColors.balckColorTypeThree),
                               ),

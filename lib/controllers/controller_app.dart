@@ -665,8 +665,8 @@ class ControllerApp extends GetxController {
   RxBool OpeartionsOrderPage = false.obs;
   RxInt whereIsTheOrderStyp = 3.obs;
   RxBool showTheSh = true.obs;
-  RxString titleOfOrder = "الجدولة".obs;
-  RxString buttonInOrder = "المتابعة".obs;
+  RxString titleOfOrder = "261-المتابعة".tr.obs;
+  RxString buttonInOrder = "261-المتابعة".tr.obs;
   RxString theDateChoosd = "".obs;
   RxString theTimeChosed = "".obs;
   RxInt countTheTimeChosed = 0.obs;
@@ -681,7 +681,7 @@ class ControllerApp extends GetxController {
         whereIsTheOrderStyp.value = 4;
         showTheSh.value = false;
         titleOfOrder.value = "185-التاكيد".tr;
-        buttonInOrder.value = "الإنهاء";
+        buttonInOrder.value = "262-الانهاء".tr;
         showTheConfOrder.value = true;
       } else {}
     } else if (whereIsTheOrderStyp.value == 4) {

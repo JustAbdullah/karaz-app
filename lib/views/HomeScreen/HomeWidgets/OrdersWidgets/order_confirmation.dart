@@ -78,7 +78,7 @@ class _orderConfState extends State<orderConf> {
                                         controller.titleOfOrder.value =
                                             "180-الجدولة".tr;
                                         controller.buttonInOrder.value =
-                                            "181-المتابعة";
+                                            "261-المتابعة".tr;
                                       }
                                     },
                                     child: Image.asset(
@@ -92,7 +92,7 @@ class _orderConfState extends State<orderConf> {
                               Padding(
                                   padding: EdgeInsets.only(top: 10.h),
                                   child: Text(
-                                    controllerApp.titleOfOrder.value,
+                                    controllerApp.titleOfOrder.value.tr,
                                     style: TextStyle(
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.whiteColor,
@@ -1318,7 +1318,7 @@ class _orderConfState extends State<orderConf> {
                                                                 border:
                                                                     Border.all(
                                                                   color: AppColors
-                                                                      .theMainColor, //                   <--- border color
+                                                                      .theMainColor,
                                                                   width: 1.0,
                                                                 )),
                                                         width: 160.w,
@@ -2557,8 +2557,9 @@ class _orderConfState extends State<orderConf> {
                     right: 0,
                     child: GetX<ControllerApp>(
                         builder: (controller) => Visibility(
-                            visible: controller.whereIsTheOrderStyp.value == 3 ||
-                                controller.whereIsTheOrderStyp.value == 4,
+                            visible:
+                                controller.whereIsTheOrderStyp.value == 3 ||
+                                    controller.whereIsTheOrderStyp.value == 4,
                             child: Container(
                               color: AppColors.theMainColor,
                               width: MediaQuery.of(context).size.width,

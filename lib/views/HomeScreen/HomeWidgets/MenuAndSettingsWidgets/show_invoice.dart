@@ -71,7 +71,7 @@ class _InvListState extends State<InvList> {
                                     "208-قائمة  فواتيرك الإلكترونية".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 19,
+                                        fontSize: 19.sp,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.balckColorTypeFour),
@@ -95,7 +95,7 @@ class _InvListState extends State<InvList> {
                                         "X",
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w600,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
@@ -125,7 +125,7 @@ class _InvListState extends State<InvList> {
                                                 color: AppColors.blackColor,
                                                 fontFamily:
                                                     AppTextStyles.Almarai,
-                                                fontSize: 14,
+                                                fontSize: 14.sp,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                               textAlign: TextAlign.center,
@@ -260,7 +260,7 @@ class _InvListState extends State<InvList> {
                                                                         AppTextStyles
                                                                             .Almarai,
                                                                     fontSizeWidth:
-                                                                        18,
+                                                                        18.sp,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -335,7 +335,7 @@ class _InvListState extends State<InvList> {
                                                                             fontFamily:
                                                                                 AppTextStyles.Almarai,
                                                                             fontSize:
-                                                                                14,
+                                                                                14.sp,
                                                                           ),
                                                                         ),
                                                                       ),

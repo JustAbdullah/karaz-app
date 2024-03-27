@@ -56,7 +56,7 @@ class SettingsMenu extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -75,7 +75,7 @@ class SettingsMenu extends StatelessWidget {
                                 "12-الإعدادت".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 21,
+                                    fontSize: 21.sp,
                                     fontWeight: FontWeight.w600,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
@@ -104,7 +104,7 @@ class SettingsMenu extends StatelessWidget {
                                     "13-معلومات الحساب".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w600,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.balckColorTypeFour),
@@ -153,7 +153,7 @@ class SettingsMenu extends StatelessWidget {
                                       "14-الطلبيات".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 15,
+                                          fontSize: 15.sp,
                                           fontWeight: FontWeight.w600,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.balckColorTypeFour),
@@ -195,7 +195,7 @@ class SettingsMenu extends StatelessWidget {
                                     "15-موقعي".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w600,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.balckColorTypeFour),
@@ -240,10 +240,10 @@ class SettingsMenu extends StatelessWidget {
                                       width: 10.w,
                                     ),
                                     Text(
-                                   "207-الفواتير الإلكترونية".tr,
+                                      "207-الفواتير الإلكترونية".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 15,
+                                          fontSize: 15.sp,
                                           fontWeight: FontWeight.w600,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.balckColorTypeFour),
@@ -291,7 +291,7 @@ class SettingsMenu extends StatelessWidget {
                                       "16-التنبيهات".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 15,
+                                          fontSize: 15.sp,
                                           fontWeight: FontWeight.w600,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.balckColorTypeFour),
@@ -330,7 +330,7 @@ class SettingsMenu extends StatelessWidget {
                                   "17-معلومات حول كرز".tr,
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.balckColorTypeFour),
@@ -372,7 +372,7 @@ class SettingsMenu extends StatelessWidget {
                                     "168-اللغة".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w600,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.balckColorTypeFour),
@@ -415,7 +415,7 @@ class SettingsMenu extends StatelessWidget {
                                       "18-تسجيل خروج".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 15,
+                                          fontSize: 15.sp,
                                           fontWeight: FontWeight.w600,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.balckColorTypeFour),
@@ -458,7 +458,7 @@ class SettingsMenu extends StatelessWidget {
                                     "19-حذف الحساب".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w600,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.balckColorTypeFour),
@@ -525,7 +525,7 @@ class SettingsMenu extends StatelessWidget {
                                       "X",
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 15,
+                                          fontSize: 15.sp,
                                           fontWeight: FontWeight.w600,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.whiteColor),
@@ -588,7 +588,7 @@ class SettingsMenu extends StatelessWidget {
                                         "171-حذف الحساب الان".tr,
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w600,
                                             fontFamily: AppTextStyles.Almarai,
                                             color:

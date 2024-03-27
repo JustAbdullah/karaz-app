@@ -40,7 +40,7 @@ class ContainerOffers extends StatelessWidget {
                             Container(
                               width: 140.h,
                               child: Text(
-                                "تطبيق كرز",
+                                "230-تطبيق كرز".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
                                     fontSize: 17.sp,
@@ -56,7 +56,8 @@ class ContainerOffers extends StatelessWidget {
                             Container(
                               width: 170.h,
                               child: Text(
-                                "خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول",
+                                "234-خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول"
+                                    .tr,
                                 style: TextStyle(
                                     height: 1.3.h,
                                     fontSize: 15.sp,

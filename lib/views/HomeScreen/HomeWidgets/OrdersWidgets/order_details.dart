@@ -57,7 +57,7 @@ class OrdersDetails extends StatelessWidget {
                               "103-التفاصيل النهائية للطلبية".tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 17,
+                                  fontSize: 17.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
                               textAlign: TextAlign.center,
@@ -80,7 +80,7 @@ class OrdersDetails extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -107,7 +107,7 @@ class OrdersDetails extends StatelessWidget {
                             "60-التفاصيل العامة".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor),
                             textAlign: TextAlign.center,
@@ -127,7 +127,7 @@ class OrdersDetails extends StatelessWidget {
                                 "61-نوع الخدمة:".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w600,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
@@ -153,7 +153,7 @@ class OrdersDetails extends StatelessWidget {
                                                   .toString(),
                                               style: TextStyle(
                                                   height: 1.3.h,
-                                                  fontSize: 15,
+                                                  fontSize: 15.sp,
                                                   fontWeight: FontWeight.w600,
                                                   fontFamily:
                                                       AppTextStyles.Almarai,
@@ -191,7 +191,7 @@ class OrdersDetails extends StatelessWidget {
                               "62-رقم الطلبية:".tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.w600,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
@@ -212,7 +212,7 @@ class OrdersDetails extends StatelessWidget {
                                     controller.numberOfOrder.toString(),
                                     style: TextStyle(
                                         height: 1.3.h,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w600,
                                         fontFamily: AppTextStyles.Almarai,
                                         color: AppColors.whiteColor),
@@ -233,7 +233,7 @@ class OrdersDetails extends StatelessWidget {
                               "63-إجمالي الطلبية:".tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.w600,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
@@ -256,7 +256,7 @@ class OrdersDetails extends StatelessWidget {
                                         "AED",
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
@@ -297,7 +297,7 @@ class OrdersDetails extends StatelessWidget {
                             "64-تفاصيل أنواع الخدمة المقدمة".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor),
                             textAlign: TextAlign.center,
@@ -322,7 +322,7 @@ class OrdersDetails extends StatelessWidget {
                                           height: 1.5.h,
                                           color: AppColors.blackColor,
                                           fontFamily: AppTextStyles.Almarai,
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         textAlign: TextAlign.center,
@@ -358,12 +358,10 @@ class OrdersDetails extends StatelessWidget {
                                                                             [
                                                                             'sub_type_name_ar'],
                                                                         style: TextStyle(
-                                                                            height: 1.7
-                                                                                .h,
-                                                                            fontSize:
-                                                                                13,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
+                                                                            height:
+                                                                                1.7.h,
+                                                                            fontSize: 13.sp,
+                                                                            fontWeight: FontWeight.w600,
                                                                             fontFamily: AppTextStyles.Almarai,
                                                                             color: AppColors.balckColorTypeFour),
                                                                         textAlign:
@@ -374,13 +372,10 @@ class OrdersDetails extends StatelessWidget {
                                                                             [
                                                                             'sub_type_name_en'],
                                                                         style: TextStyle(
-                                                                            height: 1.7
-                                                                                .h
-                                                                                .h,
-                                                                            fontSize:
-                                                                                13,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
+                                                                            height:
+                                                                                1.7.h.h,
+                                                                            fontSize: 13.sp,
+                                                                            fontWeight: FontWeight.w600,
                                                                             fontFamily: AppTextStyles.Almarai,
                                                                             color: AppColors.balckColorTypeFour),
                                                                         textAlign:
@@ -418,7 +413,7 @@ class OrdersDetails extends StatelessWidget {
                                                                               'name_type_sub'],
                                                                           style: TextStyle(
                                                                               height: 1.3.h,
-                                                                              fontSize: 12,
+                                                                              fontSize: 12.sp,
                                                                               fontWeight: FontWeight.w600,
                                                                               fontFamily: AppTextStyles.Almarai,
                                                                               color: AppColors.balckColorTypeFour),
@@ -467,7 +462,7 @@ class OrdersDetails extends StatelessWidget {
                                                                       height:
                                                                           1.3.h,
                                                                       fontSize:
-                                                                          15,
+                                                                          15.sp,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -492,7 +487,7 @@ class OrdersDetails extends StatelessWidget {
                                                                       height:
                                                                           1.3.h,
                                                                       fontSize:
-                                                                          12,
+                                                                          12.sp,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -573,7 +568,8 @@ class OrdersDetails extends StatelessWidget {
                                                               fontFamily:
                                                                   AppTextStyles
                                                                       .Almarai,
-                                                              fontSizeWidth: 18,
+                                                              fontSizeWidth:
+                                                                  18.sp,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
@@ -681,7 +677,7 @@ class OrdersDetails extends StatelessWidget {
                             "66-عملية الجدولة".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor),
                             textAlign: TextAlign.center,
@@ -700,7 +696,7 @@ class OrdersDetails extends StatelessWidget {
                                   .tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
                               textAlign: TextAlign.center,
@@ -800,7 +796,7 @@ class OrdersDetails extends StatelessWidget {
                                   .tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
                               textAlign: TextAlign.center,
@@ -853,7 +849,7 @@ class OrdersDetails extends StatelessWidget {
                             "77-موقعك".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor),
                             textAlign: TextAlign.center,
@@ -875,7 +871,7 @@ class OrdersDetails extends StatelessWidget {
                                   .tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
                               textAlign: TextAlign.center,
@@ -901,7 +897,7 @@ class OrdersDetails extends StatelessWidget {
                                 "79-مشاهدة موقعك".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
@@ -921,7 +917,7 @@ class OrdersDetails extends StatelessWidget {
                                   .tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 10,
+                                  fontSize: 10.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.theMainColorTwo),
                               textAlign: TextAlign.center,
@@ -945,7 +941,7 @@ class OrdersDetails extends StatelessWidget {
                             "80-تفاصيل أخرى".tr,
                             style: TextStyle(
                                 height: 1.3.h,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 fontFamily: AppTextStyles.Almarai,
                                 color: AppColors.whiteColor),
                             textAlign: TextAlign.center,
@@ -967,7 +963,7 @@ class OrdersDetails extends StatelessWidget {
                                   .tr,
                               style: TextStyle(
                                   height: 1.3.h,
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.balckColorTypeFour),
                               textAlign: TextAlign.center,

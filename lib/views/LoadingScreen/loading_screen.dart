@@ -34,7 +34,7 @@ class LoadingScreen extends StatelessWidget {
             PaddingCustom(
                 theBottom: 10,
                 child: TextCustom(
-                    theText: "انتظر قليلاً..",
+                    theText: "235-انتظر قليلاً..".tr,
                     fontSizeWidth: 20.sp,
                     fontFamily: AppTextStyles.Almarai,
                     fontColor: AppColors.theMainColor)),

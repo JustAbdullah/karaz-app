@@ -59,7 +59,7 @@ class GetLocation extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -78,7 +78,7 @@ class GetLocation extends StatelessWidget {
                                 "27-تحديد موقعك على الخريطة".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 19,
+                                    fontSize: 19.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
                                 textAlign: TextAlign.center,
@@ -96,7 +96,7 @@ class GetLocation extends StatelessWidget {
                                       .tr,
                                   style: TextStyle(
                                       height: 1.5.h,
-                                      fontSize: 13,
+                                      fontSize: 13.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.balckColorTypeFour),
                                   textAlign: TextAlign.center,
@@ -128,7 +128,7 @@ class GetLocation extends StatelessWidget {
                                         "29-أخذ موقعك الان".tr,
                                         style: TextStyle(
                                             height: 1.6.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.theMainColor),
                                         textAlign: TextAlign.center,
@@ -145,7 +145,7 @@ class GetLocation extends StatelessWidget {
                                     .tr,
                                 style: TextStyle(
                                     height: 1.5.h,
-                                    fontSize: 13,
+                                    fontSize: 13.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.redColor),
                                 textAlign: TextAlign.center,
@@ -181,7 +181,7 @@ class GetLocation extends StatelessWidget {
                               "31-انتظر قليلاً..يتم التحقق وأخذ الموقع الان".tr,
                               style: TextStyle(
                                   height: 1.5.h,
-                                  fontSize: 13,
+                                  fontSize: 13.sp,
                                   fontFamily: AppTextStyles.Almarai,
                                   color: AppColors.whiteColor,
                                   fontWeight: FontWeight.bold),
@@ -255,7 +255,7 @@ class GetLocation extends StatelessWidget {
                                       "32-هنالك خطأ...!".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 19,
+                                          fontSize: 19.sp,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.whiteColor),
                                       textAlign: TextAlign.center,
@@ -274,7 +274,7 @@ class GetLocation extends StatelessWidget {
                                             .tr,
                                         style: TextStyle(
                                             height: 1.5.h,
-                                            fontSize: 13,
+                                            fontSize: 13.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
                                         textAlign: TextAlign.center,
@@ -325,7 +325,7 @@ class GetLocation extends StatelessWidget {
                                         "X",
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w600,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
@@ -344,7 +344,7 @@ class GetLocation extends StatelessWidget {
                                       "32-هنالك خطأ...!".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 19,
+                                          fontSize: 19.sp,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.whiteColor),
                                       textAlign: TextAlign.center,
@@ -363,7 +363,7 @@ class GetLocation extends StatelessWidget {
                                             .tr,
                                         style: TextStyle(
                                             height: 1.5.h,
-                                            fontSize: 13,
+                                            fontSize: 13.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
                                         textAlign: TextAlign.center,
@@ -408,7 +408,7 @@ class GetLocation extends StatelessWidget {
                                       "35-انتهت العملية".tr,
                                       style: TextStyle(
                                           height: 1.3.h,
-                                          fontSize: 19,
+                                          fontSize: 19.sp,
                                           fontFamily: AppTextStyles.Almarai,
                                           color: AppColors.balckColorTypeFour),
                                       textAlign: TextAlign.center,
@@ -426,7 +426,7 @@ class GetLocation extends StatelessWidget {
                                         "36-لقد تم أخذ موقعك بنجاح".tr,
                                         style: TextStyle(
                                             height: 1.5.h,
-                                            fontSize: 13,
+                                            fontSize: 13.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color:
                                                 AppColors.balckColorTypeFour),
@@ -463,7 +463,7 @@ class GetLocation extends StatelessWidget {
                                           "37-مشاهدة الموقع الان".tr,
                                           style: TextStyle(
                                               height: 1.6.h,
-                                              fontSize: 15,
+                                              fontSize: 15.sp,
                                               fontFamily: AppTextStyles.Almarai,
                                               color:
                                                   AppColors.balckColorTypeFour),

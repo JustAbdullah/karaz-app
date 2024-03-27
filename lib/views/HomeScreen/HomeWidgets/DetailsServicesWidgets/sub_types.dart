@@ -69,7 +69,7 @@ class SubTypes extends StatelessWidget {
                                                   .toString(),
                                               style: TextStyle(
                                                   height: 1.3.h,
-                                                  fontSize: 19,
+                                                  fontSize: 19.sp,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily:
                                                       AppTextStyles.Almarai,
@@ -83,7 +83,7 @@ class SubTypes extends StatelessWidget {
                                                   .toString(),
                                               style: TextStyle(
                                                   height: 1.3.h,
-                                                  fontSize: 19,
+                                                  fontSize: 19.sp,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily:
                                                       AppTextStyles.Almarai,
@@ -111,7 +111,7 @@ class SubTypes extends StatelessWidget {
                                         "X",
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w600,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
@@ -142,7 +142,7 @@ class SubTypes extends StatelessWidget {
                                                 color: AppColors.blackColor,
                                                 fontFamily:
                                                     AppTextStyles.Almarai,
-                                                fontSize: 14,
+                                                fontSize: 14.sp,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                               textAlign: TextAlign.center,
@@ -163,135 +163,186 @@ class SubTypes extends StatelessWidget {
                                                       .data['data'].length,
                                                   shrinkWrap: true,
                                                   itemBuilder: (context, i) {
-                                                    return Padding(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 10.w),
-                                                      child: PaddingCustom(
-                                                        theBottom: 0,
-                                                        theTop: 20,
-                                                        child: Container(
-                                                          decoration: BoxDecoration(
-                                                              color: AppColors
-                                                                  .whiteColor,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  color: Colors
-                                                                      .grey
-                                                                      .withOpacity(
-                                                                          0.1),
-                                                                  spreadRadius:
-                                                                      5,
-                                                                  blurRadius: 7,
-                                                                  offset: Offset(
-                                                                      0,
-                                                                      3), // changes position of shadow
-                                                                ),
-                                                              ]),
-                                                          height: 80,
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .width,
-                                                          child: Padding(
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        15.w),
-                                                            child: Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                CustomCachedNetworkImage(
-                                                                  urlTheImage: snapshot
-                                                                      .data[
-                                                                          'data']
-                                                                          [i][
-                                                                          'sub_type_image']
-                                                                      .toString(),
-                                                                  width: 50,
-                                                                  height: 50,
-                                                                  boxFit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                                SizedBox(
-                                                                  width: 100.w,
-                                                                ),
-                                                                PaddingCustom(
-                                                                    theTop: 5,
-                                                                    child:
-                                                                        InkWell(
-                                                                      onTap:
-                                                                          () {
-                                                                        controller
-                                                                            .showTheDetialsAboutTheService
-                                                                            .value = true;
-                                                                        controller
-                                                                            .nameOftheSubService
-                                                                            .value = snapshot.data['data'][i]
-                                                                                ['sub_type_name_ar']
-                                                                            .toString();
+                                                    return InkWell(
+                                                      onTap: () {
+                                                        controller
+                                                            .showTheDetialsAboutTheService
+                                                            .value = true;
+                                                        controller
+                                                            .nameOftheSubService
+                                                            .value = snapshot.data[
+                                                                'data'][i][
+                                                                'sub_type_name_ar']
+                                                            .toString();
 
-                                                                        controller
-                                                                            .nameOftheSubServiceEn
-                                                                            .value = snapshot.data['data'][i]
-                                                                                ['sub_type_name_en']
-                                                                            .toString();
-                                                                        controller.imageTheSubService = snapshot
-                                                                            .data['data'][i]['sub_type_image']
-                                                                            .toString();
+                                                        controller
+                                                            .nameOftheSubServiceEn
+                                                            .value = snapshot.data[
+                                                                'data'][i][
+                                                                'sub_type_name_en']
+                                                            .toString();
+                                                        controller
+                                                                .imageTheSubService =
+                                                            snapshot
+                                                                .data['data'][i]
+                                                                    [
+                                                                    'sub_type_image']
+                                                                .toString();
 
-                                                                        controller
-                                                                            .aboutTheSubMainService
-                                                                            .value = snapshot.data['data'][i]
-                                                                                ['sub_type_description_ar']
-                                                                            .toString();
-                                                                        controller
-                                                                            .aboutTheSubMainServiceEn
-                                                                            .value = snapshot.data['data'][i]
-                                                                                ['sub_type_description_en']
-                                                                            .toString();
+                                                        controller
+                                                            .aboutTheSubMainService
+                                                            .value = snapshot.data[
+                                                                'data'][i][
+                                                                'sub_type_description_ar']
+                                                            .toString();
+                                                        controller
+                                                            .aboutTheSubMainServiceEn
+                                                            .value = snapshot.data[
+                                                                'data'][i][
+                                                                'sub_type_description_en']
+                                                            .toString();
 
-                                                                        controller.idSubType = snapshot
-                                                                            .data['data'][i]['sub_type_id']
-                                                                            .toString();
-                                                                      },
+                                                        controller.idSubType =
+                                                            snapshot
+                                                                .data['data'][i]
+                                                                    [
+                                                                    'sub_type_id']
+                                                                .toString();
+                                                      },
+                                                      child: Padding(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal:
+                                                                    10.w),
+                                                        child: PaddingCustom(
+                                                          theBottom: 0,
+                                                          theTop: 20,
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                                color: AppColors
+                                                                    .whiteColor,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    color: Colors
+                                                                        .grey
+                                                                        .withOpacity(
+                                                                            0.1),
+                                                                    spreadRadius:
+                                                                        5,
+                                                                    blurRadius:
+                                                                        7,
+                                                                    offset: Offset(
+                                                                        0,
+                                                                        3), // changes position of shadow
+                                                                  ),
+                                                                ]),
+                                                            height: 80,
+                                                            width: MediaQuery
+                                                                    .sizeOf(
+                                                                        context)
+                                                                .width,
+                                                            child: Padding(
+                                                              padding: EdgeInsets
+                                                                  .symmetric(
+                                                                      horizontal:
+                                                                          15.w),
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  CustomCachedNetworkImage(
+                                                                    urlTheImage: snapshot
+                                                                        .data[
+                                                                            'data']
+                                                                            [i][
+                                                                            'sub_type_image']
+                                                                        .toString(),
+                                                                    width: 50,
+                                                                    height: 50,
+                                                                    boxFit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width:
+                                                                        100.w,
+                                                                  ),
+                                                                  PaddingCustom(
+                                                                      theTop: 5,
                                                                       child:
-                                                                          Row(
-                                                                        children: [
-                                                                          GetX<
-                                                                              ChangeLanguageToLocale>(
-                                                                            builder: (scontroller) => scontroller.isChange.value == false
-                                                                                ? Text(
-                                                                                    snapshot.data['data'][i]['sub_type_name_ar'],
-                                                                                    style: TextStyle(
-                                                                                      color: AppColors.blackColor,
-                                                                                      fontFamily: AppTextStyles.Almarai,
-                                                                                      fontSize: 14,
-                                                                                      fontWeight: FontWeight.bold,
-                                                                                    ),
-                                                                                    textAlign: TextAlign.center,
-                                                                                  )
-                                                                                : Text(
-                                                                                    snapshot.data['data'][i]['sub_type_name_en'],
-                                                                                    style: TextStyle(
-                                                                                      color: AppColors.blackColor,
-                                                                                      fontFamily: AppTextStyles.Almarai,
-                                                                                      fontSize: 14,
-                                                                                      fontWeight: FontWeight.bold,
-                                                                                    ),
-                                                                                    textAlign: TextAlign.center,
-                                                                                  ),
+                                                                          InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          controller
+                                                                              .showTheDetialsAboutTheService
+                                                                              .value = true;
+                                                                          controller
+                                                                              .nameOftheSubService
+                                                                              .value = snapshot.data['data'][i]['sub_type_name_ar'].toString();
+
+                                                                          controller
+                                                                              .nameOftheSubServiceEn
+                                                                              .value = snapshot.data['data'][i]['sub_type_name_en'].toString();
+                                                                          controller.imageTheSubService = snapshot
+                                                                              .data['data'][i]['sub_type_image']
+                                                                              .toString();
+
+                                                                          controller
+                                                                              .aboutTheSubMainService
+                                                                              .value = snapshot.data['data'][i]['sub_type_description_ar'].toString();
+                                                                          controller
+                                                                              .aboutTheSubMainServiceEn
+                                                                              .value = snapshot.data['data'][i]['sub_type_description_en'].toString();
+
+                                                                          controller.idSubType = snapshot
+                                                                              .data['data'][i]['sub_type_id']
+                                                                              .toString();
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              120.w,
+                                                                          child:
+                                                                              SingleChildScrollView(
+                                                                            scrollDirection:
+                                                                                Axis.horizontal,
+                                                                            child:
+                                                                                Row(
+                                                                              children: [
+                                                                                GetX<ChangeLanguageToLocale>(
+                                                                                  builder: (scontroller) => scontroller.isChange.value == false
+                                                                                      ? Text(
+                                                                                          snapshot.data['data'][i]['sub_type_name_ar'],
+                                                                                          style: TextStyle(
+                                                                                            color: AppColors.blackColor,
+                                                                                            fontFamily: AppTextStyles.Almarai,
+                                                                                            fontSize: 14.sp,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                          textAlign: TextAlign.center,
+                                                                                        )
+                                                                                      : Text(
+                                                                                          snapshot.data['data'][i]['sub_type_name_en'],
+                                                                                          style: TextStyle(
+                                                                                            color: AppColors.blackColor,
+                                                                                            fontFamily: AppTextStyles.Almarai,
+                                                                                            fontSize: 14.sp,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                          textAlign: TextAlign.center,
+                                                                                        ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
-                                                                        ],
-                                                                      ),
-                                                                    )),
-                                                              ],
+                                                                        ),
+                                                                      )),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -382,7 +433,7 @@ class SubTypes extends StatelessWidget {
                                                                         AppTextStyles
                                                                             .Almarai,
                                                                     fontSizeWidth:
-                                                                        18,
+                                                                        18.sp,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -457,7 +508,7 @@ class SubTypes extends StatelessWidget {
                                                                             fontFamily:
                                                                                 AppTextStyles.Almarai,
                                                                             fontSize:
-                                                                                14,
+                                                                                14.sp,
                                                                           ),
                                                                         ),
                                                                       ),

@@ -58,7 +58,7 @@ class AboutLocation extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -77,7 +77,7 @@ class AboutLocation extends StatelessWidget {
                                 "20-الموقع والعمليات".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 19,
+                                    fontSize: 19.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
                                 textAlign: TextAlign.center,
@@ -95,7 +95,7 @@ class AboutLocation extends StatelessWidget {
                                       .tr,
                                   style: TextStyle(
                                       height: 1.5.h,
-                                      fontSize: 13,
+                                      fontSize: 13.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.balckColorTypeFour),
                                   textAlign: TextAlign.center,
@@ -140,7 +140,7 @@ class AboutLocation extends StatelessWidget {
                                         "22-إظهار موقعك".tr,
                                         style: TextStyle(
                                             height: 1.6.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
                                         textAlign: TextAlign.center,
@@ -168,7 +168,7 @@ class AboutLocation extends StatelessWidget {
                                         "23-تغيير الموقع".tr,
                                         style: TextStyle(
                                             height: 1.6.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
                                         textAlign: TextAlign.center,

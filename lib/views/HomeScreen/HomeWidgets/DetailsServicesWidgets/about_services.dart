@@ -56,7 +56,7 @@ class aboutTheDetailsService extends StatelessWidget {
                                                     .toString(),
                                                 style: TextStyle(
                                                     height: 1.5.h,
-                                                    fontSize: 14,
+                                                    fontSize: 14.sp,
                                                     fontFamily:
                                                         AppTextStyles.Almarai,
                                                     color: AppColors
@@ -69,7 +69,7 @@ class aboutTheDetailsService extends StatelessWidget {
                                                     .toString(),
                                                 style: TextStyle(
                                                     height: 1.5.h,
-                                                    fontSize: 14,
+                                                    fontSize: 14.sp,
                                                     fontFamily:
                                                         AppTextStyles.Almarai,
                                                     color: AppColors
@@ -93,7 +93,7 @@ class aboutTheDetailsService extends StatelessWidget {
                                         "X",
                                         style: TextStyle(
                                             height: 1.3.h,
-                                            fontSize: 15,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w600,
                                             fontFamily: AppTextStyles.Almarai,
                                             color: AppColors.whiteColor),
@@ -243,12 +243,12 @@ class aboutTheDetailsService extends StatelessWidget {
                                                                               builder: (scontroller) => scontroller.isChange.value == false
                                                                                   ? Text(
                                                                                       snapshot.data['data'][i]['name_type_sub'].toString(),
-                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
+                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15.sp, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
                                                                                       textAlign: TextAlign.center,
                                                                                     )
                                                                                   : Text(
                                                                                       snapshot.data['data'][i]['name_type_sub_en'].toString(),
-                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
+                                                                                      style: TextStyle(height: 1.3.h, fontSize: 15.sp, fontFamily: AppTextStyles.Almarai, color: controller.choseService.containsKey(snapshot.data['data'][i]['type_sub_id'].toString()) ? AppColors.whiteColor : AppColors.blackColor),
                                                                                       textAlign: TextAlign.center,
                                                                                     ),
                                                                             ),
@@ -390,7 +390,6 @@ class aboutTheDetailsService extends StatelessWidget {
                                                     if (controller.appServices
                                                         .sharedPreferences
                                                         .containsKey('Long')) {
-                                                          
                                                       if (controller
                                                               .totalPriceTheSerivce
                                                               .value !=
@@ -447,7 +446,7 @@ class aboutTheDetailsService extends StatelessWidget {
                                                           BorderRadius.circular(
                                                               5)),
                                                   child: Text(
-                                                    "الطلب",
+                                                   "261-الطلب".tr,
                                                     style: TextStyle(
                                                       fontFamily:
                                                           AppTextStyles.Almarai,
@@ -506,7 +505,7 @@ class aboutTheDetailsService extends StatelessWidget {
                             Align(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "يتضمن",
+                                 "260-يتضمن".tr,
                                   style: TextStyle(
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.theMainColor,

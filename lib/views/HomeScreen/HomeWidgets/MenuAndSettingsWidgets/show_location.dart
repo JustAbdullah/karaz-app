@@ -65,7 +65,7 @@ class ShowTheLocation extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -84,7 +84,7 @@ class ShowTheLocation extends StatelessWidget {
                                 "55-موقعك على الخريطة".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 19,
+                                    fontSize: 19.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
                                 textAlign: TextAlign.center,

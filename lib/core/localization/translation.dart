@@ -209,6 +209,8 @@ class AppTranslation extends Translations {
           "164-تمت إضافة الطلبية بنجاح..قم بإكمال الإجراءات في -قسم الطلبيات":
               "تمت إضافة الطلبية بنجاح..قم بإكمال الإجراءات في -قسم الطلبيات",
 
+          "164.4-مرحبًا بك..صفحة تسجيل الدخول": "مرحبًا بك..صفحة تسجيل الدخول",
+
           /////////////////////No Messages.......................//////////////
           "165-ليس لديك حساب..لايمكنك القيام بهذة العملية":
               "ليس لديك حساب..لايمكنك القيام بهذة العملية",
@@ -260,14 +262,31 @@ class AppTranslation extends Translations {
 
           //////////////..............OnBoarding..........................////////////////////
           "201-فنيين بمستوى عالي..": "فنيين بمستوى عالي..",
+
           "202-مِن خلال تطبيق كرز..نُقدم إليك  خدماتنا المختلفة والمميزة في شتى متطلبات الحياة ونقوم بذلك من خلال تقديم فنيين بخبرة عالية وأداء متميز ":
               "مِن خلال تطبيق كرز..نُقدم إليك  خدماتنا المختلفة والمميزة في شتى متطلبات الحياة ونقوم بذلك من خلال تقديم فنيين بخبرة عالية وأداء متميز ",
+
           "203-نصل إلى موقعك بدقه": "نصل إلى موقعك بدقه",
+
           "204-نقوم بأخذ موقعك بشكل تلقائي وبدقة عالية من أجل تقديم خدماتنا بأفضل طريقة ممكنة..لاتقلق فقط أطلب الخدمة":
               "نقوم بأخذ موقعك بشكل تلقائي وبدقة عالية من أجل تقديم خدماتنا بأفضل طريقة ممكنة..لاتقلق فقط أطلب الخدمة",
+
           "205-حرية كاملة في الجدولة": "حرية كاملة في الجدولة",
+
           "206-نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة":
               "نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة",
+
+          "230-تطبيق كرز": "تطبيق كرز",
+
+          "231-الدليل التعريفي لتطبيق كرز للخدمات":
+              "الدليل التعريفي لتطبيق كرز للخدمات",
+
+          "232-المتابعة": "المتابعة",
+
+          "233-الإنتقال": "الإنتقال",
+          "234-خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول":
+              "خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول",
+          "235-انتظر قليلاً..": "انتظر قليلاً..",
 
           ///////////////////..................Inv.....................................//////////
 
@@ -280,13 +299,19 @@ class AppTranslation extends Translations {
               "عزيزي العميل لم تقم بإضافة اي عنصر",
           "211-عزيزي العميل لم تقم بإضافة عنوانك بعد":
               "عزيزي العميل لم تقم بإضافة عنوانك بعد",
+
+          ///////////
+          "260-يتضمن": "يتضمن",
+          "261-الطلب": "الطلب",
+          "261-المتابعة": "المتابعة",
+          "262-الانهاء": "الانهاء",
         },
 
         "en": {
           /////////////Welcome/////////////
           "1-مرحبًا في تطبيق كرز": "Welcome to the Karaz application",
-          "2-Please select the way to continue":
-              "قم رجاءًا بإختيار مسار محدد للمتابعة",
+          "2-قم رجاءًا بإختيار مسار محدد للمتابعة":
+              "Please select the way to continue",
           "3-تسجيل الدخول": "Sign In",
           "4-المتابعة كزائر": "Continue as guest",
 
@@ -546,14 +571,35 @@ class AppTranslation extends Translations {
           "198-جدولة الوقت والتاريخ": "Time and Date Scheduling",
           "199-العملية": "Process",
           "200-العودة": "Back",
-          "201-فنيين بمستوى عالي…": "Highly skilled technicians",
-          "202-مِن خلال تطبيق كرز…نُقدم إليك خدماتنا المختلفة والمميزة في شتى متطلبات الحياة ونقوم بذلك من خلال تقديم فنيين بخبرة عالية وأداء متميز ":
-              "Through the Kruz application, we offer you various and exceptional services to meet all your life requirements. We achieve this by providing highly experienced technicians with outstanding performance.",
-          "203-نصل إلى موقعك بدقه": "We arrive at your location accurately",
-          "204-نقوم بأخذ موقعك بشكل تلقائي وبدقة عالية من أجل تقديم خدماتنا بأفضل طريقة ممكنة…لاتقلق فقط أطلب الخدمة":
-              "We automatically and precisely determine your location to provide our services in the best possible way. Don’t worry, just request the service.",
-          "205-حرية كاملة في الجدولة": "Complete freedom in scheduling"
-              "206-نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة”: “We offer you flexible and exceptional scheduling options that suit your convenience without complications or restrictions during the service delivery phase.",
+
+          ///////////////////////OnBoarding
+          "201-فنيين بمستوى عالي..": "High-level technicians…",
+
+          "202-مِن خلال تطبيق كرز..نُقدم إليك  خدماتنا المختلفة والمميزة في شتى متطلبات الحياة ونقوم بذلك من خلال تقديم فنيين بخبرة عالية وأداء متميز ":
+              "Through the Karaz app…we offer you our different and distinctive services in various life requirements and we do that by providing technicians with high experience and outstanding performance ",
+
+          "203-نصل إلى موقعك بدقه": "We reach your location accurately",
+
+          "204-نقوم بأخذ موقعك بشكل تلقائي وبدقة عالية من أجل تقديم خدماتنا بأفضل طريقة ممكنة..لاتقلق فقط أطلب الخدمة":
+              "We take your location automatically and with high precision in order to provide our services in the best possible way…don’t worry just request the service",
+
+          "205-حرية كاملة في الجدولة": "Full freedom in scheduling",
+
+          "206-نقدم إليك خيارات جدولة مميزة ومرنة لتناسبك وتناسب اوقات راحتك دون تعقيدات وتقييد لمرحلة تقديم الخدمة":
+              "We offer you scheduling options that are distinctive and flexible to suit you and your leisure times without complications and restrictions for the service delivery stage",
+
+          "230-تطبيق كرز": "Karaz app",
+
+          "231-الدليل التعريفي لتطبيق كرز للخدمات":
+              "The introductory guide for the Karaz app for services",
+
+          "232-المتابعة": "Continue",
+
+          "233-الإنتقال": "Move",
+
+          "234-خدمات متعددة..فنيين بأعلى مستوى..سهولة في الطلب وسرعة في الوصول":
+              "Multiple services…technicians of the highest level…ease of ordering and speed of arrival",
+          "235-انتظر قليلاً..": "Wait..",
           ///////////////////..................Inv.....................................//////////
 
           "207-الفواتير الإلكترونية": "Electronic invoices",
@@ -566,6 +612,15 @@ class AppTranslation extends Translations {
               "210-Dear customer, you have not added any items",
           "211-عزيزي العميل لم تقم بإضافة عنوانك بعد":
               "Dear customer, you have not added your address yet.",
+
+          "164.4-مرحبًا بك..صفحة تسجيل الدخول": "Welcome. Login page",
+
+          ////////////////More In about................/////////////
+
+          "260-يتضمن": "includes",
+          "261-الطلب": "Order",
+          "261-المتابعة": "Continue",
+          "262-الانهاء": "End",
         }
       };
 }

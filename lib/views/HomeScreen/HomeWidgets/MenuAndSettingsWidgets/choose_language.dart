@@ -39,7 +39,7 @@ class ChooseLanguage extends StatelessWidget {
                                       .tr,
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.balckColorTypeFour),
                                   textAlign: TextAlign.center,
@@ -65,7 +65,7 @@ class ChooseLanguage extends StatelessWidget {
                                   "56-اللغة العربية-الأختيار".tr,
                                   style: TextStyle(
                                       height: 1.6.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.theMainColor),
                                   textAlign: TextAlign.center,
@@ -91,7 +91,7 @@ class ChooseLanguage extends StatelessWidget {
                                   "57-اللغة الانجليزية-الأختيار".tr,
                                   style: TextStyle(
                                       height: 1.6.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.theMainColor),
                                   textAlign: TextAlign.center,
@@ -117,7 +117,7 @@ class ChooseLanguage extends StatelessWidget {
                                   "58-الإنتقال".tr,
                                   style: TextStyle(
                                       height: 1.6.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
                                   textAlign: TextAlign.center,

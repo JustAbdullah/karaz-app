@@ -31,24 +31,26 @@ class MenuList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          ImagesPath.homeIcon,
-                          height: 30.h,
-                        ),
-                        Text(
-                          "7-الرئيسية".tr,
-                          style: TextStyle(
-                            height: 1.3.h,
-                            fontSize: 12,
-                            fontFamily: AppTextStyles.Almarai,
-                            color: AppColors.whiteColor,
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            ImagesPath.homeIcon,
+                            height: 30.h,
                           ),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
+                          Text(
+                            "7-الرئيسية".tr,
+                            style: TextStyle(
+                              height: 1.3.h,
+                              fontSize: 10.sp,
+                              fontFamily: AppTextStyles.Almarai,
+                              color: AppColors.whiteColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       width: 50.w,
@@ -61,24 +63,26 @@ class MenuList extends StatelessWidget {
                           controllerApp.showTheOrderPage.value = true;
                         }
                       },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            ImagesPath.OrderBoxIcon,
-                            height: 30.h,
-                          ),
-                          Text(
-                            "8-الطلبيات".tr,
-                            style: TextStyle(
-                              height: 1.3.h,
-                              fontSize: 12,
-                              fontFamily: AppTextStyles.Almarai,
-                              color: AppColors.whiteColor,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              ImagesPath.OrderBoxIcon,
+                              height: 30.h,
                             ),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
+                            Text(
+                              "8-الطلبيات".tr,
+                              style: TextStyle(
+                                height: 1.3.h,
+                                fontSize: 10.sp,
+                                fontFamily: AppTextStyles.Almarai,
+                                color: AppColors.whiteColor,
+                              ),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -93,24 +97,26 @@ class MenuList extends StatelessWidget {
                             controllerApp.showTheMessage.value = true;
                           }
                         },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              ImagesPath.messagesIcon,
-                              height: 30.h,
-                            ),
-                            Text(
-                              "9-التنبيهات".tr,
-                              style: TextStyle(
-                                height: 1.3.h,
-                                fontSize: 12,
-                                fontFamily: AppTextStyles.Almarai,
-                                color: AppColors.whiteColor,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                ImagesPath.messagesIcon,
+                                height: 30.h,
                               ),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
+                              Text(
+                                "9-التنبيهات".tr,
+                                style: TextStyle(
+                                  height: 1.3.h,
+                                  fontSize: 10.sp,
+                                  fontFamily: AppTextStyles.Almarai,
+                                  color: AppColors.whiteColor,
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            ],
+                          ),
                         )),
                     SizedBox(
                       width: 50.w,
@@ -123,24 +129,26 @@ class MenuList extends StatelessWidget {
                           controllerApp.ShowThemenuApp.value = true;
                         }
                       },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            ImagesPath.menuIcon,
-                            height: 30.h,
-                          ),
-                          Text(
-                            "10-الاعدادت".tr,
-                            style: TextStyle(
-                              height: 1.3.h,
-                              fontSize: 12,
-                              fontFamily: AppTextStyles.Almarai,
-                              color: AppColors.whiteColor,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              ImagesPath.menuIcon,
+                              height: 30.h,
                             ),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
+                            Text(
+                              "10-الاعدادت".tr,
+                              style: TextStyle(
+                                height: 1.3.h,
+                                fontSize: 10.sp,
+                                fontFamily: AppTextStyles.Almarai,
+                                color: AppColors.whiteColor,
+                              ),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ]),

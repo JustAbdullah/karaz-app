@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
 import '../../../../controllers/controller_app.dart';
 import '../../../../core/constant/app_text_styles.dart';
 import '../../../../core/constant/appcolors.dart';
@@ -59,7 +58,7 @@ class InfoAcount extends StatelessWidget {
                                   "X",
                                   style: TextStyle(
                                       height: 1.3.h,
-                                      fontSize: 15,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: AppTextStyles.Almarai,
                                       color: AppColors.whiteColor),
@@ -78,7 +77,7 @@ class InfoAcount extends StatelessWidget {
                                 "38-معلومات الحساب".tr,
                                 style: TextStyle(
                                     height: 1.3.h,
-                                    fontSize: 19,
+                                    fontSize: 19.sp,
                                     fontFamily: AppTextStyles.Almarai,
                                     color: AppColors.balckColorTypeFour),
                                 textAlign: TextAlign.center,
@@ -101,7 +100,7 @@ class InfoAcount extends StatelessWidget {
                                     child: Center(
                                       child: TextCustom(
                                           theText: "39-اسم المستخدم:".tr,
-                                          fontSizeWidth: 17,
+                                          fontSizeWidth: 17.sp,
                                           fontFamily: AppTextStyles.Almarai,
                                           fontColor: AppColors.whiteColor),
                                     ),
@@ -120,7 +119,7 @@ class InfoAcount extends StatelessWidget {
                                   TextCustom(
                                       theText: controllerTheApp
                                           .displayUserName.value,
-                                      fontSizeWidth: 20,
+                                      fontSizeWidth: 20.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       fontColor: AppColors.blackColorTypeTeo),
                                 ],
@@ -142,7 +141,7 @@ class InfoAcount extends StatelessWidget {
                                       child: Center(
                                         child: TextCustom(
                                             theText: "40-رقم الهاتف:".tr,
-                                            fontSizeWidth: 17,
+                                            fontSizeWidth: 17.sp,
                                             fontFamily: AppTextStyles.Almarai,
                                             fontColor: AppColors.whiteColor),
                                       ))
@@ -160,7 +159,7 @@ class InfoAcount extends StatelessWidget {
                                   TextCustom(
                                       theText: controllerTheApp
                                           .displayUserPhone.value,
-                                      fontSizeWidth: 20,
+                                      fontSizeWidth: 20.sp,
                                       fontFamily: AppTextStyles.Almarai,
                                       fontColor: AppColors.blackColorTypeTeo),
                                 ],
