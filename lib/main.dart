@@ -13,8 +13,6 @@ import 'core/localization/translation.dart';
 import 'core/services/appservices.dart';
 import 'firebase_options.dart';
 import 'views/LoadingScreen/loading_screen.dart';
-import 'views/ted.dart';
-import 'views/testing.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,12 +39,8 @@ Future<void> main() async {
     sound: true,
   );
   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    print('User granted permission');
   } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
-    print('User granted provisional permission');
-  } else {
-    print('User declined or has not accepted permission');
-  }
+  } else {}
 
   // Stripe.publishableKey = ApiKeysStripe.Publishablekey;
 
@@ -76,7 +70,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: chagnelangcontroller.language,
       translations: AppTranslation(),
-      title: "Karaz",
+      title: "كرز",
       home: Scaffold(
           body: SafeArea(
               child: ScreenUtilInit(

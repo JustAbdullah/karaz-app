@@ -248,7 +248,7 @@ class AppTranslation extends Translations {
           "188-سعر الخصم": "سعر الخصم",
           "189-الإجمالي النهائي": "الإجمالي النهائي",
           "190-طريقة السداد": "طريقة السداد",
-          "191-دفع-كاش": "دفع-كاش",
+          "191-دفع-كاش": "دفع-نقدًا",
           "192-دفع-اونلاين": "دفع-اونلاين",
           "193-الجدولة المختارة": "الجدولة المختارة",
           "194-إنتهت العملية": "إنتهت العملية",
@@ -257,8 +257,8 @@ class AppTranslation extends Translations {
               "عزيزي العميل,شُكرا لك على إتمام الطلب..قريبًا سيتم التواصل معك لأتمام العملية",
           "197-إجمالي الطلب": "إجمالي الطلب",
           "198-جدولة الوقت والتاريخ": "جدولة الوقت والتاريخ",
-          "199-العملية": "العملية",
-          "200-العودة": "العودة",
+          "199-العملية": "الطلبية",
+          "200-العودة": "الرئيسية",
 
           //////////////..............OnBoarding..........................////////////////////
           "201-فنيين بمستوى عالي..": "فنيين بمستوى عالي..",
@@ -304,7 +304,54 @@ class AppTranslation extends Translations {
           "260-يتضمن": "يتضمن",
           "261-الطلب": "الطلب",
           "261-المتابعة": "المتابعة",
-          "262-الانهاء": "الانهاء",
+          "262-الانهاء": "تنفيذ الطلب",
+
+          ///////////////////
+          "263-0-الشروط والاحكام": "الشروط والاحكام",
+          "263-الشروط": '''
+
+# الشروط والأحكام لتطبيق كرز
+
+## 1. المقدمة
+باستخدامك لتطبيق "كرز"، فإنك تقر وتوافق على الالتزام بالشروط والأحكام الواردة في هذا الاتفاق. يقدم تطبيق "كرز" مجموعة من الخدمات الحياتية المختلفة ومنها على سبيل الذكر وليس الحصر"الصيانة منزلية المتنوعة تشمل صيانة الأجهزة الكهربائية، إصلاح مشاكل المياه والحمامات، برمجة وإعادة ضبط الأجهزة الإلكترونية، ترميم الحدائق،وعمليات الطلاء وإلخ(يمكنك مراجعة قائمة الخدمات المُقدمة). ونحن نسعى لتقديم خدمات عالية الجودة تلبي احتياجاتك المنزلية والحياتية بكفاءة وأمان.
+
+## 2. التسجيل والحساب
+- يجب على المستخدمين التسجيل في التطبيق من خلال رقم الهاتف الصحيح لإنشاء حساب شخصي.
+- سيتم إرسال رمز التحقق إلى رقم الهاتف المقدم للتأكد من هوية المستخدم وتفعيل الحساب.
+- يتحمل المستخدمون مسؤولية الحفاظ على سرية معلومات الحساب وعدم مشاركتها مع الغير.
+- يجب على المستخدمين إبلاغ تطبيق "كرز" فورًا عن أي استخدام غير مصرح به لحساباتهم.
+
+## 3. الخصوصية وحماية البيانات
+- يتم جمع الموقع الجغرافي الدقيق للمستخدم لتحديد موقعه وتقديم الخدمة المطلوبة بدقة.
+- يلتزم التطبيق بحماية خصوصية المستخدمين ويتبع أفضل الممارسات لحماية البيانات الشخصية.
+- لن يتم مشاركة المعلومات الشخصية مع أطراف ثالثة دون موافقة صريحة من المستخدم، إلا في الحالات التي يتطلبها القانون.
+
+## 4. استخدام الخدمة
+- يمكن للمستخدمين طلب الخدمات وإضافتها إلى السلة ومن ثم إنشاء الطلب.
+- يجب على المستخدمين الالتزام بالقوانين المحلية عند استخدام الخدمة وعدم استخدامها لأغراض غير قانونية أو محظورة.
+- يحتفظ التطبيق بالحق في رفض او إلغاء  الخدمة لأي طلب يُعتبر غير مناسب أو يخالف الشروط والأحكام او لايمكن القيام به بالوقت الحالي.
+- يحتفظ التطبيق بالحق في إلغاء او حذف او حظر اي حساب قد يجده مخالف او منتهك للحقوق
+
+## 5. الإلغاء والاسترداد
+- يحق للمستخدمين "إلغاء الطلب" قبل القيام بتأكيد وإتمام عملية الشروع بتنفيذ الخدمة وفقًا لسياسة الإلغاء المعلنة.
+- في حالة وُجد تلاعب او سوء إستخدام اثناء القيام بطلب الخدمة يحق للتطبيق بالقيام يالاجراءات التي يراها مناسبة.
+- يمكن للمستخدمين طلب استرداد الأموال في حالة عدم الرضا عن الخدمة المقدمة، وفقًا لسياسة الاسترداد.
+
+## 6. التعديلات على الشروط والأحكام
+- يحتفظ تطبيق "كرز" بالحق في تعديل هذه الشروط والأحكام في أي وقت دون إشعار مسبق.
+- يجب على المستخدمين مراجعة الشروط والأحكام بانتظام للتأكد من معرفتهم بأي تغييرات والالتزام بها.
+
+## 7. القانون الحاكم وحل النزاعات
+- تخضع هذه الشروط والأحكام للقوانين المحلية المعمول بها في [دولة الامارات العربية المتحدة]
+- أي نزاعات تنشأ عن استخدام التطبيق سيتم حلها وفقًا للإجراءات القانونية المعتمدة.
+
+## 8. الاتصال والدعم
+- لأي استفسارات أو مخاوف بخصوص الشروط والأحكام، يرجى الاتصال بدعم تطبيق "كرز" عبر [karazteam24@gmail.com].
+- نحن ملتزمون بتقديم أفضل تجربة ممكنة وسنعمل على حل أي مشاكل قد تواجهها بسرعة وكفاءة.
+
+*تاريخ آخر تحديث :4-23-2024.*
+
+'''
         },
 
         "en": {
@@ -621,6 +668,52 @@ class AppTranslation extends Translations {
           "261-الطلب": "Order",
           "261-المتابعة": "Continue",
           "262-الانهاء": "End",
+
+          /////////////////
+          ///////////////////
+          "263-0-الشروط والاحكام": "Terms",
+          "263-الشروط": '''# Terms and Conditions for Karaz Application
+
+## 1. Introduction
+By using the "Karaz" application, you acknowledge and agree to abide by the terms and conditions contained in this agreement. The "Karaz" application offers a variety of life services including, but not limited to, diverse home maintenance such as electrical appliance maintenance, water and bathroom problem repairs, programming and resetting electronic devices, garden restoration, painting operations, etc. (You can review the list of provided services). We strive to provide high-quality services that meet your home and life needs efficiently and safely.
+
+## 2. Registration and Account
+- Users must register in the application through the correct phone number to create a personal account.
+- A verification code will be sent to the provided phone number to verify the user's identity and activate the account.
+- Users are responsible for maintaining the confidentiality of account information and not sharing it with others.
+- Users must immediately inform the "Karaz" application of any unauthorized use of their accounts.
+
+## 3. Privacy and Data Protection
+- The precise geographical location of the user is collected to determine their location and provide the requested service accurately.
+- The application is committed to protecting users' privacy and follows best practices to protect personal data.
+- Personal information will not be shared with third parties without explicit consent from the user, except in cases required by law.
+
+## 4. Service Use
+- Users can request services, add them to the basket, and then create the order.
+- Users must comply with local laws when using the service and not use it for illegal or prohibited purposes.
+- The application reserves the right to refuse or cancel the service for any request considered inappropriate or in violation of the terms and conditions or that cannot be carried out at the current time.
+- The application reserves the right to cancel, delete, or block any account that it finds to be in violation or infringing on rights.
+
+## 5. Cancellation and Refund
+- Users have the right to "cancel the order" before confirming and completing the process of starting the service execution according to the announced cancellation policy.
+- In case of manipulation or misuse during the service request, the application has the right to take the actions it deems appropriate.
+- Users can request a refund if they are not satisfied with the provided service, according to the refund policy.
+
+## 6. Amendments to the Terms and Conditions
+- The "Karaz" application reserves the right to modify these terms and conditions at any time without prior notice.
+- Users should regularly review the terms and conditions to ensure they are aware of any changes and comply with them.
+
+## 7. Governing Law and Dispute Resolution
+- These terms and conditions are subject to the local laws in force in [the United Arab Emirates].
+- Any disputes arising from the use of the application will be resolved according to the established legal procedures.
+
+## 8. Contact and Support
+- For any inquiries or concerns regarding the terms and conditions, please contact the "Karaz" application support at [karazteam24@gmail.com].
+- We are committed to providing the best possible experience and will work to resolve any issues you may encounter quickly and efficiently.
+
+*Last updated: 4-23-2024.*
+
+'''
         }
       };
 }

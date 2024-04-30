@@ -14,11 +14,9 @@ class Crud {
 
         return responsebody;
       } else {
-        print("Error ${response.statusCode}");
         return null;
       }
     } catch (e) {
-      print("error Catch $e");
       return null;
     }
   }
@@ -40,6 +38,5 @@ class Crud {
     if (myrequest.statusCode == 200) {
       return jsonDecode(response.body);
     } else {}
-    print("Error${myrequest.statusCode}");
   }
 }

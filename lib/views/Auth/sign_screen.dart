@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:karaz/core/constant/images_path.dart';
 import 'package:karaz/customWidgets/custom_padding.dart';
 import 'package:karaz/views/Auth/code_auth_sign_up.dart';
@@ -10,6 +11,8 @@ import 'package:lottie/lottie.dart';
 import '../../controllers/controller_app.dart';
 import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
+import '../../customWidgets/custom_container.dart';
+import '../../customWidgets/custom_text.dart';
 import '../../customWidgets/custome_textfiled.dart';
 import 'login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,61 +23,6 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
-// تعريف الحالة العالمية للمصادقة ورقم الهاتف
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    String? _phoneNumber;
-
-    void sendOtp() async {
-      // تحديد رقم الهاتف من متحكم النص
-      _phoneNumber = homeController.thePhoneNumberTextSignUpLogin.trim();
-
-      // التحقق من صحة رقم الهاتف
-      if (_phoneNumber!.isEmpty || _phoneNumber!.length < 8) {
-        // إظهار رسالة خطأ
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('رقص الهاتف ناقص الرجاء التاكد من صحة الرقم'),
-          ),
-        );
-
-        return;
-      }
-
-      // إضافة رمز البلد إلى رقم الهاتف
-      _phoneNumber = '+967' + _phoneNumber!;
-
-      // محاولة إرسال otp باستخدام firebase auth
-      try {
-        await _auth.verifyPhoneNumber(
-          phoneNumber: _phoneNumber,
-          verificationCompleted: (PhoneAuthCredential credential) {
-            // هذه الدالة تستدعى عندما يتم التحقق من otp تلقائيا
-            // يمكنك تسجيل الدخول بواسطة الاعتماد أو التنقل إلى صفحة أخرى
-          },
-          verificationFailed: (FirebaseAuthException e) {
-            // هذه الدالة تستدعى عندما يفشل إرسال otp
-            // يمكنك إظهار رسالة خطأ أو إعادة المحاولة
-          },
-          codeSent: (String? verificationId, int? resendToken) {
-            // هذه الدالة تستدعى عندما يتم إرسال otp بنجاح
-            // يمكنك التنقل إلى صفحة التحقق من otp وتمرير verificationId
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) =>
-                    AuthPhoneNumberOTP(verificationId: verificationId!),
-              ),
-            );
-          },
-          codeAutoRetrievalTimeout: (String verificationId) {
-            // هذه الدالة تستدعى عندما ينتهي وقت otp
-            // يمكنك إعادة إرسال otp أو إلغاء العملية
-          },
-        );
-      } catch (e) {
-        // التعامل مع أي استثناءات أخرى
-        print(e);
-      }
-    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -129,7 +77,7 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                       ),
                     )),
               ),
-              PaddingCustom(
+              /*   PaddingCustom(
                 theTop: 20.h,
                 child: Padding(
                     padding:
@@ -209,7 +157,50 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                                     ))),
                           ],
                         ))),
-              ),
+              ),*/
+              PaddingCustom(
+                  theTop: 20.h,
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 00.h),
+                    child: SizedBox(
+                      width: 300.w,
+                      height: 50.h,
+                      child: Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: InternationalPhoneNumberInput(
+                          countries: ["AE"],
+                          selectorConfig: SelectorConfig(
+                            selectorType: PhoneInputSelectorType.DIALOG,
+                            setSelectorButtonAsPrefixIcon: true,
+                            leadingPadding: 20,
+                            useEmoji: true,
+                          ),
+                          onInputChanged: (PhoneNumber number) {
+                            SystemChrome.setEnabledSystemUIMode(
+                                SystemUiMode.manual,
+                                overlays: []);
+                            homeController.thePhoneNumberTextSignUpLogin =
+                                number.phoneNumber.toString();
+                          },
+                          onInputValidated: (bool value) {},
+                          initialValue: PhoneNumber(isoCode: 'AE'),
+                          ignoreBlank: false,
+                          autoValidateMode: AutovalidateMode.disabled,
+                          selectorTextStyle: TextStyle(color: Colors.black),
+                          textFieldController:
+                              homeController.thePhoneNumberInSignUpLogin,
+                          formatInput: true,
+                          keyboardType: TextInputType.numberWithOptions(
+                              signed: true, decimal: true),
+                          inputBorder: OutlineInputBorder(),
+                          onSaved: (PhoneNumber number) {
+                            //   homeController.theNumber.value = number.;
+                          },
+                        ),
+                      ),
+                    ),
+                  )),
               PaddingCustom(
                 theTop: 50.h,
                 child: Align(
@@ -226,7 +217,9 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
 
 ////////////////////////////////
                               homeController.waitLoginSignAuth.value = true;
-                              sendOtp();
+                              homeController.verifyPhoneNumber(homeController
+                                  .thePhoneNumberTextSignUpLogin
+                                  .toString());
                             }
                           },
                           child: Container(
@@ -280,7 +273,7 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
           ),
           GetX<ControllerApp>(
               builder: (controller) => Visibility(
-                  visible: controller.waitLoginSignAuth.value,
+                  visible: controller.waitCheckNumber.value,
                   child: Stack(
                     children: [
                       Container(
@@ -329,6 +322,75 @@ class AuthPhoneNumberSignUP extends StatelessWidget {
                         ),
                       )
                     ],
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.ErrorAboutNumber.value,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.black38,
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.ErrorAboutNumber.value,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.black38,
+                  ))),
+          GetX<ControllerApp>(
+              builder: (controller) => Visibility(
+                  visible: controller.ErrorAboutNumber.value,
+                  child: PaddingCustom(
+                    theTop: 190.h,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Lottie.asset(ImagesPath.error, width: 140.w),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            child: Text(
+                              "عزيزي المستخدم..هنالك مشكلة من إرسال رمز التحقق لهذا الرقم..الرجاء المحاولة لاحقًا"
+                                  .tr,
+                              style: TextStyle(
+                                height: 1.7.h,
+                                color: AppColors.whiteColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 16.sp,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              controller.ErrorAboutNumber.value = false;
+                              controller.waitCheckNumber.value = false;
+                              homeController.thePhoneNumberInSignUpLogin
+                                  .clear();
+                            },
+                            child: ContainerCustom(
+                              widthContainer: 200.w,
+                              heigthContainer: 30,
+                              colorContainer: AppColors.yellowColor,
+                              child: Center(
+                                child: TextCustom(
+                                    theText: "الاخفاء".tr,
+                                    fontSizeWidth: 20.sp,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    fontColor: AppColors.balckColorTypeThree),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ))),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:karaz/core/constant/images_path.dart';
@@ -13,6 +14,13 @@ import '../../../../customWidgets/custom_container.dart';
 import '../../../../customWidgets/custom_container_api.dart';
 import '../../../../customWidgets/custom_padding.dart';
 import '../../../../customWidgets/custom_text.dart';
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:math';
 
 class orderConf extends StatefulWidget {
   const orderConf({super.key});
@@ -1139,6 +1147,7 @@ class _orderConfState extends State<orderConf> {
                                   ))),
 
                           //////////////Time.......////////
+
                           GetX<ControllerApp>(
                               builder: (controller) => Visibility(
                                   visible: controller.showTheSh.value,
@@ -1162,7 +1171,7 @@ class _orderConfState extends State<orderConf> {
                                                         controllerApp
                                                                 .theTimeChosed
                                                                 .value =
-                                                            "مساءًا 4:00   - مساءًا  2:00 ";
+                                                            "صباحًا 10:00   - صباحًا 8:00 ";
                                                       },
                                                       child: Container(
                                                         decoration:
@@ -1189,7 +1198,7 @@ class _orderConfState extends State<orderConf> {
                                                         height: 50.h,
                                                         child: Center(
                                                             child: Text(
-                                                          "مساءًا 4:00   - مساءًا  2:00 "
+                                                          "صباحًا 10:00   - صباحًا  8:00 "
                                                               .toString(),
                                                           style: TextStyle(
                                                               fontFamily:
@@ -1223,7 +1232,7 @@ class _orderConfState extends State<orderConf> {
                                                         controllerApp
                                                                 .theTimeChosed
                                                                 .value =
-                                                            "مساءًا 6:00   - مساءًا  4:00 ";
+                                                            "صباحًا 12:00   - صباحًا  10:00 ";
                                                       },
                                                       child: Container(
                                                         decoration:
@@ -1250,7 +1259,7 @@ class _orderConfState extends State<orderConf> {
                                                         height: 50.h,
                                                         child: Center(
                                                             child: Text(
-                                                          "مساءًا 6:00   - مساءًا  4:00 "
+                                                          "صباحًا 12:00   - صباحًا  10:00 "
                                                               .toString(),
                                                           style: TextStyle(
                                                               fontFamily:
@@ -1298,7 +1307,7 @@ class _orderConfState extends State<orderConf> {
                                                         controllerApp
                                                                 .theTimeChosed
                                                                 .value =
-                                                            "مساءًا 8:00   - مساءًا  6:00 ";
+                                                            "مساءًا 4:00   - مساءًا  2:00 ";
                                                       },
                                                       child: Container(
                                                         decoration:
@@ -1318,14 +1327,14 @@ class _orderConfState extends State<orderConf> {
                                                                 border:
                                                                     Border.all(
                                                                   color: AppColors
-                                                                      .theMainColor,
+                                                                      .theMainColor, //                   <--- border color
                                                                   width: 1.0,
                                                                 )),
                                                         width: 160.w,
                                                         height: 50.h,
                                                         child: Center(
                                                             child: Text(
-                                                          "مساءًا 8:00   - مساءًا  6:00 "
+                                                          "مساءًا 4:00   - مساءًا  2:00 "
                                                               .toString(),
                                                           style: TextStyle(
                                                               fontFamily:
@@ -1359,7 +1368,7 @@ class _orderConfState extends State<orderConf> {
                                                         controllerApp
                                                                 .theTimeChosed
                                                                 .value =
-                                                            "مساءًا 10:00   - مساءًا  8:00 ";
+                                                            "مساءًا 6:00   - مساءًا  4:00 ";
                                                       },
                                                       child: Container(
                                                         decoration:
@@ -1386,7 +1395,7 @@ class _orderConfState extends State<orderConf> {
                                                         height: 50.h,
                                                         child: Center(
                                                             child: Text(
-                                                          "مساءًا 10:00   - مساءًا  8:00 "
+                                                          "مساءًا 6:00   - مساءًا  4:00 "
                                                               .toString(),
                                                           style: TextStyle(
                                                               fontFamily:
@@ -1409,6 +1418,142 @@ class _orderConfState extends State<orderConf> {
                                                         )),
                                                       ),
                                                     ),
+                                                  ]))))))),
+
+                          GetX<ControllerApp>(
+                              builder: (controller) => Visibility(
+                                  visible: controller.showTheSh.value,
+                                  child: Directionality(
+                                      textDirection: TextDirection.ltr,
+                                      child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 15.w,
+                                                  vertical: 10.h),
+                                              child: Directionality(
+                                                  textDirection:
+                                                      TextDirection.ltr,
+                                                  child: Row(children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        controllerApp
+                                                            .countTheTimeChosed
+                                                            .value = 5;
+                                                        controllerApp
+                                                                .theTimeChosed
+                                                                .value =
+                                                            "مساءًا 8:00   - مساءًا  6:00 ";
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                                color: controllerApp
+                                                                            .countTheTimeChosed
+                                                                            .value ==
+                                                                        5
+                                                                    ? AppColors
+                                                                        .theMainColor
+                                                                    : AppColors
+                                                                        .whiteColor,
+                                                                border:
+                                                                    Border.all(
+                                                                  color: AppColors
+                                                                      .theMainColor,
+                                                                  width: 1.0,
+                                                                )),
+                                                        width: 160.w,
+                                                        height: 50.h,
+                                                        child: Center(
+                                                            child: Text(
+                                                          "مساءًا 8:00   - مساءًا  6:00 "
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  AppTextStyles
+                                                                      .Almarai,
+                                                              color: controllerApp
+                                                                          .countTheTimeChosed
+                                                                          .value ==
+                                                                      5
+                                                                  ? AppColors
+                                                                      .whiteColor
+                                                                  : Colors
+                                                                      .black,
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        )),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5.w,
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        controllerApp
+                                                            .countTheTimeChosed
+                                                            .value = 6;
+                                                        controllerApp
+                                                                .theTimeChosed
+                                                                .value =
+                                                            "مساءًا 10:00   - مساءًا  8:00 ";
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                                color: controllerApp
+                                                                            .countTheTimeChosed
+                                                                            .value ==
+                                                                        6
+                                                                    ? AppColors
+                                                                        .theMainColor
+                                                                    : AppColors
+                                                                        .whiteColor,
+                                                                border:
+                                                                    Border.all(
+                                                                  color: AppColors
+                                                                      .theMainColor, //                   <--- border color
+                                                                  width: 1.0,
+                                                                )),
+                                                        width: 160.w,
+                                                        height: 50.h,
+                                                        child: Center(
+                                                            child: Text(
+                                                          "مساءًا 10:00   - مساءًا  8:00 "
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  AppTextStyles
+                                                                      .Almarai,
+                                                              color: controllerApp
+                                                                          .countTheTimeChosed
+                                                                          .value ==
+                                                                      6
+                                                                  ? AppColors
+                                                                      .whiteColor
+                                                                  : Colors
+                                                                      .black,
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        )),
+                                                      ),
+                                                    ),
                                                   ]))))))), //////////////////////////Show The Sh........................................./////////////////////
 
                           //////////////////////////////////////..........End The................................................................/////////////
@@ -1416,6 +1561,940 @@ class _orderConfState extends State<orderConf> {
                           SizedBox(
                             height: 10.h,
                           ),
+                          Visibility(
+                              visible: controllerApp.showTheConfOrder.value,
+                              child: Padding(
+                                padding: EdgeInsets.only(bottom: 40.h),
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            GetX<ChangeLanguageToLocale>(
+                                                builder: (scontroller) =>
+                                                    scontroller.isChange
+                                                                .value ==
+                                                            false
+                                                        ? Text(
+                                                            controller
+                                                                .nameTheService
+                                                                .value
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                height: 1.3.h,
+                                                                fontSize: 16.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    AppTextStyles
+                                                                        .Almarai,
+                                                                color: AppColors
+                                                                    .balckColorTypeFour),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            maxLines: 2,
+                                                          )
+                                                        : Text(
+                                                            controller
+                                                                .nameTheServiceEn
+                                                                .value
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                height: 1.3.h,
+                                                                fontSize: 16.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    AppTextStyles
+                                                                        .Almarai,
+                                                                color: AppColors
+                                                                    .blackColor),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            maxLines: 2,
+                                                          )),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      FutureBuilder(
+                                          future: controllerApp.getSubOfOrders(
+                                              controller.theNumberOFORder.value
+                                                  .toString()),
+                                          builder: (BuildContext context,
+                                              AsyncSnapshot snapshot) {
+                                            if (snapshot.hasData) {
+                                              return controller
+                                                          .isHaveTheUserSubOrders
+                                                          .value ==
+                                                      false
+                                                  ? Center(
+                                                      child: Text(
+                                                        "65-لاتمتلك اي تفرعات لعرضها"
+                                                            .tr,
+                                                        style: TextStyle(
+                                                          height: 1.5.h,
+                                                          color: AppColors
+                                                              .blackColor,
+                                                          fontFamily:
+                                                              AppTextStyles
+                                                                  .Almarai,
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    )
+                                                  : ListView.builder(
+                                                      physics:
+                                                          NeverScrollableScrollPhysics(),
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount: snapshot
+                                                          .data['data'].length,
+                                                      shrinkWrap: true,
+                                                      itemBuilder:
+                                                          (context, i) {
+                                                        return PaddingCustom(
+                                                          theTop: 5.h,
+                                                          theBottom: 5.h,
+                                                          child: Padding(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        15.w),
+                                                            child: Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Container(
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        GetX<ChangeLanguageToLocale>(
+                                                                            builder: (scontroller) => scontroller.isChange.value == false
+                                                                                ? Text(
+                                                                                    snapshot.data['data'][i]['sub_type_name_ar'],
+                                                                                    style: TextStyle(height: 1.5.h, fontSize: 13, fontWeight: FontWeight.w600, fontFamily: AppTextStyles.Almarai, color: AppColors.balckColorTypeFour),
+                                                                                    textAlign: TextAlign.center,
+                                                                                  )
+                                                                                : Text(
+                                                                                    snapshot.data['data'][i]['sub_type_name_en'],
+                                                                                    style: TextStyle(height: 1.5.h, fontSize: 13, fontWeight: FontWeight.w600, fontFamily: AppTextStyles.Almarai, color: AppColors.balckColorTypeFour),
+                                                                                    textAlign: TextAlign.center,
+                                                                                  )),
+                                                                        GetX<ChangeLanguageToLocale>(
+                                                                            builder: (scontroller) => scontroller.isChange.value == false
+                                                                                ? Center(
+                                                                                    child: Text(
+                                                                                      snapshot.data['data'][i]['name_type_sub'],
+                                                                                      style: TextStyle(height: 1.6.h, fontSize: 10, fontFamily: AppTextStyles.Almarai, color: AppColors.balckColorTypeFour),
+                                                                                      textAlign: TextAlign.center,
+                                                                                    ),
+                                                                                  )
+                                                                                : Center(
+                                                                                    child: Text(
+                                                                                      snapshot.data['data'][i]['name_type_sub_en'],
+                                                                                      style: TextStyle(height: 1.6.h, fontSize: 10, fontFamily: AppTextStyles.Almarai, color: AppColors.balckColorTypeFour),
+                                                                                      textAlign: TextAlign.center,
+                                                                                    ),
+                                                                                  )),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Row(
+                                                                    children: [
+                                                                      Text(
+                                                                        "AED",
+                                                                        style: TextStyle(
+                                                                            height: 1.3
+                                                                                .h,
+                                                                            fontSize:
+                                                                                12,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: AppTextStyles.Almarai,
+                                                                            color: AppColors.balckColorTypeFour),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            2.w,
+                                                                      ),
+                                                                      Text(
+                                                                        snapshot.data['data'][i]
+                                                                            [
+                                                                            'price_type_sub'],
+                                                                        style: TextStyle(
+                                                                            height: 1.3
+                                                                                .h,
+                                                                            fontSize:
+                                                                                15,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            fontFamily: AppTextStyles.Almarai,
+                                                                            color: AppColors.balckColorTypeFour),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                            } else {
+                                              return ListView.builder(
+                                                  scrollDirection:
+                                                      Axis.vertical,
+                                                  itemCount: 5,
+                                                  shrinkWrap: true,
+                                                  itemBuilder: (context, i) {
+                                                    return Shimmer.fromColors(
+                                                        baseColor:
+                                                            Color.fromARGB(31,
+                                                                169, 167, 167),
+                                                        highlightColor:
+                                                            AppColors
+                                                                .whiteColor,
+                                                        enabled: true,
+                                                        child: Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      10.h),
+                                                          child: PaddingCustom(
+                                                            theBottom: 10,
+                                                            child:
+                                                                ContainerCustom(
+                                                              theBorderRadius:
+                                                                  10,
+                                                              colorContainer:
+                                                                  AppColors
+                                                                      .whiteColor,
+                                                              heigthContainer:
+                                                                  130,
+                                                              widthContainer:
+                                                                  MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width,
+                                                              child:
+                                                                  SingleChildScrollView(
+                                                                scrollDirection:
+                                                                    Axis.horizontal,
+                                                                child: Row(
+                                                                  children: [
+                                                                    Row(
+                                                                      children: [
+                                                                        Column(
+                                                                          children: [
+                                                                            SizedBox(
+                                                                              height: 10.h,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          5.w,
+                                                                    ),
+                                                                    Column(
+                                                                      children: [
+                                                                        Align(
+                                                                          alignment:
+                                                                              Alignment.topCenter,
+                                                                          child:
+                                                                              PaddingCustom(
+                                                                            theTop:
+                                                                                30,
+                                                                            child:
+                                                                                TextCustom(
+                                                                              theText: "6-يتم التحميل".tr,
+                                                                              fontColor: AppColors.blackColor,
+                                                                              fontFamily: AppTextStyles.Almarai,
+                                                                              fontSizeWidth: 18,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Container(
+                                                                          width:
+                                                                              150.w,
+                                                                          height:
+                                                                              100.h,
+                                                                          child:
+                                                                              PaddingCustom(
+                                                                            theTop:
+                                                                                15,
+                                                                            child:
+                                                                                Text(
+                                                                              "6-يتم التحميل".tr,
+                                                                              maxLines: 4,
+                                                                              style: TextStyle(fontSize: 14.sp, height: 1.7.h, color: AppColors.balckColorTypeThree, fontFamily: AppTextStyles.Almarai),
+                                                                              textAlign: TextAlign.center,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.symmetric(
+                                                                          vertical:
+                                                                              10.h),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.topCenter,
+                                                                            child:
+                                                                                PaddingCustom(
+                                                                              theTop: 5,
+                                                                              child: ContainerCustomApi(
+                                                                                colorContainer: AppColors.theMainColor,
+                                                                                theBorderRadius: 15,
+                                                                                heigthContainer: 15.h,
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsets.symmetric(horizontal: 8.h),
+                                                                                  child: Text(
+                                                                                    "6-يتم التحميل".tr,
+                                                                                    style: TextStyle(
+                                                                                      color: AppColors.blackColor,
+                                                                                      fontFamily: AppTextStyles.Almarai,
+                                                                                      fontSize: 14,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ));
+                                                  });
+                                            }
+                                          }),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Container(
+                                        color: Colors.black,
+                                        height: 0.7.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "186-ملخص الدفع".tr,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: Colors.black,
+                                                  fontSize: 17.sp,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "187-سعر العناصر".tr,
+                                              style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeThree,
+                                                fontSize: 14.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            Text(
+                                              controller
+                                                  .totalPriceTheSerivce.value
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeThree,
+                                                fontSize: 14.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "188-سعر الخصم".tr,
+                                              style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeThree,
+                                                fontSize: 14.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            Text(
+                                              "0",
+                                              style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeThree,
+                                                fontSize: 14.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Container(
+                                        color: AppColors.balckColorTypeThree,
+                                        height: 0.1.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "189-الإجمالي النهائي".tr,
+                                              style: TextStyle(
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                color: AppColors
+                                                    .balckColorTypeThree,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  controller
+                                                      .totalPriceTheSerivce
+                                                      .value
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    color: AppColors
+                                                        .balckColorTypeThree,
+                                                    fontSize: 14.sp,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                                Text(
+                                                  "AED",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    color: AppColors
+                                                        .balckColorTypeThree,
+                                                    fontSize: 14.sp,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Container(
+                                        color: Colors.black,
+                                        height: 0.7.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "190-طريقة السداد".tr,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: Colors.black,
+                                                  fontSize: 17.sp,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 20.w),
+                                          child: GetX<ControllerApp>(
+                                            builder: (Thecontroller) => Row(
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    Thecontroller
+                                                        .choosedPay.value = 1;
+                                                  },
+                                                  child: Container(
+                                                    width: 20.w,
+                                                    height: 20.h,
+                                                    decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        color: Thecontroller
+                                                                    .choosedPay
+                                                                    .value ==
+                                                                1
+                                                            ? AppColors
+                                                                .theMainColor
+                                                            : AppColors
+                                                                .whiteColor,
+                                                        border: Border.all(
+                                                          color: AppColors
+                                                              .theMainColor, //                   <--- border color
+                                                          width: 1.0,
+                                                        )),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 10.w,
+                                                ),
+                                                Text(
+                                                  "191-دفع-كاش".tr,
+                                                  style: TextStyle(
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    color: AppColors
+                                                        .balckColorTypeThree,
+                                                    fontSize: 14.sp,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ],
+                                            ),
+                                          )),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                      Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 20.w),
+                                          child: GetX<ControllerApp>(
+                                            builder: (Thecontroller) => Row(
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    Thecontroller
+                                                        .choosedPay.value = 2;
+                                                  },
+                                                  child: Container(
+                                                    width: 20.w,
+                                                    height: 20.h,
+                                                    decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        color: Thecontroller
+                                                                    .choosedPay
+                                                                    .value ==
+                                                                2
+                                                            ? AppColors
+                                                                .theMainColor
+                                                            : AppColors
+                                                                .whiteColor,
+                                                        border: Border.all(
+                                                          color: AppColors
+                                                              .theMainColor, //                   <--- border color
+                                                          width: 1.0,
+                                                        )),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 10.w,
+                                                ),
+                                                Text(
+                                                  "192-دفع-اونلاين".tr,
+                                                  style: TextStyle(
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    color: AppColors
+                                                        .balckColorTypeThree,
+                                                    fontSize: 14.sp,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ],
+                                            ),
+                                          )),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Container(
+                                        color: Colors.black,
+                                        height: 0.7.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "193-الجدولة المختارة".tr,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: Colors.black,
+                                                  fontSize: 17.sp,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Directionality(
+                                              textDirection: TextDirection.ltr,
+                                              child: Text(
+                                                controllerApp
+                                                    .theDateChoosd.value
+                                                    .toString(),
+                                                style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: AppColors
+                                                      .balckColorTypeThree,
+                                                  fontSize: 14.sp,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Directionality(
+                                              textDirection: TextDirection.ltr,
+                                              child: Text(
+                                                controllerApp
+                                                    .theTimeChosed.value
+                                                    .toString(),
+                                                style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: AppColors
+                                                      .balckColorTypeThree,
+                                                  fontSize: 14.sp,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Container(
+                                        color: Colors.black,
+                                        height: 0.7.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "193-البيانات الإضافية".tr,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      AppTextStyles.Almarai,
+                                                  color: Colors.black,
+                                                  fontSize: 17.sp,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.w),
+                                        child: Material(
+                                          elevation: 4,
+                                          shadowColor: AppColors.theMainColor,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: TextFormField(
+                                            controller: controller
+                                                .addDescriptionController,
+                                            onChanged: (value) {
+                                              SystemChrome
+                                                  .setEnabledSystemUIMode(
+                                                      SystemUiMode.manual,
+                                                      overlays: []);
+                                              controller.textdescriptionOrder =
+                                                  value.toString();
+                                            },
+                                            onSaved: (newValue) {
+                                              SystemChrome
+                                                  .setEnabledSystemUIMode(
+                                                      SystemUiMode.manual,
+                                                      overlays: []);
+                                              controller.textdescriptionOrder =
+                                                  newValue.toString();
+                                            },
+                                            keyboardType: TextInputType.text,
+                                            decoration: InputDecoration(
+                                                hintText:
+                                                    "81-إضافة تفاصيل اخرى مهمة علينا معرفتها -اكتب ماتريد هنا-"
+                                                        .tr,
+                                                // important line
+                                                // control your hints text size
+                                                hintStyle: TextStyle(
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    letterSpacing: 0.8,
+                                                    color: AppColors
+                                                        .balckColorTypeFour
+                                                        .withOpacity(0.5),
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                                fillColor: Colors.white54,
+                                                filled: true,
+                                                border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                    borderSide:
+                                                        BorderSide.none)),
+                                            maxLines: 7,
+                                            minLines: 7,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.symmetric(vertical: 5.h),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            TextCustom(
+                                                theText:
+                                                    "82-إضافة صورة توضيحية:".tr,
+                                                fontSizeWidth: 17,
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                fontColor: AppColors
+                                                    .blackColorsTypeOne),
+                                            InkWell(
+                                              onTap: () async {
+                                                XFile? xfile =
+                                                    await ImagePicker()
+                                                        .pickImage(
+                                                            source: ImageSource
+                                                                .gallery);
+                                                if (xfile != null) {
+                                                  Random random = new Random();
+                                                  int randomNumber =
+                                                      random.nextInt(10000000);
+                                                  File myfile =
+                                                      await File(xfile!.path);
+
+                                                  String dir =
+                                                      (await getApplicationDocumentsDirectory())
+                                                          .path;
+                                                  String newPath = path.join(
+                                                      dir, '$randomNumber.jpg');
+                                                  File f =
+                                                      await File(myfile.path)
+                                                          .copy(newPath);
+
+                                                  Timer.periodic(
+                                                      Duration(seconds: 1),
+                                                      (Timer timer) {
+                                                    // ignore: unnecessary_null_comparison
+                                                    if (myfile == null) {
+                                                    } else {
+                                                      if (controller
+                                                              .isChooesImage
+                                                              .value ==
+                                                          false) {
+                                                        setState(() {});
+
+                                                        controller.upIm(f);
+                                                        setState(() {
+                                                          controller.filename =
+                                                              basename(f.path);
+                                                        });
+                                                        controller.addImageWork
+                                                            .value = true;
+                                                        controller.isChooesImage
+                                                            .value = true;
+                                                      } else {}
+                                                    }
+                                                  });
+                                                } else {}
+                                              },
+                                              child: GetX<ControllerApp>(
+                                                builder: (controller) =>
+                                                    ContainerCustomApi(
+                                                        colorContainer: controller
+                                                                    .addImageWork
+                                                                    .value ==
+                                                                true
+                                                            ? Colors.green
+                                                            : AppColors
+                                                                .redColor,
+                                                        theBorderRadius: 15,
+                                                        heigthContainer: 30.h,
+                                                        child: Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      37.h),
+                                                          child: Text(
+                                                            controller.addImageWork
+                                                                        .value ==
+                                                                    true
+                                                                ? "83-تم رفع الصورة"
+                                                                    .tr
+                                                                : "84-رفع صورة"
+                                                                    .tr,
+                                                            style: TextStyle(
+                                                              color: AppColors
+                                                                  .whiteColor,
+                                                              fontFamily:
+                                                                  AppTextStyles
+                                                                      .Almarai,
+                                                              fontSize: 16,
+                                                            ),
+                                                          ),
+                                                        )),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20.h,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )),
+
+//#######################################################################//
+/*
                           Visibility(
                               visible: controllerApp.showTheConfOrder.value,
                               child: Padding(
@@ -2152,7 +3231,7 @@ class _orderConfState extends State<orderConf> {
                                   ],
                                 ),
                               )),
-
+*/
                           /////////////////////////////////////////////End Order...................///////////
                           GetX<ControllerApp>(
                               builder: (controller) => Visibility(
@@ -2447,7 +3526,11 @@ class _orderConfState extends State<orderConf> {
                                               textDirection: TextDirection.ltr,
                                               child: Row(children: [
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    controllerApp
+                                                        .showTheOrderPage
+                                                        .value = true;
+                                                  },
                                                   child: Container(
                                                     decoration: BoxDecoration(
                                                         borderRadius:

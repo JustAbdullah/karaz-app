@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -16,8 +17,12 @@ import 'package:intl/date_symbol_data_local.dart';
 import '../core/class/class/crud.dart';
 
 import '../core/constant/appcolors.dart';
+import '../core/localization/changelanguage.dart';
 import '../core/services/appservices.dart';
 import '../linksapi.dart';
+import '../views/Auth/code_auth_login.dart';
+import '../views/Auth/code_auth_sign_up.dart';
+import '../views/Auth/name_sign_up.dart';
 import '../views/HomeScreen/home_screen.dart';
 
 class ControllerApp extends GetxController {
@@ -121,6 +126,8 @@ class ControllerApp extends GetxController {
   RxBool IsEnterPhoneNumber = false.obs;
   RxBool isVerificationLocationCompleted = false.obs;
 
+  RxBool showTheConditions = false.obs;
+
 //////////////////............................Get The Location..............///////////////////////
   RxBool aboutLocation = false.obs;
   RxBool locationPage = false.obs;
@@ -206,8 +213,9 @@ class ControllerApp extends GetxController {
   TextEditingController theCode = new TextEditingController();
   String thecodeText = "";
   RxInt isLoginOrSignUp = 1.obs;
+  RxBool waitToCreateAccount = false.obs;
   Future<void> createAccount(String name, String phone) async {
-    waitLoginSignAuth.value = true;
+    waitToCreateAccount.value = true;
     var response = await crud.postRequest(AppLinksApi.createNewAccount, {
       'user_name': "${name.toString()}",
       'user_number_phone': "${phone.toString()}",
@@ -216,6 +224,7 @@ class ControllerApp extends GetxController {
     if (response['status'] == "success") {
       getDataUser(phone.toString());
       waitLoginSignAuth.value = false;
+      waitToCreateAccount.value = false;
 
       Get.to(HomeScreen());
     } else {}
@@ -387,10 +396,9 @@ class ControllerApp extends GetxController {
       'order_time': time.toString(),
       'order_date': date.toString(),
       'order_description': di.toString(),
-      'order_image': image.toString(),
+      'order_image': "https://larra.xyz/images_karaz/${image.toString()}",
       'type_of_pay': typePay.toString(),
     });
-
     if (response['status'] == "success") {
       /*  sendMessage(
           "لقد اضفت الخدمة إلى قائمة الطلبيات ورقم الطلبية هي :${ordrNumber}, الرجاء القيام بتاكيد الطلبية او إلغاءها في قائمة الطلبيات");*/
@@ -519,7 +527,7 @@ class ControllerApp extends GetxController {
       'order_time': timeOfOrder.toString(),
       'order_date': DateOFOrder.toString(),
       'order_description': desc.toString(),
-      'order_image': "https://larra.xyz/images_nara/$urlImage",
+      'order_image': "https://larra.xyz/images_karaz/$urlImage",
       'type_of_pay': howToPayOrder.toString(),
     });
 
@@ -694,8 +702,8 @@ class ControllerApp extends GetxController {
           totalPriceTheSerivce.value.toString(),
           theTimeChosed.value.toString(),
           theDateChoosd.value.toString(),
-          "",
-          "",
+          textdescriptionOrder.toString(),
+          filename.toString(),
           choosedPay.value.toString());
       showTheEndOfPageOrder.value = true;
       titleOfOrder.value = "إنتهاء التاكيد";
@@ -815,4 +823,178 @@ class ControllerApp extends GetxController {
   RxBool noAddLocation = false.obs;
 
 /////////////////////////////////////////.............Send OTP...............///////
+
+  GlobalKey<FormState> formSignPhoneAndName = GlobalKey<FormState>();
+
+  RxBool waitCheckNumber = false.obs;
+  RxBool ErrorAboutNumber = false.obs;
+  RxBool isSendTheCode = false.obs;
+  RxBool isErrorAboutEnterOTP = false.obs;
+  RxBool isEndOTP = false.obs;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  RxBool isErrorInOTP = false.obs;
+
+  RxString theNumber = "".obs;
+
+  TextEditingController TheCodeTextController = TextEditingController();
+  String theCodeString = "";
+
+  RxString verificationIdSaved = "".obs;
+  Timer? _timer;
+  void verifyPhoneNumber(String phoneNumber) async {
+    waitCheckNumber.value = true;
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        // تم التحقق من رقم الهاتف تلقائياً
+        await _auth.signInWithCredential(credential);
+        waitCheckNumber.value = false;
+        ErrorAboutNumber.value = false;
+        waitCheckNumber.value = false;
+
+        Get.to(AuthPhoneNumberOTP());
+        // قم بالتنقل إلى الشاشة التالية أو أي عملية تريدها
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        // فشل التحقق من رقم الهاتف
+        // قم بإظهار رسالة خطأ أو أي عملية تريدها
+        ErrorAboutNumber.value = true;
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        verificationIdSaved.value = verificationId;
+        isSendTheCode.value = true;
+        waitCheckNumber.value = false;
+        Get.to(AuthPhoneNumberOTP());
+        // تم إرسال رمز التحقق إلى رقم الهاتف
+        // قم بإظهار حقل إدخال لرمز التحقق أو أي عملية تريدها
+        // قم بحفظ قيمة verificationId لاستخدامها لاحقاً
+        // إنشاء مؤقت ينتهي بعد 60 ثانية
+        _timer = Timer(Duration(seconds: 60), () {
+          scontroller.isChange.value = false;
+          waitCheckNumber.value;
+          // إذا لم يتم إدخال رمز التحقق قبل انتهاء المؤقت
+          // قم بإظهار رسالة خطأ للمستخدم
+          // يمكنك استخدام أي طريقة تفضلها لإظهار الرسالة
+          // مثلاً يمكنك استخدام Fluttertoast
+          ErrorAboutNumber.value = true;
+        });
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        scontroller.isChange.value = false;
+        waitCheckNumber.value;
+        // انتهى وقت انتظار إدخال رمز التحقق
+        isErrorAboutEnterOTP.value = true;
+        // قم بإظهار رسالة تنبيه أو أي عملية تريدها
+      },
+    );
+  }
+
+  TextEditingController TheNameTextController = TextEditingController();
+  String TheNameEnter = "";
+
+  void verifyPhoneNumberLogin(String phoneNumber) async {
+    waitCheckNumber.value = true;
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        // تم التحقق من رقم الهاتف تلقائياً
+        await _auth.signInWithCredential(credential);
+        waitCheckNumber.value = false;
+        showMessageAboutFaildNumber.value = false;
+        waitLoginSignAuth.value = false;
+
+        Get.to(AuthPhoneNumberOTPLogin());
+        // قم بالتنقل إلى الشاشة التالية أو أي عملية تريدها
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        // فشل التحقق من رقم الهاتف
+        // قم بإظهار رسالة خطأ أو أي عملية تريدها
+        ErrorAboutNumber.value = true;
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        scontroller.isChange.value = false;
+        verificationIdSaved.value = verificationId;
+        isSendTheCode.value = true;
+        waitCheckNumber.value = false;
+        waitLoginSignAuth.value = false;
+        Get.to(AuthPhoneNumberOTPLogin());
+        // تم إرسال رمز التحقق إلى رقم الهاتف
+        // قم بإظهار حقل إدخال لرمز التحقق أو أي عملية تريدها
+        // قم بحفظ قيمة verificationId لاستخدامها لاحقاً
+        // إنشاء مؤقت ينتهي بعد 60 ثانية
+        _timer = Timer(Duration(seconds: 60), () {
+          waitCheckNumber.value;
+          // إذا لم يتم إدخال رمز التحقق قبل انتهاء المؤقت
+          // قم بإظهار رسالة خطأ للمستخدم
+          // يمكنك استخدام أي طريقة تفضلها لإظهار الرسالة
+          // مثلاً يمكنك استخدام Fluttertoast
+          ErrorAboutNumber.value = true;
+        });
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        scontroller.isChange.value = false;
+        waitCheckNumber.value;
+        waitLoginSignAuth.value = false;
+        // انتهى وقت انتظار إدخال رمز التحقق
+        isErrorAboutEnterOTP.value = true;
+        // قم بإظهار رسالة تنبيه أو أي عملية تريدها
+      },
+    );
+  }
+
+  ChangeLanguageToLocale scontroller = Get.put(ChangeLanguageToLocale());
+  void signInWithPhoneNumber(
+      String verificationId, String smsCode, String phoneNumber) async {
+    waitCheckNumber.value = true;
+    Future.delayed(Duration(seconds: 30), () async {
+      isErrorInOTP.value = true;
+    });
+    // إنشاء كائن PhoneAuthCredential باستخدام verificationId و smsCode
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    // تسجيل الدخول باستخدام كائن PhoneAuthCredential
+    await _auth.signInWithCredential(credential);
+
+    try {
+      // تسجيل الدخول باستخدام الاعتماد
+      getDataUser(phoneNumber.toString());
+      scontroller.isChange.value = false;
+      isEndOTP.value = true;
+      Get.to(HomeScreen());
+      scontroller.changeLang("ar");
+      // التنقل إلى صفحة أخرى أو القيام بأي عمل آخر
+    } on FirebaseAuthException catch (e) {
+      isErrorInOTP.value = true;
+      // التعامل مع أي استثناءات أخرى
+    }
+  }
+
+  void signUpWithPhoneNumber(String verificationId, String smsCode) async {
+    waitCheckNumber.value = true;
+    Future.delayed(Duration(seconds: 30), () async {
+      isErrorInOTP.value = true;
+    });
+    // إنشاء كائن PhoneAuthCredential باستخدام verificationId و smsCode
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    // تسجيل الدخول باستخدام كائن PhoneAuthCredential
+    await _auth.signInWithCredential(credential);
+
+    try {
+      // تسجيل الدخول باستخدام الاعتماد
+      scontroller.isChange.value = false;
+      isEndOTP.value = true;
+      scontroller.changeLang("ar");
+      Get.to(AuthNameSignUP());
+      // التنقل إلى صفحة أخرى أو القيام بأي عمل آخر
+    } on FirebaseAuthException catch (e) {
+      scontroller.isChange.value = false;
+      isErrorInOTP.value = true;
+      // التعامل مع أي استثناءات أخرى
+    }
+  }
 }

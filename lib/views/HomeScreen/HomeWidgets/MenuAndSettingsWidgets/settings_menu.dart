@@ -36,7 +36,7 @@ class SettingsMenu extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
                       width: MediaQuery.of(context).size.width,
-                      height: 450.h,
+                      height: 480.h,
                       child: SingleChildScrollView(
                         child: Column(children: [
                           Align(
@@ -370,6 +370,49 @@ class SettingsMenu extends StatelessWidget {
                                   ),
                                   Text(
                                     "168-اللغة".tr,
+                                    style: TextStyle(
+                                        height: 1.3.h,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: AppTextStyles.Almarai,
+                                        color: AppColors.balckColorTypeFour),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.w),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 0.17.h,
+                                color: AppColors.balckColorTypeFour,
+                              )),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            child: InkWell(
+                              onTap: () {
+                                controller.showTheConditions.value = true;
+                              },
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    ImagesPath.iconConditions,
+                                    width: 20.w,
+                                  ),
+                                  SizedBox(
+                                    width: 10.w,
+                                  ),
+                                  Text(
+                                    "263-0-الشروط والاحكام".tr,
                                     style: TextStyle(
                                         height: 1.3.h,
                                         fontSize: 15.sp,

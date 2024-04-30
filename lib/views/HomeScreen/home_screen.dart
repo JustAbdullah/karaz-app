@@ -11,6 +11,7 @@ import 'HomeWidgets/MainHomeWidgets/not_have_account.dart';
 import 'HomeWidgets/MainHomeWidgets/not_seleced_itmes.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/about_location.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/choose_language.dart';
+import 'HomeWidgets/MenuAndSettingsWidgets/conditions.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/info_account.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/get_location.dart';
 import 'HomeWidgets/MenuAndSettingsWidgets/menu.dart';
@@ -67,17 +68,18 @@ class HomeScreen extends StatelessWidget {
           GetLocation(),
           InfoAcount(),
           aboutTheDetailsService(),
-          OrdersList(),
-          OrdersConfirmation(),
-          OrdersDetails(),
           ShowTheLocation(),
           MessagesList(),
           NotHaveAccountMessage(),
           NotAddItems(),
           NotHaveLocation(),
           ChooseLanguage(),
+          Conditions(),
           InvList(),
           orderConf(),
+          OrdersList(),
+          OrdersConfirmation(),
+          OrdersDetails(),
         ],
       )),
     );

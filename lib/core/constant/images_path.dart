@@ -38,4 +38,6 @@ class ImagesPath {
   static const String arrowLeft = "$RootPath/icons8-arrow-100 (1).png";
 
   static const String invoice = "$RootPath/icons8-invoice-96.png";
+
+  static const String iconConditions = "$RootPath/conditions.png";
 }

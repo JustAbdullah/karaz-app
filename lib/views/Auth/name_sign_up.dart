@@ -155,7 +155,7 @@ class AuthNameSignUP extends StatelessWidget {
           ),
           GetX<ControllerApp>(
               builder: (controller) => Visibility(
-                  visible: controller.waitLoginSignAuth.value,
+                  visible: controller.waitToCreateAccount.value,
                   child: Stack(
                     children: [
                       Container(
@@ -191,7 +191,8 @@ class AuthNameSignUP extends StatelessWidget {
                               height: 00.h,
                             ),
                             Text(
-                              "162-يتم الحفظ والتوجه الان".tr,
+                              "يتم حفظ البيانات في القاعدة الرجاء الإنتظار..."
+                                  .tr,
                               style: TextStyle(
                                 height: 1.3.h,
                                 fontSize: 16.sp,

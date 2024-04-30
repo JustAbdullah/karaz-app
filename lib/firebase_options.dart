@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA9bYYXLpmzeBcY7IilDRUHUp1Y2zHoeAI',
-    appId: '1:117356440666:android:2995f6ec04ca94251dbc63',
-    messagingSenderId: '117356440666',
-    projectId: 'karaz-7e427',
-    storageBucket: 'karaz-7e427.appspot.com',
+    apiKey: 'AIzaSyAoNVrC4cdRbAvhs9NJS92IjdkN2x0ueww',
+    appId: '1:744355324897:android:e3cf05c4466a1a061728a0',
+    messagingSenderId: '744355324897',
+    projectId: 'karaz-afc1d',
+    storageBucket: 'karaz-afc1d.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBRA_KCK-T8OcguE4bNiQwDpSl_FqF3bks',
-    appId: '1:117356440666:ios:1a8d3e1539bbfbcc1dbc63',
-    messagingSenderId: '117356440666',
-    projectId: 'karaz-7e427',
-    storageBucket: 'karaz-7e427.appspot.com',
+    apiKey: 'AIzaSyB4laLOARFhtAbmwkkPxL2RDsabCHxJj3w',
+    appId: '1:744355324897:ios:ac5871bee8da08d81728a0',
+    messagingSenderId: '744355324897',
+    projectId: 'karaz-afc1d',
+    storageBucket: 'karaz-afc1d.appspot.com',
     iosBundleId: 'com.app.karaz',
   );
 }

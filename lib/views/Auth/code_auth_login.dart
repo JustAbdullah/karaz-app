@@ -19,7 +19,7 @@ import '../../customWidgets/custom_container.dart';
 import '../../customWidgets/custom_text.dart';
 import '../../customWidgets/custome_textfiled.dart';
 
-class AuthPhoneNumberOTP extends StatelessWidget {
+class AuthPhoneNumberOTPLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ControllerApp homeController = Get.put(ControllerApp());
@@ -163,9 +163,11 @@ class AuthPhoneNumberOTP extends StatelessWidget {
                             horizontal: 40.w, vertical: 00.h),
                         child: InkWell(
                           onTap: () {
-                            homeController.signUpWithPhoneNumber(
+                            homeController.signInWithPhoneNumber(
                                 homeController.verificationIdSaved.toString(),
-                                homeController.thecodeText.toString());
+                                homeController.thecodeText.toString(),
+                                homeController.thePhoneNumberTextSignUpLogin
+                                    .toString());
                           },
                           child: Container(
                             height: 30.h,
